@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ma.co.orimex.stock",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "orimex",
+    "packageName": "ma.co.orimex.stock",
+    "packageFolder": "ma/co/orimex/stock",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGQ1OGFhYWRlZjU3MGM0NDEwYTk4MGI4Y2U2OTIzMzYwMjVlYTJlOGNhNjc3NjllNDFkNzliNjk0NTExYjdjOTg0NDJjMzE3YTdhYzVkMDcxNTY3NGFkY2EyOGExMDMwN2YzOGIwYmI0ZDE1YzZiODllMTA0ODZmNzE1YTVlMTE=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr"
+    ]
+  }
+}
