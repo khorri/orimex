@@ -1,0 +1,21 @@
+{
+    "orimexApp": {
+        "achatArrivage": {
+            "home": {
+                "title": "AchatArrivages",
+                "createLabel": "Créer un nouveau Achat Arrivage",
+                "createOrEditLabel": "Créer ou éditer un Achat Arrivage",
+                "search": "Recherche pour Achat Arrivage"
+            },
+            "created": "Un nouveau Achat Arrivage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Arrivage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Arrivage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Arrivage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Arrivage"
+            }
+        }
+    }
+}

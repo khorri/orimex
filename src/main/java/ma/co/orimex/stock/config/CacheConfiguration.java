@@ -38,6 +38,8 @@ public class CacheConfiguration {
             cm.createCache(ma.co.orimex.stock.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(ma.co.orimex.stock.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(ma.co.orimex.stock.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(ma.co.orimex.stock.domain.AchatArrivage.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.co.orimex.stock.domain.AchatArticleConteneurArrivage.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,13 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [],
+    "changelogDate": "20181206223032",
+    "dto": "mapstruct",
+    "searchEngine": "elasticsearch",
+    "service": "serviceClass",
+    "entityTableName": "achat_article_conteneur_arrivage",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

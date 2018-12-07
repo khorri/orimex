@@ -1,0 +1,21 @@
+{
+    "orimexApp": {
+        "achatArticleConteneurArrivage": {
+            "home": {
+                "title": "AchatArticleConteneurArrivages",
+                "createLabel": "Créer un nouveau Achat Article Conteneur Arrivage",
+                "createOrEditLabel": "Créer ou éditer un Achat Article Conteneur Arrivage",
+                "search": "Recherche pour Achat Article Conteneur Arrivage"
+            },
+            "created": "Un nouveau Achat Article Conteneur Arrivage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Article Conteneur Arrivage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Article Conteneur Arrivage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Article Conteneur Arrivage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Article Conteneur Arrivage"
+            }
+        }
+    }
+}
