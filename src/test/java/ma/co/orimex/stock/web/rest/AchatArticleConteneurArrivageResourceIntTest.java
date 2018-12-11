@@ -27,6 +27,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
@@ -47,6 +48,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = OrimexApp.class)
 public class AchatArticleConteneurArrivageResourceIntTest {
+
+    private static final Integer DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE = 1;
+    private static final Integer UPDATED_ID_ARTICLE_CONTENEUR_ARRIVAGE = 2;
+
+    private static final BigDecimal DEFAULT_DIMENSION = new BigDecimal(1);
+    private static final BigDecimal UPDATED_DIMENSION = new BigDecimal(2);
+
+    private static final BigDecimal DEFAULT_MONTANT = new BigDecimal(1);
+    private static final BigDecimal UPDATED_MONTANT = new BigDecimal(2);
+
+    private static final Integer DEFAULT_NOMBRE_CAISSESTC = 1;
+    private static final Integer UPDATED_NOMBRE_CAISSESTC = 2;
+
+    private static final Integer DEFAULT_NOMBRE_FEUILLECAISSE = 1;
+    private static final Integer UPDATED_NOMBRE_FEUILLECAISSE = 2;
+
+    private static final BigDecimal DEFAULT_PRIX_UNITAIRE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_PRIX_UNITAIRE = new BigDecimal(2);
+
+    private static final BigDecimal DEFAULT_QUANTITE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_QUANTITE = new BigDecimal(2);
+
+    private static final BigDecimal DEFAULT_POIDS = new BigDecimal(1);
+    private static final BigDecimal UPDATED_POIDS = new BigDecimal(2);
 
     @Autowired
     private AchatArticleConteneurArrivageRepository achatArticleConteneurArrivageRepository;
@@ -99,7 +124,15 @@ public class AchatArticleConteneurArrivageResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static AchatArticleConteneurArrivage createEntity(EntityManager em) {
-        AchatArticleConteneurArrivage achatArticleConteneurArrivage = new AchatArticleConteneurArrivage();
+        AchatArticleConteneurArrivage achatArticleConteneurArrivage = new AchatArticleConteneurArrivage()
+            .idArticleConteneurArrivage(DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE)
+            .dimension(DEFAULT_DIMENSION)
+            .montant(DEFAULT_MONTANT)
+            .nombreCaissestc(DEFAULT_NOMBRE_CAISSESTC)
+            .nombreFeuillecaisse(DEFAULT_NOMBRE_FEUILLECAISSE)
+            .prixUnitaire(DEFAULT_PRIX_UNITAIRE)
+            .quantite(DEFAULT_QUANTITE)
+            .poids(DEFAULT_POIDS);
         return achatArticleConteneurArrivage;
     }
 
@@ -124,6 +157,14 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         List<AchatArticleConteneurArrivage> achatArticleConteneurArrivageList = achatArticleConteneurArrivageRepository.findAll();
         assertThat(achatArticleConteneurArrivageList).hasSize(databaseSizeBeforeCreate + 1);
         AchatArticleConteneurArrivage testAchatArticleConteneurArrivage = achatArticleConteneurArrivageList.get(achatArticleConteneurArrivageList.size() - 1);
+        assertThat(testAchatArticleConteneurArrivage.getIdArticleConteneurArrivage()).isEqualTo(DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE);
+        assertThat(testAchatArticleConteneurArrivage.getDimension()).isEqualTo(DEFAULT_DIMENSION);
+        assertThat(testAchatArticleConteneurArrivage.getMontant()).isEqualTo(DEFAULT_MONTANT);
+        assertThat(testAchatArticleConteneurArrivage.getNombreCaissestc()).isEqualTo(DEFAULT_NOMBRE_CAISSESTC);
+        assertThat(testAchatArticleConteneurArrivage.getNombreFeuillecaisse()).isEqualTo(DEFAULT_NOMBRE_FEUILLECAISSE);
+        assertThat(testAchatArticleConteneurArrivage.getPrixUnitaire()).isEqualTo(DEFAULT_PRIX_UNITAIRE);
+        assertThat(testAchatArticleConteneurArrivage.getQuantite()).isEqualTo(DEFAULT_QUANTITE);
+        assertThat(testAchatArticleConteneurArrivage.getPoids()).isEqualTo(DEFAULT_POIDS);
 
         // Validate the AchatArticleConteneurArrivage in Elasticsearch
         verify(mockAchatArticleConteneurArrivageSearchRepository, times(1)).save(testAchatArticleConteneurArrivage);
@@ -162,7 +203,15 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         restAchatArticleConteneurArrivageMockMvc.perform(get("/api/achat-article-conteneur-arrivages?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(achatArticleConteneurArrivage.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(achatArticleConteneurArrivage.getId().intValue())))
+            .andExpect(jsonPath("$.[*].idArticleConteneurArrivage").value(hasItem(DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE)))
+            .andExpect(jsonPath("$.[*].dimension").value(hasItem(DEFAULT_DIMENSION.intValue())))
+            .andExpect(jsonPath("$.[*].montant").value(hasItem(DEFAULT_MONTANT.intValue())))
+            .andExpect(jsonPath("$.[*].nombreCaissestc").value(hasItem(DEFAULT_NOMBRE_CAISSESTC)))
+            .andExpect(jsonPath("$.[*].nombreFeuillecaisse").value(hasItem(DEFAULT_NOMBRE_FEUILLECAISSE)))
+            .andExpect(jsonPath("$.[*].prixUnitaire").value(hasItem(DEFAULT_PRIX_UNITAIRE.intValue())))
+            .andExpect(jsonPath("$.[*].quantite").value(hasItem(DEFAULT_QUANTITE.intValue())))
+            .andExpect(jsonPath("$.[*].poids").value(hasItem(DEFAULT_POIDS.intValue())));
     }
     
     @Test
@@ -175,7 +224,15 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         restAchatArticleConteneurArrivageMockMvc.perform(get("/api/achat-article-conteneur-arrivages/{id}", achatArticleConteneurArrivage.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(achatArticleConteneurArrivage.getId().intValue()));
+            .andExpect(jsonPath("$.id").value(achatArticleConteneurArrivage.getId().intValue()))
+            .andExpect(jsonPath("$.idArticleConteneurArrivage").value(DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE))
+            .andExpect(jsonPath("$.dimension").value(DEFAULT_DIMENSION.intValue()))
+            .andExpect(jsonPath("$.montant").value(DEFAULT_MONTANT.intValue()))
+            .andExpect(jsonPath("$.nombreCaissestc").value(DEFAULT_NOMBRE_CAISSESTC))
+            .andExpect(jsonPath("$.nombreFeuillecaisse").value(DEFAULT_NOMBRE_FEUILLECAISSE))
+            .andExpect(jsonPath("$.prixUnitaire").value(DEFAULT_PRIX_UNITAIRE.intValue()))
+            .andExpect(jsonPath("$.quantite").value(DEFAULT_QUANTITE.intValue()))
+            .andExpect(jsonPath("$.poids").value(DEFAULT_POIDS.intValue()));
     }
 
     @Test
@@ -198,6 +255,15 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         AchatArticleConteneurArrivage updatedAchatArticleConteneurArrivage = achatArticleConteneurArrivageRepository.findById(achatArticleConteneurArrivage.getId()).get();
         // Disconnect from session so that the updates on updatedAchatArticleConteneurArrivage are not directly saved in db
         em.detach(updatedAchatArticleConteneurArrivage);
+        updatedAchatArticleConteneurArrivage
+            .idArticleConteneurArrivage(UPDATED_ID_ARTICLE_CONTENEUR_ARRIVAGE)
+            .dimension(UPDATED_DIMENSION)
+            .montant(UPDATED_MONTANT)
+            .nombreCaissestc(UPDATED_NOMBRE_CAISSESTC)
+            .nombreFeuillecaisse(UPDATED_NOMBRE_FEUILLECAISSE)
+            .prixUnitaire(UPDATED_PRIX_UNITAIRE)
+            .quantite(UPDATED_QUANTITE)
+            .poids(UPDATED_POIDS);
         AchatArticleConteneurArrivageDTO achatArticleConteneurArrivageDTO = achatArticleConteneurArrivageMapper.toDto(updatedAchatArticleConteneurArrivage);
 
         restAchatArticleConteneurArrivageMockMvc.perform(put("/api/achat-article-conteneur-arrivages")
@@ -209,6 +275,14 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         List<AchatArticleConteneurArrivage> achatArticleConteneurArrivageList = achatArticleConteneurArrivageRepository.findAll();
         assertThat(achatArticleConteneurArrivageList).hasSize(databaseSizeBeforeUpdate);
         AchatArticleConteneurArrivage testAchatArticleConteneurArrivage = achatArticleConteneurArrivageList.get(achatArticleConteneurArrivageList.size() - 1);
+        assertThat(testAchatArticleConteneurArrivage.getIdArticleConteneurArrivage()).isEqualTo(UPDATED_ID_ARTICLE_CONTENEUR_ARRIVAGE);
+        assertThat(testAchatArticleConteneurArrivage.getDimension()).isEqualTo(UPDATED_DIMENSION);
+        assertThat(testAchatArticleConteneurArrivage.getMontant()).isEqualTo(UPDATED_MONTANT);
+        assertThat(testAchatArticleConteneurArrivage.getNombreCaissestc()).isEqualTo(UPDATED_NOMBRE_CAISSESTC);
+        assertThat(testAchatArticleConteneurArrivage.getNombreFeuillecaisse()).isEqualTo(UPDATED_NOMBRE_FEUILLECAISSE);
+        assertThat(testAchatArticleConteneurArrivage.getPrixUnitaire()).isEqualTo(UPDATED_PRIX_UNITAIRE);
+        assertThat(testAchatArticleConteneurArrivage.getQuantite()).isEqualTo(UPDATED_QUANTITE);
+        assertThat(testAchatArticleConteneurArrivage.getPoids()).isEqualTo(UPDATED_POIDS);
 
         // Validate the AchatArticleConteneurArrivage in Elasticsearch
         verify(mockAchatArticleConteneurArrivageSearchRepository, times(1)).save(testAchatArticleConteneurArrivage);
@@ -268,7 +342,15 @@ public class AchatArticleConteneurArrivageResourceIntTest {
         restAchatArticleConteneurArrivageMockMvc.perform(get("/api/_search/achat-article-conteneur-arrivages?query=id:" + achatArticleConteneurArrivage.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(achatArticleConteneurArrivage.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(achatArticleConteneurArrivage.getId().intValue())))
+            .andExpect(jsonPath("$.[*].idArticleConteneurArrivage").value(hasItem(DEFAULT_ID_ARTICLE_CONTENEUR_ARRIVAGE)))
+            .andExpect(jsonPath("$.[*].dimension").value(hasItem(DEFAULT_DIMENSION.intValue())))
+            .andExpect(jsonPath("$.[*].montant").value(hasItem(DEFAULT_MONTANT.intValue())))
+            .andExpect(jsonPath("$.[*].nombreCaissestc").value(hasItem(DEFAULT_NOMBRE_CAISSESTC)))
+            .andExpect(jsonPath("$.[*].nombreFeuillecaisse").value(hasItem(DEFAULT_NOMBRE_FEUILLECAISSE)))
+            .andExpect(jsonPath("$.[*].prixUnitaire").value(hasItem(DEFAULT_PRIX_UNITAIRE.intValue())))
+            .andExpect(jsonPath("$.[*].quantite").value(hasItem(DEFAULT_QUANTITE.intValue())))
+            .andExpect(jsonPath("$.[*].poids").value(hasItem(DEFAULT_POIDS.intValue())));
     }
 
     @Test

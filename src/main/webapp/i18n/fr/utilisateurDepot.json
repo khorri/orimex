@@ -1,0 +1,22 @@
+{
+    "orimexApp": {
+        "utilisateurDepot": {
+            "home": {
+                "title": "UtilisateurDepots",
+                "createLabel": "Créer un nouveau Utilisateur Depot",
+                "createOrEditLabel": "Créer ou éditer un Utilisateur Depot",
+                "search": "Recherche pour Utilisateur Depot"
+            },
+            "created": "Un nouveau Utilisateur Depot a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Utilisateur Depot avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Utilisateur Depot avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Utilisateur Depot {{ id }} ?"
+            },
+            "detail": {
+                "title": "Utilisateur Depot"
+            },
+            "utilisateur": "Utilisateur"
+        }
+    }
+}

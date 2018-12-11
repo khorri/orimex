@@ -5,6 +5,88 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatArrivage.idArrivage">Id Arrivage</span></dt>
+                <dd>
+                    <span>{{achatArrivage.idArrivage}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.numeroDossierArrivage">Numero Dossier Arrivage</span></dt>
+                <dd>
+                    <span>{{achatArrivage.numeroDossierArrivage}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.codeCompagnieMaritime">Code Compagnie Maritime</span></dt>
+                <dd>
+                    <span>{{achatArrivage.codeCompagnieMaritime}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.codeOperateur">Code Operateur</span></dt>
+                <dd>
+                    <span>{{achatArrivage.codeOperateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.codeTransitaire">Code Transitaire</span></dt>
+                <dd>
+                    <span>{{achatArrivage.codeTransitaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.codeTransporteur">Code Transporteur</span></dt>
+                <dd>
+                    <span>{{achatArrivage.codeTransporteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.dateArrivePort">Date Arrive Port</span></dt>
+                <dd>
+                    <span>{{achatArrivage.dateArrivePort}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.designationCompagnieMaritime">Designation Compagnie Maritime</span></dt>
+                <dd>
+                    <span>{{achatArrivage.designationCompagnieMaritime}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.designationOperateur">Designation Operateur</span></dt>
+                <dd>
+                    <span>{{achatArrivage.designationOperateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.designationTransitaire">Designation Transitaire</span></dt>
+                <dd>
+                    <span>{{achatArrivage.designationTransitaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.designationTransporteur">Designation Transporteur</span></dt>
+                <dd>
+                    <span>{{achatArrivage.designationTransporteur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.flagProduit">Flag Produit</span></dt>
+                <dd>
+                    <span>{{achatArrivage.flagProduit}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.franchise">Franchise</span></dt>
+                <dd>
+                    <span>{{achatArrivage.franchise}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.montantFob">Montant Fob</span></dt>
+                <dd>
+                    <span>{{achatArrivage.montantFob}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.montantFret">Montant Fret</span></dt>
+                <dd>
+                    <span>{{achatArrivage.montantFret}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.montantTotal">Montant Total</span></dt>
+                <dd>
+                    <span>{{achatArrivage.montantTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.nombreTc">Nombre Tc</span></dt>
+                <dd>
+                    <span>{{achatArrivage.nombreTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.dateRealisation">Date Realisation</span></dt>
+                <dd>
+                    <span>{{achatArrivage.dateRealisation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.poid">Poid</span></dt>
+                <dd>
+                    <span>{{achatArrivage.poid}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArrivage.achatDossier">Achat Dossier</span></dt>
+                <dd>
+                    <div *ngIf="achatArrivage.achatDossierId">
+                        <a [routerLink]="['/achat-dossier', achatArrivage.achatDossierId, 'view']">{{achatArrivage.achatDossierId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

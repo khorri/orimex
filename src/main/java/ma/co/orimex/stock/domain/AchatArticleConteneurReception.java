@@ -1,102 +1,168 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 05/12/2018 11:45:14
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatArticleConteneurReception.java
-
 package ma.co.orimex.stock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
+
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            AchatConteneurReception, Produit
-
+/**
+ * A AchatArticleConteneurReception.
+ */
 @Entity
-@Table(name="ACHAT_ARTICLE_CONTENEUR_RECEPTION")
-public class AchatArticleConteneurReception
-    implements Serializable
-{
+@Table(name = "acht_art_conteneur_reception")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatarticleconteneurreception")
+public class AchatArticleConteneurReception implements Serializable {
 
-    public AchatArticleConteneurReception()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_article_conteneur_reception")
+    private Integer idArticleConteneurReception;
+
+    @Column(name = "dimension", precision = 10, scale = 2)
+    private BigDecimal dimension;
+
+    @Column(name = "nombre_caissestc")
+    private Integer nombreCaissestc;
+
+    @Column(name = "nombre_feuillecaisse")
+    private Integer nombreFeuillecaisse;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private AchatConteneurReception achatConteneurReception;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Produit produit;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdArticleConteneurReception()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdArticleConteneurReception() {
         return idArticleConteneurReception;
     }
 
-    public void setIdArticleConteneurReception(int idArticleConteneurReception)
-    {
+    public AchatArticleConteneurReception idArticleConteneurReception(Integer idArticleConteneurReception) {
+        this.idArticleConteneurReception = idArticleConteneurReception;
+        return this;
+    }
+
+    public void setIdArticleConteneurReception(Integer idArticleConteneurReception) {
         this.idArticleConteneurReception = idArticleConteneurReception;
     }
 
-    public BigDecimal getDimension()
-    {
+    public BigDecimal getDimension() {
         return dimension;
     }
 
-    public void setDimension(BigDecimal dimension)
-    {
+    public AchatArticleConteneurReception dimension(BigDecimal dimension) {
+        this.dimension = dimension;
+        return this;
+    }
+
+    public void setDimension(BigDecimal dimension) {
         this.dimension = dimension;
     }
 
-    public int getNombreCaissestc()
-    {
+    public Integer getNombreCaissestc() {
         return nombreCaissestc;
     }
 
-    public void setNombreCaissestc(int nombreCaissestc)
-    {
+    public AchatArticleConteneurReception nombreCaissestc(Integer nombreCaissestc) {
+        this.nombreCaissestc = nombreCaissestc;
+        return this;
+    }
+
+    public void setNombreCaissestc(Integer nombreCaissestc) {
         this.nombreCaissestc = nombreCaissestc;
     }
 
-    public int getNombreFeuillecaisse()
-    {
+    public Integer getNombreFeuillecaisse() {
         return nombreFeuillecaisse;
     }
 
-    public void setNombreFeuillecaisse(int nombreFeuillecaisse)
-    {
+    public AchatArticleConteneurReception nombreFeuillecaisse(Integer nombreFeuillecaisse) {
+        this.nombreFeuillecaisse = nombreFeuillecaisse;
+        return this;
+    }
+
+    public void setNombreFeuillecaisse(Integer nombreFeuillecaisse) {
         this.nombreFeuillecaisse = nombreFeuillecaisse;
     }
 
-    public AchatConteneurReception getAchatConteneurReception()
-    {
+    public AchatConteneurReception getAchatConteneurReception() {
         return achatConteneurReception;
     }
 
-    public void setAchatConteneurReception(AchatConteneurReception achatConteneurReception)
-    {
+    public AchatArticleConteneurReception achatConteneurReception(AchatConteneurReception achatConteneurReception) {
+        this.achatConteneurReception = achatConteneurReception;
+        return this;
+    }
+
+    public void setAchatConteneurReception(AchatConteneurReception achatConteneurReception) {
         this.achatConteneurReception = achatConteneurReception;
     }
 
-    public Produit getProduit()
-    {
+    public Produit getProduit() {
         return produit;
     }
 
-    public void setProduit(Produit produit)
-    {
+    public AchatArticleConteneurReception produit(Produit produit) {
         this.produit = produit;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_ARTICLE_CONTENEUR_RECEPTION")
-    @GeneratedValue
-    private int idArticleConteneurReception;
-    @Column(name="DIMENSION")
-    private BigDecimal dimension;
-    @Column(name="NOMBRE_CAISSESTC")
-    private int nombreCaissestc;
-    @Column(name="NOMBRE_FEUILLECAISSE")
-    private int nombreFeuillecaisse;
-    @ManyToOne
-    @JoinColumn(name="FK_ID_CONTENEUR_RECEPTION")
-    private AchatConteneurReception achatConteneurReception;
-    @ManyToOne
-    @JoinColumn(name="FK_ID_ARTICLE")
-    private Produit produit;
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatArticleConteneurReception achatArticleConteneurReception = (AchatArticleConteneurReception) o;
+        if (achatArticleConteneurReception.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatArticleConteneurReception.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "AchatArticleConteneurReception{" +
+            "id=" + getId() +
+            ", idArticleConteneurReception=" + getIdArticleConteneurReception() +
+            ", dimension=" + getDimension() +
+            ", nombreCaissestc=" + getNombreCaissestc() +
+            ", nombreFeuillecaisse=" + getNombreFeuillecaisse() +
+            "}";
+    }
 }

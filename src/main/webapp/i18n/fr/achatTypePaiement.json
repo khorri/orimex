@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "achatTypePaiement": {
+            "home": {
+                "title": "AchatTypePaiements",
+                "createLabel": "Créer un nouveau Achat Type Paiement",
+                "createOrEditLabel": "Créer ou éditer un Achat Type Paiement",
+                "search": "Recherche pour Achat Type Paiement"
+            },
+            "created": "Un nouveau Achat Type Paiement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Type Paiement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Type Paiement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Type Paiement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Type Paiement"
+            },
+            "idTypePaiement": "Id Type Paiement",
+            "libelleTypePaiement": "Libelle Type Paiement"
+        }
+    }
+}

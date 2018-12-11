@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="casse">
+            <h2><span jhiTranslate="orimexApp.casse.detail.title">Casse</span> {{casse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.casse.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{casse.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{casse.dateOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.description">Description</span></dt>
+                <dd>
+                    <span>{{casse.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.nombrePlateaux">Nombre Plateaux</span></dt>
+                <dd>
+                    <span>{{casse.nombrePlateaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{casse.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.superfcie">Superfcie</span></dt>
+                <dd>
+                    <span>{{casse.superfcie}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="casse.utilisateurId">
+                        <a [routerLink]="['/utilisateur', casse.utilisateurId, 'view']">{{casse.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.casse.caisse">Caisse</span></dt>
+                <dd>
+                    <div *ngIf="casse.caisseId">
+                        <a [routerLink]="['/caisse', casse.caisseId, 'view']">{{casse.caisseId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/casse', casse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

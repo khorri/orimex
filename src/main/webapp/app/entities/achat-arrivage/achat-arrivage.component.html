@@ -30,12 +30,56 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idArrivage"><span jhiTranslate="orimexApp.achatArrivage.idArrivage">Id Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroDossierArrivage"><span jhiTranslate="orimexApp.achatArrivage.numeroDossierArrivage">Numero Dossier Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeCompagnieMaritime"><span jhiTranslate="orimexApp.achatArrivage.codeCompagnieMaritime">Code Compagnie Maritime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeOperateur"><span jhiTranslate="orimexApp.achatArrivage.codeOperateur">Code Operateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeTransitaire"><span jhiTranslate="orimexApp.achatArrivage.codeTransitaire">Code Transitaire</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeTransporteur"><span jhiTranslate="orimexApp.achatArrivage.codeTransporteur">Code Transporteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateArrivePort"><span jhiTranslate="orimexApp.achatArrivage.dateArrivePort">Date Arrive Port</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationCompagnieMaritime"><span jhiTranslate="orimexApp.achatArrivage.designationCompagnieMaritime">Designation Compagnie Maritime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationOperateur"><span jhiTranslate="orimexApp.achatArrivage.designationOperateur">Designation Operateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationTransitaire"><span jhiTranslate="orimexApp.achatArrivage.designationTransitaire">Designation Transitaire</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationTransporteur"><span jhiTranslate="orimexApp.achatArrivage.designationTransporteur">Designation Transporteur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="flagProduit"><span jhiTranslate="orimexApp.achatArrivage.flagProduit">Flag Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="franchise"><span jhiTranslate="orimexApp.achatArrivage.franchise">Franchise</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantFob"><span jhiTranslate="orimexApp.achatArrivage.montantFob">Montant Fob</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantFret"><span jhiTranslate="orimexApp.achatArrivage.montantFret">Montant Fret</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantTotal"><span jhiTranslate="orimexApp.achatArrivage.montantTotal">Montant Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreTc"><span jhiTranslate="orimexApp.achatArrivage.nombreTc">Nombre Tc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateRealisation"><span jhiTranslate="orimexApp.achatArrivage.dateRealisation">Date Realisation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poid"><span jhiTranslate="orimexApp.achatArrivage.poid">Poid</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatDossierId"><span jhiTranslate="orimexApp.achatArrivage.achatDossier">Achat Dossier</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let achatArrivage of achatArrivages ;trackBy: trackId">
                 <td><a [routerLink]="['/achat-arrivage', achatArrivage.id, 'view' ]">{{achatArrivage.id}}</a></td>
+                <td>{{achatArrivage.idArrivage}}</td>
+                <td>{{achatArrivage.numeroDossierArrivage}}</td>
+                <td>{{achatArrivage.codeCompagnieMaritime}}</td>
+                <td>{{achatArrivage.codeOperateur}}</td>
+                <td>{{achatArrivage.codeTransitaire}}</td>
+                <td>{{achatArrivage.codeTransporteur}}</td>
+                <td>{{achatArrivage.dateArrivePort | date:'mediumDate'}}</td>
+                <td>{{achatArrivage.designationCompagnieMaritime}}</td>
+                <td>{{achatArrivage.designationOperateur}}</td>
+                <td>{{achatArrivage.designationTransitaire}}</td>
+                <td>{{achatArrivage.designationTransporteur}}</td>
+                <td>{{achatArrivage.flagProduit}}</td>
+                <td>{{achatArrivage.franchise}}</td>
+                <td>{{achatArrivage.montantFob}}</td>
+                <td>{{achatArrivage.montantFret}}</td>
+                <td>{{achatArrivage.montantTotal}}</td>
+                <td>{{achatArrivage.nombreTc}}</td>
+                <td>{{achatArrivage.dateRealisation | date:'mediumDate'}}</td>
+                <td>{{achatArrivage.poid}}</td>
+                <td>
+                    <div *ngIf="achatArrivage.achatDossierId">
+                        <a [routerLink]="['../achat-dossier', achatArrivage.achatDossierId , 'view' ]" >{{achatArrivage.achatDossierId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

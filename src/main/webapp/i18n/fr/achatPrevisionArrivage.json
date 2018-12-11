@@ -1,0 +1,33 @@
+{
+    "orimexApp": {
+        "achatPrevisionArrivage": {
+            "home": {
+                "title": "AchatPrevisionArrivages",
+                "createLabel": "Créer un nouveau Achat Prevision Arrivage",
+                "createOrEditLabel": "Créer ou éditer un Achat Prevision Arrivage",
+                "search": "Recherche pour Achat Prevision Arrivage"
+            },
+            "created": "Un nouveau Achat Prevision Arrivage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Prevision Arrivage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Prevision Arrivage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Prevision Arrivage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Prevision Arrivage"
+            },
+            "idPrevisionArrivage": "Id Prevision Arrivage",
+            "produit": "Produit",
+            "desigantionCopagnieMaritme": "Desigantion Copagnie Maritme",
+            "pol": "Pol",
+            "numeroBl": "Numero Bl",
+            "nombreTc": "Nombre Tc",
+            "etd": "Etd",
+            "eta": "Eta",
+            "documents": "Documents",
+            "douane": "Douane",
+            "active": "Active",
+            "achatDossier": "Achat Dossier"
+        }
+    }
+}

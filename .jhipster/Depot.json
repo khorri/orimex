@@ -1,0 +1,34 @@
+{
+    "name": "Depot",
+    "fields": [
+        {
+            "fieldName": "idDepot",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "referenceDepot",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "utilisateurDepots",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "ville",
+            "otherEntityName": "ville",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203329",
+    "entityTableName": "depot",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

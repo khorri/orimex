@@ -1,162 +1,236 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 05/12/2018 11:45:09
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatArticleConteneurArrivage.java
-
 package ma.co.orimex.stock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
+
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            AchatConteneurArrivage, Produit, StockArticleConteneurReception
-
+/**
+ * A AchatArticleConteneurArrivage.
+ */
 @Entity
-@Table(name="ACHAT_ARTICLE_CONTENEUR_ARRIVAGE")
-public class AchatArticleConteneurArrivage
-    implements Serializable
-{
+@Table(name = "article_conteneur_arrivage")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatarticleconteneurarrivage")
+public class AchatArticleConteneurArrivage implements Serializable {
 
-    public AchatArticleConteneurArrivage()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_article_conteneur_arrivage")
+    private Integer idArticleConteneurArrivage;
+
+    @Column(name = "dimension", precision = 10, scale = 2)
+    private BigDecimal dimension;
+
+    @Column(name = "montant", precision = 10, scale = 2)
+    private BigDecimal montant;
+
+    @Column(name = "nombre_caissestc")
+    private Integer nombreCaissestc;
+
+    @Column(name = "nombre_feuillecaisse")
+    private Integer nombreFeuillecaisse;
+
+    @Column(name = "prix_unitaire", precision = 10, scale = 2)
+    private BigDecimal prixUnitaire;
+
+    @Column(name = "quantite", precision = 10, scale = 2)
+    private BigDecimal quantite;
+
+    @Column(name = "poids", precision = 10, scale = 2)
+    private BigDecimal poids;
+
+    @ManyToOne
+    @JsonIgnoreProperties("achatArticleConteneurArrivages")
+    private AchatConteneurArrivage achatConteneurArrivage;
+
+    @ManyToOne
+    @JsonIgnoreProperties("achatArticleConteneurArrivages")
+    private Produit produit;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdArticleConteneurArrivage()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdArticleConteneurArrivage() {
         return idArticleConteneurArrivage;
     }
 
-    public void setIdArticleConteneurArrivage(int idArticleConteneurArrivage)
-    {
+    public AchatArticleConteneurArrivage idArticleConteneurArrivage(Integer idArticleConteneurArrivage) {
+        this.idArticleConteneurArrivage = idArticleConteneurArrivage;
+        return this;
+    }
+
+    public void setIdArticleConteneurArrivage(Integer idArticleConteneurArrivage) {
         this.idArticleConteneurArrivage = idArticleConteneurArrivage;
     }
 
-    public BigDecimal getDimension()
-    {
+    public BigDecimal getDimension() {
         return dimension;
     }
 
-    public void setDimension(BigDecimal dimension)
-    {
+    public AchatArticleConteneurArrivage dimension(BigDecimal dimension) {
+        this.dimension = dimension;
+        return this;
+    }
+
+    public void setDimension(BigDecimal dimension) {
         this.dimension = dimension;
     }
 
-    public BigDecimal getMontant()
-    {
+    public BigDecimal getMontant() {
         return montant;
     }
 
-    public void setMontant(BigDecimal montant)
-    {
+    public AchatArticleConteneurArrivage montant(BigDecimal montant) {
+        this.montant = montant;
+        return this;
+    }
+
+    public void setMontant(BigDecimal montant) {
         this.montant = montant;
     }
 
-    public int getNombreCaissestc()
-    {
+    public Integer getNombreCaissestc() {
         return nombreCaissestc;
     }
 
-    public void setNombreCaissestc(int nombreCaissestc)
-    {
+    public AchatArticleConteneurArrivage nombreCaissestc(Integer nombreCaissestc) {
+        this.nombreCaissestc = nombreCaissestc;
+        return this;
+    }
+
+    public void setNombreCaissestc(Integer nombreCaissestc) {
         this.nombreCaissestc = nombreCaissestc;
     }
 
-    public int getNombreFeuillecaisse()
-    {
+    public Integer getNombreFeuillecaisse() {
         return nombreFeuillecaisse;
     }
 
-    public void setNombreFeuillecaisse(int nombreFeuillecaisse)
-    {
+    public AchatArticleConteneurArrivage nombreFeuillecaisse(Integer nombreFeuillecaisse) {
+        this.nombreFeuillecaisse = nombreFeuillecaisse;
+        return this;
+    }
+
+    public void setNombreFeuillecaisse(Integer nombreFeuillecaisse) {
         this.nombreFeuillecaisse = nombreFeuillecaisse;
     }
 
-    public BigDecimal getPrixUnitaire()
-    {
+    public BigDecimal getPrixUnitaire() {
         return prixUnitaire;
     }
 
-    public void setPrixUnitaire(BigDecimal prixUnitaire)
-    {
+    public AchatArticleConteneurArrivage prixUnitaire(BigDecimal prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+        return this;
+    }
+
+    public void setPrixUnitaire(BigDecimal prixUnitaire) {
         this.prixUnitaire = prixUnitaire;
     }
 
-    public BigDecimal getQuantite()
-    {
+    public BigDecimal getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(BigDecimal quantite)
-    {
+    public AchatArticleConteneurArrivage quantite(BigDecimal quantite) {
+        this.quantite = quantite;
+        return this;
+    }
+
+    public void setQuantite(BigDecimal quantite) {
         this.quantite = quantite;
     }
 
-    public AchatConteneurArrivage getAchatConteneurArrivage()
-    {
-        return achatConteneurArrivage;
-    }
-
-    public void setAchatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage)
-    {
-        this.achatConteneurArrivage = achatConteneurArrivage;
-    }
-
-    public Produit getProduit()
-    {
-        return produit;
-    }
-
-    public void setProduit(Produit produit)
-    {
-        this.produit = produit;
-    }
-
-    public BigDecimal getPoids()
-    {
+    public BigDecimal getPoids() {
         return poids;
     }
 
-    public void setPoids(BigDecimal poids)
-    {
+    public AchatArticleConteneurArrivage poids(BigDecimal poids) {
+        this.poids = poids;
+        return this;
+    }
+
+    public void setPoids(BigDecimal poids) {
         this.poids = poids;
     }
 
-    public StockArticleConteneurReception getStockArticleConteneurReception()
-    {
-        return stockArticleConteneurReception;
+    public AchatConteneurArrivage getAchatConteneurArrivage() {
+        return achatConteneurArrivage;
     }
 
-    public void setStockArticleConteneurReception(StockArticleConteneurReception stockArticleConteneurReception)
-    {
-        this.stockArticleConteneurReception = stockArticleConteneurReception;
+    public AchatArticleConteneurArrivage achatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage) {
+        this.achatConteneurArrivage = achatConteneurArrivage;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_ARTICLE_CONTENEUR_ARRIVAGE")
-    @GeneratedValue
-    private int idArticleConteneurArrivage;
-    @Column(name="DIMENSION")
-    private BigDecimal dimension;
-    @Column(name="MONTANT")
-    private BigDecimal montant;
-    @Column(name="NOMBRE_CAISSESTC")
-    private int nombreCaissestc;
-    @Column(name="NOMBRE_FEUILLECAISSE")
-    private int nombreFeuillecaisse;
-    @Column(name="PRIX_UNITAIRE")
-    private BigDecimal prixUnitaire;
-    @Column(name="QUANTITE")
-    private BigDecimal quantite;
-    @Column(name="POIDS")
-    private BigDecimal poids;
-    @ManyToOne
-    @JoinColumn(name="FK_ID_CONTENEUR_ARRIVAGE")
-    private AchatConteneurArrivage achatConteneurArrivage;
-    @ManyToOne
-    @JoinColumn(name="FK_ID_ARTICLE")
-    private Produit produit;
-    @OneToOne(mappedBy="achatArticleConteneurArrivage")
-    private StockArticleConteneurReception stockArticleConteneurReception;
+    public void setAchatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage) {
+        this.achatConteneurArrivage = achatConteneurArrivage;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public AchatArticleConteneurArrivage produit(Produit produit) {
+        this.produit = produit;
+        return this;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatArticleConteneurArrivage achatArticleConteneurArrivage = (AchatArticleConteneurArrivage) o;
+        if (achatArticleConteneurArrivage.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatArticleConteneurArrivage.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "AchatArticleConteneurArrivage{" +
+            "id=" + getId() +
+            ", idArticleConteneurArrivage=" + getIdArticleConteneurArrivage() +
+            ", dimension=" + getDimension() +
+            ", montant=" + getMontant() +
+            ", nombreCaissestc=" + getNombreCaissestc() +
+            ", nombreFeuillecaisse=" + getNombreFeuillecaisse() +
+            ", prixUnitaire=" + getPrixUnitaire() +
+            ", quantite=" + getQuantite() +
+            ", poids=" + getPoids() +
+            "}";
+    }
 }

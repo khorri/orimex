@@ -1,0 +1,68 @@
+{
+    "name": "Reception",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateReception",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "nombrePlateaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bon",
+            "otherEntityName": "bon",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "caisse",
+            "otherEntityName": "caisse",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "camion",
+            "otherEntityName": "camion",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conteneur",
+            "otherEntityName": "conteneur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "depot",
+            "otherEntityName": "depot",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203338",
+    "entityTableName": "reception",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

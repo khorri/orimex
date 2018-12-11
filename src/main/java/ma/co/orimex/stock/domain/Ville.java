@@ -1,60 +1,129 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:28:12
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Ville.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="VILLE")
-public class Ville
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
-    public Ville()
-    {
+/**
+ * A Ville.
+ */
+@Entity
+@Table(name = "ville")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "ville")
+public class Ville implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_ville")
+    private Integer idVille;
+
+    @Column(name = "libelle_ville")
+    private String libelleVille;
+
+    @OneToMany(mappedBy = "ville")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Depot> depots = new HashSet<>();
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdVille()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdVille() {
         return idVille;
     }
 
-    public void setIdVille(int idVille)
-    {
+    public Ville idVille(Integer idVille) {
+        this.idVille = idVille;
+        return this;
+    }
+
+    public void setIdVille(Integer idVille) {
         this.idVille = idVille;
     }
 
-    public String getLibelleVille()
-    {
+    public String getLibelleVille() {
         return libelleVille;
     }
 
-    public void setLibelleVille(String libelleVille)
-    {
+    public Ville libelleVille(String libelleVille) {
+        this.libelleVille = libelleVille;
+        return this;
+    }
+
+    public void setLibelleVille(String libelleVille) {
         this.libelleVille = libelleVille;
     }
 
-    public Set getDepots()
-    {
+    public Set<Depot> getDepots() {
         return depots;
     }
 
-    public void setDepots(Set depots)
-    {
+    public Ville depots(Set<Depot> depots) {
         this.depots = depots;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_VILLE")
-    private int idVille;
-    @Column(name="LIBELLE_VILLE")
-    private String libelleVille;
-    @OneToMany(mappedBy="ville")
-    private Set depots;
+    public Ville addDepot(Depot depot) {
+        this.depots.add(depot);
+        depot.setVille(this);
+        return this;
+    }
+
+    public Ville removeDepot(Depot depot) {
+        this.depots.remove(depot);
+        depot.setVille(null);
+        return this;
+    }
+
+    public void setDepots(Set<Depot> depots) {
+        this.depots = depots;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Ville ville = (Ville) o;
+        if (ville.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), ville.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Ville{" +
+            "id=" + getId() +
+            ", idVille=" + getIdVille() +
+            ", libelleVille='" + getLibelleVille() + "'" +
+            "}";
+    }
 }

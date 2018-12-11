@@ -1,0 +1,54 @@
+{
+    "name": "Menu",
+    "fields": [
+        {
+            "fieldName": "codeMenu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cmampsMenu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleMenu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ordre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "domaine",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "action",
+            "otherEntityName": "action",
+            "otherEntityRelationshipName": "menu"
+        },
+        {
+            "relationshipName": "menu",
+            "otherEntityName": "menu",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "menu",
+            "otherEntityName": "menu",
+            "otherEntityRelationshipName": "menu"
+        }
+    ],
+    "changelogDate": "20181207203332",
+    "entityTableName": "menu",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

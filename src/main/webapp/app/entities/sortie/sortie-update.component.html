@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sortie-heading" jhiTranslate="orimexApp.sortie.home.createOrEditLabel">Create or edit a Sortie</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!sortie.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="sortie.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.idOperation" for="field_idOperation">Id Operation</label>
+                    <input type="number" class="form-control" name="idOperation" id="field_idOperation"
+                        [(ngModel)]="sortie.idOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" [(ngModel)]="dateOperation"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.nombrePlateaux" for="field_nombrePlateaux">Nombre Plateaux</label>
+                    <input type="number" class="form-control" name="nombrePlateaux" id="field_nombrePlateaux"
+                        [(ngModel)]="sortie.nombrePlateaux" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.numeroOperation" for="field_numeroOperation">Numero Operation</label>
+                    <input type="text" class="form-control" name="numeroOperation" id="field_numeroOperation"
+                        [(ngModel)]="sortie.numeroOperation" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.utilisateur" for="field_utilisateur">Utilisateur</label>
+                    <select class="form-control" id="field_utilisateur" name="utilisateur" [(ngModel)]="sortie.utilisateurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="utilisateurOption.id" *ngFor="let utilisateurOption of utilisateurs; trackBy: trackUtilisateurById">{{utilisateurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.bon" for="field_bon">Bon</label>
+                    <select class="form-control" id="field_bon" name="bon" [(ngModel)]="sortie.bonId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bonOption.id" *ngFor="let bonOption of bons; trackBy: trackBonById">{{bonOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.caisse" for="field_caisse">Caisse</label>
+                    <select class="form-control" id="field_caisse" name="caisse" [(ngModel)]="sortie.caisseId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="caisseOption.id" *ngFor="let caisseOption of caisses; trackBy: trackCaisseById">{{caisseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.sortie.depot" for="field_depot">Depot</label>
+                    <select class="form-control" id="field_depot" name="depot" [(ngModel)]="sortie.depotId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="depotOption.id" *ngFor="let depotOption of depots; trackBy: trackDepotById">{{depotOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

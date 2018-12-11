@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AchatDossier.
+    -->
+    <changeSet id="20181207203312-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="achat_banque_id"
+                                 baseTableName="achat_dossier"
+                                 constraintName="fk_achat_dossier_achat_banque_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_banque"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_paiement_id"
+                                 baseTableName="achat_dossier"
+                                 constraintName="fk_achat_dossier_type_paiement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_type_paiement"/>
+
+        <addForeignKeyConstraint baseColumnNames="achat_devise_id"
+                                 baseTableName="achat_dossier"
+                                 constraintName="fk_achat_dossier_achat_devise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_devise"/>
+
+        <addForeignKeyConstraint baseColumnNames="achat_statut_dossier_id"
+                                 baseTableName="achat_dossier"
+                                 constraintName="fk_achat_dossier_achat_statut_dossier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_statut_dossier"/>
+
+    </changeSet>
+</databaseChangeLog>

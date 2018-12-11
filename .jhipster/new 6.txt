@@ -1,0 +1,187 @@
+entity AchatArticleConteneurReception {
+       idArticleConteneurReception Integer,
+       dimension BigDecimal,
+       nombreCaissestc Integer ,
+       nombreFeuillecaisse Integer 
+	   }
+	   
+entity	  AchatArticleLigneProforma {
+       idArticleLigneProforma Integer,
+       numeroSequence Integer,
+       nombreCaissesTc Integer,
+       nombreFeuillesCaisse Integer,
+       dimention BigDecimal,
+       quantite BigDecimal,
+       prixUnitaire BigDecimal,
+       montant BigDecimal,
+       poids BigDecimal
+   }
+   
+entity AchatStatutDossier{
+
+	idStatutDossier Integer ,
+    libelleStatutDossier String , 
+}
+	
+entity AchatArrivage {
+	idArrivage Integer,
+    numeroDossierArrivage String,
+    codeCompagnieMaritime String,
+    codeOperateur String,
+    codeTransitaire String,
+    codeTransporteur String,
+    dateArrivePort Date,
+    designationCompagnieMaritime String,
+    designationOperateur String,
+    designationTransitaire String,
+    designationTransporteur String,
+    flagProduit String,
+    franchise Integer,
+    montantFob BigDecimal,
+    montantFret BigDecimal,
+    montantTotal BigDecimal,
+    nombreTc Integer,
+    dateRealisation Date,
+    poids BigDecimal
+	}
+entity AchatArticleConteneurArrivage {
+    
+     idArticleConteneurArrivage Integer ,
+     dimension BigDecimal,
+     montant BigDecimal,
+     nombreCaissestc Integer ,
+     nombreFeuillecaisse Integer ,
+     prixUnitaire BigDecimal,
+     quantite BigDecimal,
+     poids BigDecimal
+	 }
+entity AchatArticleConteneurReception {
+       idArticleConteneurReception Integer,
+       dimension BigDecimal,
+       nombreCaissestc Integer ,
+       nombreFeuillecaisse Integer 
+	   }     
+
+entity	  AchatArticleLigneProforma {
+       idArticleLigneProforma Integer,
+       numeroSequence Integer,
+       nombreCaissesTc Integer,
+       nombreFeuillesCaisse Integer,
+       dimention BigDecimal,
+       quantite BigDecimal,
+       prixUnitaire BigDecimal,
+       montant BigDecimal,
+       poids BigDecimal
+    }
+entity AchatBanque {
+      idBanque Integer,
+      codeBanque String,
+      designationBanque String
+}   
+	
+entity AchatConteneurReception {
+	idConteneurReception Integer,
+    numeroConteneur String,
+    numeroSequence Integer
+}	
+
+entity AchatDevise{
+	idDevise Integer,
+    codeDevise String,
+    libelleDevise String
+}
+
+entity AchatDossier {
+	idDossier Integer,
+    numeroDossier String,
+    codeFournisseur String,
+    designationFournisseur String,
+    incoterm String,
+    reference String,
+    tolerance Integer,
+    numeroEi String,
+    numeroEiComp String,
+    dateCreation Date,
+    delaiPaiement Integer,
+    delaiValiditeLc Integer,
+    dateExpedition Date,
+    dateOuverture Date,
+    dateValiditeEi Date,
+    dateLimiteExp Date,
+    dateValiditeLc Date,
+    montnatTotal BigDecimal,
+    montnatFob BigDecimal,
+    montnatFret BigDecimal,
+    totalTc Integer,
+    designationBanque String,
+    paiementAvue Integer,
+    encours BigDecimal
+}
+
+entity AchatConteneurArrivage{
+	idConteneurArrivage Integer,
+    montant BigDecimal,
+    numeroConteneurs String,
+    numeroSequence Integer,
+    poids BigDecimal,
+    quantite BigDecimal
+}
+
+entity AchatPrevisionArrivage{
+ 	idPrevisionArrivage Integer,
+     produit String,
+     desigantionCopagnieMaritme String,
+     pol String,
+     numeroBl String,
+     nombreTc Integer,
+     etd Date,
+     eta Date,
+     documents String,
+     douane String,
+     active Integer
+
+}
+
+entity AchatFacture {
+	idFacture Integer,
+     numeroFacture String,
+     dateFacture Date,
+     montantFob BigDecimal,
+     montantFret BigDecimal,
+     montantTotal BigDecimal,
+     nombreTc Integer,
+     poids BigDecimal,
+     quantite BigDecimal,
+     ajustement BigDecimal,
+     numeroPiece String,
+     dateBl Date,
+     numeroBl String,
+     dateEcheance Date,
+     etat Integer,
+     banqueReglement Integer,
+     dateValeur Date,
+     cours BigDecimal,
+     montantDh BigDecimal,
+     echecanceFinancement,
+     interet1 BigDecimal,
+     dateReglement Date,
+     derniereEcheance,
+     transmise Integer,
+     echeanceRefinancement Date,
+     interet2 BigDecimal,
+     interet1Regle Integer
+}
+
+entity AchatFournisseur {
+	typeFournisseur String,
+     codeFournisseur String,
+     designationFournisseur String
+}
+
+entity AchatLigneProforma {
+	idLigneProforma Integer,
+     nombreConteneurs Integer,
+     montant BigDecimal,
+     numeroSequence Integer,
+     poids BigDecimal
+}	

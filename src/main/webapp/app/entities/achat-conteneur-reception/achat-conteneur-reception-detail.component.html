@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatConteneurReception">
+            <h2><span jhiTranslate="orimexApp.achatConteneurReception.detail.title">Achat Conteneur Reception</span> {{achatConteneurReception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatConteneurReception.idConteneurReception">Id Conteneur Reception</span></dt>
+                <dd>
+                    <span>{{achatConteneurReception.idConteneurReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatConteneurReception.numeroConteneur">Numero Conteneur</span></dt>
+                <dd>
+                    <span>{{achatConteneurReception.numeroConteneur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatConteneurReception.numeroSequence">Numero Sequence</span></dt>
+                <dd>
+                    <span>{{achatConteneurReception.numeroSequence}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatConteneurReception.achatConteneurArrivage">Achat Conteneur Arrivage</span></dt>
+                <dd>
+                    <div *ngIf="achatConteneurReception.achatConteneurArrivageId">
+                        <a [routerLink]="['/achat-conteneur-arrivage', achatConteneurReception.achatConteneurArrivageId, 'view']">{{achatConteneurReception.achatConteneurArrivageId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-conteneur-reception', achatConteneurReception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProfilAction.
+    -->
+    <changeSet id="20181207203336-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="action_id"
+                                 baseTableName="profil_action"
+                                 constraintName="fk_profil_action_action_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="action"/>
+
+        <addForeignKeyConstraint baseColumnNames="profil_id"
+                                 baseTableName="profil_action"
+                                 constraintName="fk_profil_action_profil_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profil"/>
+
+    </changeSet>
+</databaseChangeLog>

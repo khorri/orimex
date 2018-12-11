@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockConteneurReception">
+            <h2><span jhiTranslate="orimexApp.stockConteneurReception.detail.title">Stock Conteneur Reception</span> {{stockConteneurReception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.dateReception">Date Reception</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.dateReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.numeroBonEntree">Numero Bon Entree</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.numeroBonEntree}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.numeroConstatNonConformite">Numero Constat Non Conformite</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.numeroConstatNonConformite}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.isValide">Is Valide</span></dt>
+                <dd>
+                    <span>{{stockConteneurReception.isValide}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockConteneurReception.stockReception">Stock Reception</span></dt>
+                <dd>
+                    <div *ngIf="stockConteneurReception.stockReceptionId">
+                        <a [routerLink]="['/stock-reception', stockConteneurReception.stockReceptionId, 'view']">{{stockConteneurReception.stockReceptionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-conteneur-reception', stockConteneurReception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+    "orimexApp": {
+        "sortie": {
+            "home": {
+                "title": "Sorties",
+                "createLabel": "Créer un nouveau Sortie",
+                "createOrEditLabel": "Créer ou éditer un Sortie",
+                "search": "Recherche pour Sortie"
+            },
+            "created": "Un nouveau Sortie a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Sortie avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Sortie avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Sortie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Sortie"
+            },
+            "idOperation": "Id Operation",
+            "dateOperation": "Date Operation",
+            "nombrePlateaux": "Nombre Plateaux",
+            "numeroOperation": "Numero Operation",
+            "utilisateur": "Utilisateur",
+            "bon": "Bon",
+            "caisse": "Caisse",
+            "depot": "Depot"
+        }
+    }
+}

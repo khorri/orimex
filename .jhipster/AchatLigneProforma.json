@@ -1,0 +1,42 @@
+{
+    "name": "AchatLigneProforma",
+    "fields": [
+        {
+            "fieldName": "idLigneProforma",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreConteneurs",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "numeroSequence",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "achatProforma",
+            "otherEntityName": "achatProforma",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203315",
+    "entityTableName": "achat_ligne_proforma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

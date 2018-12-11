@@ -1,62 +1,98 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:20:31
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatTypePaiement.java
-
 package ma.co.orimex.stock.domain;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
+
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
-import java.util.Set;
-import javax.persistence.*;
+import java.util.Objects;
 
+/**
+ * A AchatTypePaiement.
+ */
 @Entity
-@Table(name="ACHAT_TYPE_PAIEMENT")
-public class AchatTypePaiement
-    implements Serializable
-{
+@Table(name = "achat_type_paiement")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achattypepaiement")
+public class AchatTypePaiement implements Serializable {
 
-    public AchatTypePaiement()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_type_paiement")
+    private Integer idTypePaiement;
+
+    @Column(name = "libelle_type_paiement")
+    private String libelleTypePaiement;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdTypePaiement()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdTypePaiement() {
         return idTypePaiement;
     }
 
-    public void setIdTypePaiement(int idTypePaiement)
-    {
+    public AchatTypePaiement idTypePaiement(Integer idTypePaiement) {
+        this.idTypePaiement = idTypePaiement;
+        return this;
+    }
+
+    public void setIdTypePaiement(Integer idTypePaiement) {
         this.idTypePaiement = idTypePaiement;
     }
 
-    public String getLibelleTypePaiement()
-    {
+    public String getLibelleTypePaiement() {
         return libelleTypePaiement;
     }
 
-    public void setLibelleTypePaiement(String libelleTypePaiement)
-    {
+    public AchatTypePaiement libelleTypePaiement(String libelleTypePaiement) {
+        this.libelleTypePaiement = libelleTypePaiement;
+        return this;
+    }
+
+    public void setLibelleTypePaiement(String libelleTypePaiement) {
         this.libelleTypePaiement = libelleTypePaiement;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getAchatDossiers()
-    {
-        return achatDossiers;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatTypePaiement achatTypePaiement = (AchatTypePaiement) o;
+        if (achatTypePaiement.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatTypePaiement.getId());
     }
 
-    public void setAchatDossiers(Set achatDossiers)
-    {
-        this.achatDossiers = achatDossiers;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_TYPE_PAIEMENT")
-    @GeneratedValue
-    private int idTypePaiement;
-    @Column(name="LIBELLE_TYPE_PAIEMENT")
-    private String libelleTypePaiement;
-    @OneToMany(mappedBy="typePaiement")
-    private Set achatDossiers;
+    @Override
+    public String toString() {
+        return "AchatTypePaiement{" +
+            "id=" + getId() +
+            ", idTypePaiement=" + getIdTypePaiement() +
+            ", libelleTypePaiement='" + getLibelleTypePaiement() + "'" +
+            "}";
+    }
 }

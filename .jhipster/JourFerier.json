@@ -1,0 +1,27 @@
+{
+    "name": "JourFerier",
+    "fields": [
+        {
+            "fieldName": "annee",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "debut",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fin",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203331",
+    "entityTableName": "jour_ferier",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

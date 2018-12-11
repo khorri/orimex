@@ -1,0 +1,39 @@
+{
+    "orimexApp": {
+        "produit": {
+            "home": {
+                "title": "Produits",
+                "createLabel": "Créer un nouveau Produit",
+                "createOrEditLabel": "Créer ou éditer un Produit",
+                "search": "Recherche pour Produit"
+            },
+            "created": "Un nouveau Produit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Produit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Produit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Produit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Produit"
+            },
+            "idProduit": "Id Produit",
+            "designationProduit": "Designation Produit",
+            "dimension": "Dimension",
+            "epaisseur": "Epaisseur",
+            "largeure": "Largeure",
+            "longueur": "Longueur",
+            "referenceProduit": "Reference Produit",
+            "poids": "Poids",
+            "libelleCouleur": "Libelle Couleur",
+            "libelleFamille": "Libelle Famille",
+            "libelleOrigine": "Libelle Origine",
+            "recuperation": "Recuperation",
+            "retour": "Retour",
+            "achatArticleLigneProforma": "Achat Article Ligne Proforma",
+            "couleur": "Couleur",
+            "familleProduit": "Famille Produit",
+            "origine": "Origine",
+            "achatArticleConteneurArrivage": "Achat Article Conteneur Arrivage"
+        }
+    }
+}

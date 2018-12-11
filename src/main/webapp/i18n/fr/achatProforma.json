@@ -1,0 +1,32 @@
+{
+    "orimexApp": {
+        "achatProforma": {
+            "home": {
+                "title": "AchatProformas",
+                "createLabel": "Créer un nouveau Achat Proforma",
+                "createOrEditLabel": "Créer ou éditer un Achat Proforma",
+                "search": "Recherche pour Achat Proforma"
+            },
+            "created": "Un nouveau Achat Proforma a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Proforma avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Proforma avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Proforma {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Proforma"
+            },
+            "idProforma": "Id Proforma",
+            "nombreTc": "Nombre Tc",
+            "coutFob": "Cout Fob",
+            "coutFret": "Cout Fret",
+            "montantTotal": "Montant Total",
+            "numeroBonProforma": "Numero Bon Proforma",
+            "typeAcht": "Type Acht",
+            "poids": "Poids",
+            "dateProforma": "Date Proforma",
+            "achatLigneProforma": "Achat Ligne Proforma",
+            "achatDossier": "Achat Dossier"
+        }
+    }
+}

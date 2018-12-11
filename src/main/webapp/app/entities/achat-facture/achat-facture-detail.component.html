@@ -1,0 +1,137 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatFacture">
+            <h2><span jhiTranslate="orimexApp.achatFacture.detail.title">Achat Facture</span> {{achatFacture.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatFacture.idFacture">Id Facture</span></dt>
+                <dd>
+                    <span>{{achatFacture.idFacture}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.numeroFacture">Numero Facture</span></dt>
+                <dd>
+                    <span>{{achatFacture.numeroFacture}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.dateFacture">Date Facture</span></dt>
+                <dd>
+                    <span>{{achatFacture.dateFacture}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.montantFob">Montant Fob</span></dt>
+                <dd>
+                    <span>{{achatFacture.montantFob}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.montantFret">Montant Fret</span></dt>
+                <dd>
+                    <span>{{achatFacture.montantFret}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.montantTotal">Montant Total</span></dt>
+                <dd>
+                    <span>{{achatFacture.montantTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.nombreTc">Nombre Tc</span></dt>
+                <dd>
+                    <span>{{achatFacture.nombreTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.poids">Poids</span></dt>
+                <dd>
+                    <span>{{achatFacture.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{achatFacture.quantite}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.ajustement">Ajustement</span></dt>
+                <dd>
+                    <span>{{achatFacture.ajustement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.numeroPiece">Numero Piece</span></dt>
+                <dd>
+                    <span>{{achatFacture.numeroPiece}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.dateBl">Date Bl</span></dt>
+                <dd>
+                    <span>{{achatFacture.dateBl}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.numeroBl">Numero Bl</span></dt>
+                <dd>
+                    <span>{{achatFacture.numeroBl}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.dateEcheance">Date Echeance</span></dt>
+                <dd>
+                    <span>{{achatFacture.dateEcheance}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.etat">Etat</span></dt>
+                <dd>
+                    <span>{{achatFacture.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.banqueReglement">Banque Reglement</span></dt>
+                <dd>
+                    <span>{{achatFacture.banqueReglement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.dateValeur">Date Valeur</span></dt>
+                <dd>
+                    <span>{{achatFacture.dateValeur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.cours">Cours</span></dt>
+                <dd>
+                    <span>{{achatFacture.cours}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.montantDh">Montant Dh</span></dt>
+                <dd>
+                    <span>{{achatFacture.montantDh}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.echecanceFinancement">Echecance Financement</span></dt>
+                <dd>
+                    <span>{{achatFacture.echecanceFinancement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.interet1">Interet 1</span></dt>
+                <dd>
+                    <span>{{achatFacture.interet1}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.dateReglement">Date Reglement</span></dt>
+                <dd>
+                    <span>{{achatFacture.dateReglement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.derniereEcheance">Derniere Echeance</span></dt>
+                <dd>
+                    <span>{{achatFacture.derniereEcheance}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.transmise">Transmise</span></dt>
+                <dd>
+                    <span>{{achatFacture.transmise}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.echeanceRefinancement">Echeance Refinancement</span></dt>
+                <dd>
+                    <span>{{achatFacture.echeanceRefinancement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.interet2">Interet 2</span></dt>
+                <dd>
+                    <span>{{achatFacture.interet2}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.interet1Regle">Interet 1 Regle</span></dt>
+                <dd>
+                    <span>{{achatFacture.interet1Regle}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFacture.achatArrivage">Achat Arrivage</span></dt>
+                <dd>
+                    <div *ngIf="achatFacture.achatArrivageId">
+                        <a [routerLink]="['/achat-arrivage', achatFacture.achatArrivageId, 'view']">{{achatFacture.achatArrivageId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-facture', achatFacture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,493 @@
+entity AchatArrivage {
+    idArrivage Integer ,
+    numeroDossierArrivage String ,
+    codeCompagnieMaritime String ,
+    codeOperateur String ,
+    codeTransitaire String ,
+    codeTransporteur String ,
+    dateArrivePort LocalDate,
+    designationCompagnieMaritime String ,
+    designationOperateur String ,
+    designationTransitaire String ,
+    designationTransporteur String ,
+    flagProduit String ,
+    franchise Integer ,
+    montantFob BigDecimal ,
+    montantFret BigDecimal ,
+    montantTotal BigDecimal ,
+    nombreTc Integer ,
+    dateRealisation LocalDate ,
+    poid BigDecimal
+ }
+ entity AchatBanque{
+      idBanque Integer,
+      codeBanque String,
+      designationBanque String
+    }
+ entity AchatDossier{
+	idDossier Integer,
+    numeroDossier String,
+    codeFournisseur String,
+    designationFournisseur String,
+    incoterm String,
+    reference String,
+    tolerance Integer,
+    numeroEi String,
+    numeroEiComp String,
+    dateCreation LocalDate,
+    delaiPaiement Integer,
+    delaiValiditeLc Integer,
+    dateExpedition LocalDate,
+    dateOuverture LocalDate,
+    dateValiditeEi LocalDate,
+    dateLimiteExp LocalDate,
+    dateValiditeLc LocalDate,
+    montnatTotal BigDecimal,
+    montnatFob BigDecimal,
+    montnatFret BigDecimal,
+    totalTc Integer,
+    designationBanque String,
+    paiementAvue Integer,
+    encours BigDecimal
+}
+entity AchatFacture{
+	idFacture Integer,
+     numeroFacture String,
+     dateFacture LocalDate,
+     montantFob BigDecimal,
+     montantFret BigDecimal,
+     montantTotal BigDecimal,
+     nombreTc Integer,
+     poids BigDecimal,
+     quantite BigDecimal,
+     ajustement BigDecimal,
+     numeroPiece String,
+     dateBl LocalDate,
+     numeroBl String,
+     dateEcheance LocalDate,
+     etat Integer,
+     banqueReglement Integer,
+     dateValeur LocalDate,
+     cours BigDecimal,
+     montantDh BigDecimal,
+     echecanceFinancement LocalDate,
+     interet1 BigDecimal,
+     dateReglement LocalDate,
+     derniereEcheance LocalDate,
+     transmise Integer,
+     echeanceRefinancement LocalDate,
+     interet2 BigDecimal,
+     interet1Regle Integer
+}
+entity AchatConteneurArrivage{
+
+	idConteneurArrivage Integer,
+    montant BigDecimal,
+    numeroConteneurs String,
+    numeroSequence Integer,
+    poids BigDecimal,
+    quantite BigDecimal
+}
+entity AchatStatutDossier {
+    idStatutDossier Integer ,
+    libelleStatutDossier String
+}
+entity AchatTypePaiement {
+     idTypePaiement Integer ,
+    libelleTypePaiement String
+
+}
+entity AchatBanque{
+      idBanque Integer,
+      codeBanque String,
+      designationBanque String
+    }
+    entity AchatDevise{
+	idDevise Integer,
+    codeDevise String,
+    libelleDevise String
+}
+entity AchatProforma {
+   idProforma Integer ,
+    nombreTc Integer ,
+    coutFob BigDecimal,
+    coutFret BigDecimal,
+    montantTotal BigDecimal,
+    numeroBonProforma String ,
+    typeAcht String ,
+    poids BigDecimal,
+    dateProforma LocalDate
+
+
+}
+entity StockArticleConteneurReception {
+   idArticleConteneurReception Integer ,
+    dimension BigDecimal ,
+    nombreCaissestc Integer ,
+    nombreFeuillecaisse Integer ,
+    isNonConfrome Integer
+}
+entity AchatLigneProforma{
+	idLigneProforma Integer,
+     nombreConteneurs Integer,
+     montant BigDecimal,
+     numeroSequence Integer,
+     poids BigDecimal
+}
+entity AchatArticleConteneurArrivage {
+	 idArticleConteneurArrivage Integer ,
+    dimension BigDecimal,
+    montant BigDecimal,
+    nombreCaissestc Integer ,
+    nombreFeuillecaisse Integer ,
+    prixUnitaire BigDecimal,
+    quantite BigDecimal,
+    poids BigDecimal
+	   }
+       entity Produit {
+  idProduit Integer ,
+    designationProduit String ,
+    dimension String ,
+    epaisseur String ,
+    largeure BigDecimal,
+    longueur BigDecimal,
+    referenceProduit String ,
+    poids BigDecimal,
+    libelleCouleur String ,
+    libelleFamille String ,
+    libelleOrigine String
+
+}
+entity StockConteneurReception {
+        idOperation Integer ,
+    dateReception LocalDate,
+    numeroOperation String ,
+    numeroBonEntree String ,
+    numeroConstatNonConformite String ,
+
+    isValide Integer
+      }
+      entity Couleur {
+   idCouleur Integer ,
+    codeHtml String
+}
+entity FamilleProduit
+{
+    idFamille Integer,
+    designationFamille String
+}
+entity Recuperation {
+   idOperation Integer ,
+    dateOperation Instant,
+    nombrePanneaux Integer ,
+    numeroOperation String ,
+    superficie BigDecimal
+}
+ entity Retour {
+ idOperation Integer ,
+    dateOperation Instant,
+    nombrePlateaux Integer ,
+    numeroOperation String ,
+    superfecie BigDecimal
+}
+entity Utilisateur {
+ idUtilisateur Integer ,
+    loginUtilisateur String ,
+    matriculeUtilisateur String ,
+    nomUtilsateur String ,
+    passwordUtilisateur String ,
+    prenomUtilsateur String
+
+}
+entity Depot {
+    idDepot Integer ,
+    referenceDepot String ,
+    utilisateurDepots String
+}
+entity Casse {
+     idOperation Integer ,
+    dateOperation Instant ,
+    description String ,
+    nombrePlateaux Integer ,
+    numeroOperation String ,
+    superfcie BigDecimal
+
+}
+entity Reception {
+   idOperation Integer ,
+    dateReception Instant,
+    nombrePlateaux Integer ,
+    numeroOperation String
+}
+
+
+entity Sortie {
+  idOperation Integer ,
+    dateOperation Instant,
+    nombrePlateaux Integer ,
+    numeroOperation String
+}
+entity StockReception {
+    idOperation Integer ,
+    dateReception LocalDate,
+    numeroOperation String ,
+    numeroBonEntree String ,
+    numeroConstatNonConformite String ,
+
+    isValide Integer
+}
+entity Transfert {
+    idOperation Integer ,
+    dateOperation Instant,
+    nombrePlateaux Integer ,
+    numeroOperation String
+}
+entity UtilisateurDepot {
+
+}
+entity Caisse {
+    idCaisse Integer ,
+    nombrePlateaux Integer ,
+    numeroConteneur String ,
+    referenceCaisse String
+
+}
+entity Bon{
+   idBon Integer ,
+    idTypeBon Integer ,
+    numeroBon String
+
+}
+entity Camion {
+    idCamion Integer ,
+    numeroCamion String
+
+}
+entity Conteneur {
+   numeroConteneur String
+
+}
+entity UtilisateurProfil {
+
+}
+entity	  AchatArticleLigneProforma {
+       idArticleLigneProforma Integer,
+       numeroSequence Integer,
+       nombreCaissesTc Integer,
+       nombreFeuillesCaisse Integer,
+       dimention BigDecimal,
+       quantite BigDecimal,
+       prixUnitaire BigDecimal,
+       montant BigDecimal,
+       poids BigDecimal
+   }
+   entity AchatArticleConteneurReception {
+       idArticleConteneurReception Integer,
+       dimension BigDecimal,
+       nombreCaissestc Integer ,
+       nombreFeuillecaisse Integer
+	   }
+  entity JourFerier {
+     annee Integer ,
+     debut LocalDate,
+     fin LocalDate
+}
+entity Menu {
+ codeMenu String ,
+    cmampsMenu String ,
+    libelleMenu String ,
+    ordre Integer ,
+    domaine String
+
+}
+entity Action {
+  codeAction String ,
+  libelleAction String
+}
+entity ProfilAction {
+
+}
+entity Profil {
+   codeProfil String ,
+   descriptionProfil String
+
+}
+entity AchatConteneurReception{
+idConteneurReception Integer,
+    numeroConteneur String,
+    numeroSequence Integer
+}
+entity AchatFournisseur{
+	typeFournisseur String,
+     codeFournisseur String,
+     designationFournisseur String
+}
+
+entity Authority {
+     name String
+}
+entity ProfilActionPK {
+
+}
+entity UtilisateurDepotPK {
+
+}
+entity UtilisateurProfilPK {
+
+}
+entity TypeBon {
+     idTypeBon Integer ,
+     libelleTypeBon String
+}
+
+entity Ville {
+     idVille Integer ,
+     libelleVille String
+
+}
+
+
+entity Origine {
+   idOrigine Integer ,
+    designationOrigine String
+}
+
+
+
+
+// an ignored comment
+/** not an ignored comment */
+
+
+
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+
+/**
+ * The Employee entity.
+ */
+
+
+entity AchatPrevisionArrivage{
+ idPrevisionArrivage Integer,
+     produit String,
+     desigantionCopagnieMaritme String,
+     pol String,
+     numeroBl String,
+     nombreTc Integer,
+     etd LocalDate,
+     eta LocalDate,
+     documents String,
+     douane String,
+     active Integer
+
+}
+
+
+
+
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+
+    AchatArrivage{achatFacture} to AchatFacture,
+    AchatFacture{achatConteneurArrivage} to AchatConteneurArrivage,
+    AchatStatutDossier{achatDossier} to AchatDossier,
+    AchatBanque{achatDossier} to AchatDossier,
+    AchatProforma{achatLigneProforma} to AchatLigneProforma,
+   StockConteneurReception{stockArticleConteneurReception} to StockArticleConteneurReception,
+    Produit{recuperation} to Recuperation,
+    Produit{retour} to Retour,
+     Produit{achatArticleLigneProforma} to AchatArticleLigneProforma,
+    Utilisateur{casse} to Casse,
+    Utilisateur{reception} to Reception
+    Utilisateur{sortie} to Sortie,
+    Utilisateur{retour} to Retour,
+    Utilisateur{recuperation} to Recuperation,
+    Utilisateur{utilisateurProfil} to  UtilisateurProfil,
+    Utilisateur{utilisateurDepot} to UtilisateurDepot,
+    Utilisateur{transfert} to Transfert,
+    Utilisateur{stockReception} to StockReception
+    Bon{retour} to Retour,
+    Menu{action} to Action,
+    Menu{menu} to Menu,
+    Action{profilAction} to ProfilAction,
+    Profil{utilisateurProfil} to UtilisateurProfil,
+    Profil{profilAction} to  ProfilAction,
+    Ville{depot} to Depot
+
+
+
+}
+
+relationship ManyToOne {
+    AchatArrivage{achatDossier} to AchatDossier,
+    AchatDossier{typePaiement} to AchatTypePaiement,
+    AchatDossier to AchatDevise,
+    AchatProforma{achatDossier} to AchatDossier,
+    AchatPrevisionArrivage to AchatDossier,
+    AchatArticleConteneurArrivage to AchatConteneurArrivage,
+    AchatArticleConteneurArrivage to Produit,
+    Produit{couleur} to Couleur,
+    Produit{familleProduit} to FamilleProduit,
+    Produit{origine} to Origine,
+
+    Recuperation{depot} to Depot,
+    Casse{caisse} to Caisse,
+    Reception{bon} to Bon,
+    Reception{caisse} to Caisse,
+    Reception{camion} to Camion,
+    Reception{conteneur} to Conteneur,
+    Reception{depot} to Depot,
+    Recuperation{depot} to Depot
+    Sortie{bon} to Bon,
+    Sortie{caisse} to Caisse,
+    Sortie{depot} to Depot,
+    Transfert{bon} to Bon,
+    Transfert{caisse} to Caisse,
+    Transfert{camion} to Camion,
+    Transfert{conteneur} to Conteneur,
+    Transfert{depot} to Depot,
+    AchatArticleLigneProforma{achatLigneProforma} to AchatLigneProforma,
+  AchatArticleConteneurReception{achatConteneurReception} to AchatConteneurReception,
+ AchatArticleConteneurReception{produit} to  Produit,
+ ProfilActionPK{action} to Action,
+ ProfilActionPK{profil} to Profil,
+ UtilisateurDepotPK{utilisateur} to Utilisateur,
+ UtilisateurDepotPK{depot} to Depot,
+ UtilisateurProfilPK{utilisateur} to Utilisateur,
+ UtilisateurProfilPK{profil} to Profil
+
+
+
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+
+
+	AchatConteneurReception{achatConteneurArrivage} to AchatConteneurArrivage
+    StockArticleConteneurReception{achatArticleConteneurArrivage} to AchatArticleConteneurArrivage,
+    AchatConteneurArrivage{stockConteneurReception} to StockConteneurReception,
+    StockConteneurReception{stockReception} to StockReception,
+
+}
+
+// Set pagination options
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

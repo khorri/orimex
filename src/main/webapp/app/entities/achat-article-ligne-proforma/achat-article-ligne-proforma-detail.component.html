@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatArticleLigneProforma">
+            <h2><span jhiTranslate="orimexApp.achatArticleLigneProforma.detail.title">Achat Article Ligne Proforma</span> {{achatArticleLigneProforma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.idArticleLigneProforma">Id Article Ligne Proforma</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.idArticleLigneProforma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.numeroSequence">Numero Sequence</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.numeroSequence}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.nombreCaissesTc">Nombre Caisses Tc</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.nombreCaissesTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.nombreFeuillesCaisse">Nombre Feuilles Caisse</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.nombreFeuillesCaisse}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.dimention">Dimention</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.dimention}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.quantite}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.prixUnitaire">Prix Unitaire</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.prixUnitaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.montant">Montant</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.montant}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.poids">Poids</span></dt>
+                <dd>
+                    <span>{{achatArticleLigneProforma.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleLigneProforma.produitId">
+                        <a [routerLink]="['/produit', achatArticleLigneProforma.produitId, 'view']">{{achatArticleLigneProforma.produitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleLigneProforma.achatLigneProforma">Achat Ligne Proforma</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleLigneProforma.achatLigneProformaId">
+                        <a [routerLink]="['/achat-ligne-proforma', achatArticleLigneProforma.achatLigneProformaId, 'view']">{{achatArticleLigneProforma.achatLigneProformaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-article-ligne-proforma', achatArticleLigneProforma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

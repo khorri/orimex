@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-conteneur-arrivage-heading" jhiTranslate="orimexApp.achatConteneurArrivage.home.createOrEditLabel">Create or edit a Achat Conteneur Arrivage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatConteneurArrivage.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatConteneurArrivage.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.idConteneurArrivage" for="field_idConteneurArrivage">Id Conteneur Arrivage</label>
+                    <input type="number" class="form-control" name="idConteneurArrivage" id="field_idConteneurArrivage"
+                        [(ngModel)]="achatConteneurArrivage.idConteneurArrivage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                        [(ngModel)]="achatConteneurArrivage.montant" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.numeroConteneurs" for="field_numeroConteneurs">Numero Conteneurs</label>
+                    <input type="text" class="form-control" name="numeroConteneurs" id="field_numeroConteneurs"
+                        [(ngModel)]="achatConteneurArrivage.numeroConteneurs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.numeroSequence" for="field_numeroSequence">Numero Sequence</label>
+                    <input type="number" class="form-control" name="numeroSequence" id="field_numeroSequence"
+                        [(ngModel)]="achatConteneurArrivage.numeroSequence" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="achatConteneurArrivage.poids" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.quantite" for="field_quantite">Quantite</label>
+                    <input type="number" class="form-control" name="quantite" id="field_quantite"
+                        [(ngModel)]="achatConteneurArrivage.quantite" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.achatFacture" for="field_achatFacture">Achat Facture</label>
+                    <select class="form-control" id="field_achatFacture" name="achatFacture" [(ngModel)]="achatConteneurArrivage.achatFactureId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatFactureOption.id" *ngFor="let achatFactureOption of achatfactures; trackBy: trackAchatFactureById">{{achatFactureOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurArrivage.stockConteneurReception" for="field_stockConteneurReception">Stock Conteneur Reception</label>
+                    <select class="form-control" id="field_stockConteneurReception" name="stockConteneurReception" [(ngModel)]="achatConteneurArrivage.stockConteneurReceptionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockConteneurReceptionOption.id" *ngFor="let stockConteneurReceptionOption of stockconteneurreceptions; trackBy: trackStockConteneurReceptionById">{{stockConteneurReceptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

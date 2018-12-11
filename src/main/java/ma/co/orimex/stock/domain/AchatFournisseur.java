@@ -1,72 +1,115 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 05/12/2018 11:46:34
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatFournisseur.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+ * A AchatFournisseur.
+ */
 @Entity
-@Table(name="ACHAT_FOURNISSEUR")
-public class AchatFournisseur
-    implements Serializable
-{
+@Table(name = "achat_fournisseur")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatfournisseur")
+public class AchatFournisseur implements Serializable {
 
-    public AchatFournisseur()
-    {
-    }
+    private static final long serialVersionUID = 1L;
 
-    public int getId()
-    {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "type_fournisseur")
+    private String typeFournisseur;
+
+    @Column(name = "code_fournisseur")
+    private String codeFournisseur;
+
+    @Column(name = "designation_fournisseur")
+    private String designationFournisseur;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTypeFournisseur()
-    {
+    public String getTypeFournisseur() {
         return typeFournisseur;
     }
 
-    public void setTypeFournisseur(String typeFournisseur)
-    {
+    public AchatFournisseur typeFournisseur(String typeFournisseur) {
+        this.typeFournisseur = typeFournisseur;
+        return this;
+    }
+
+    public void setTypeFournisseur(String typeFournisseur) {
         this.typeFournisseur = typeFournisseur;
     }
 
-    public String getCodeFournisseur()
-    {
+    public String getCodeFournisseur() {
         return codeFournisseur;
     }
 
-    public void setCodeFournisseur(String codeFournisseur)
-    {
+    public AchatFournisseur codeFournisseur(String codeFournisseur) {
+        this.codeFournisseur = codeFournisseur;
+        return this;
+    }
+
+    public void setCodeFournisseur(String codeFournisseur) {
         this.codeFournisseur = codeFournisseur;
     }
 
-    public String getDesignationFournisseur()
-    {
+    public String getDesignationFournisseur() {
         return designationFournisseur;
     }
 
-    public void setDesignationFournisseur(String designationFournisseur)
-    {
+    public AchatFournisseur designationFournisseur(String designationFournisseur) {
         this.designationFournisseur = designationFournisseur;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID")
-    @GeneratedValue
-    private int id;
-    @Column(name="TYPE_FOURNISSEUR")
-    private String typeFournisseur;
-    @Column(name="CODE_FOURNISSEUR")
-    private String codeFournisseur;
-    @Column(name="DESIGNATION_FOURNISSEUR")
-    private String designationFournisseur;
+    public void setDesignationFournisseur(String designationFournisseur) {
+        this.designationFournisseur = designationFournisseur;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatFournisseur achatFournisseur = (AchatFournisseur) o;
+        if (achatFournisseur.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatFournisseur.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "AchatFournisseur{" +
+            "id=" + getId() +
+            ", typeFournisseur='" + getTypeFournisseur() + "'" +
+            ", codeFournisseur='" + getCodeFournisseur() + "'" +
+            ", designationFournisseur='" + getDesignationFournisseur() + "'" +
+            "}";
+    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AchatLigneProforma.
+    -->
+    <changeSet id="20181207203315-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="achat_proforma_id"
+                                 baseTableName="achat_ligne_proforma"
+                                 constraintName="fk_achat_ligne_proforma_achat_proforma_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_proforma"/>
+
+    </changeSet>
+</databaseChangeLog>

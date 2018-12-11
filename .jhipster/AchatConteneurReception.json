@@ -1,0 +1,36 @@
+{
+    "name": "AchatConteneurReception",
+    "fields": [
+        {
+            "fieldName": "idConteneurReception",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroConteneur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroSequence",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "achatConteneurArrivage",
+            "otherEntityName": "achatConteneurArrivage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "achatConteneurReception"
+        }
+    ],
+    "changelogDate": "20181207203310",
+    "entityTableName": "achat_conteneur_reception",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

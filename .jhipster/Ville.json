@@ -1,0 +1,30 @@
+{
+    "name": "Ville",
+    "fields": [
+        {
+            "fieldName": "idVille",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleVille",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "depot",
+            "otherEntityName": "depot",
+            "otherEntityRelationshipName": "ville"
+        }
+    ],
+    "changelogDate": "20181207203352",
+    "entityTableName": "ville",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

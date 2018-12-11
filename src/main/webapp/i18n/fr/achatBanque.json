@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "achatBanque": {
+            "home": {
+                "title": "AchatBanques",
+                "createLabel": "Créer un nouveau Achat Banque",
+                "createOrEditLabel": "Créer ou éditer un Achat Banque",
+                "search": "Recherche pour Achat Banque"
+            },
+            "created": "Un nouveau Achat Banque a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Banque avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Banque avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Banque {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Banque"
+            },
+            "idBanque": "Id Banque",
+            "codeBanque": "Code Banque",
+            "designationBanque": "Designation Banque",
+            "achatDossier": "Achat Dossier"
+        }
+    }
+}

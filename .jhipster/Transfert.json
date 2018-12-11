@@ -1,0 +1,68 @@
+{
+    "name": "Transfert",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "nombrePlateaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bon",
+            "otherEntityName": "bon",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "caisse",
+            "otherEntityName": "caisse",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "camion",
+            "otherEntityName": "camion",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "conteneur",
+            "otherEntityName": "conteneur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "depot",
+            "otherEntityName": "depot",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203345",
+    "entityTableName": "transfert",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

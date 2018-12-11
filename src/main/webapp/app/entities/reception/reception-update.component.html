@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reception-heading" jhiTranslate="orimexApp.reception.home.createOrEditLabel">Create or edit a Reception</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reception.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reception.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.idOperation" for="field_idOperation">Id Operation</label>
+                    <input type="number" class="form-control" name="idOperation" id="field_idOperation"
+                        [(ngModel)]="reception.idOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.dateReception" for="field_dateReception">Date Reception</label>
+                    <div class="d-flex">
+                        <input id="field_dateReception" type="datetime-local" class="form-control" name="dateReception" [(ngModel)]="dateReception"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.nombrePlateaux" for="field_nombrePlateaux">Nombre Plateaux</label>
+                    <input type="number" class="form-control" name="nombrePlateaux" id="field_nombrePlateaux"
+                        [(ngModel)]="reception.nombrePlateaux" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.numeroOperation" for="field_numeroOperation">Numero Operation</label>
+                    <input type="text" class="form-control" name="numeroOperation" id="field_numeroOperation"
+                        [(ngModel)]="reception.numeroOperation" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.utilisateur" for="field_utilisateur">Utilisateur</label>
+                    <select class="form-control" id="field_utilisateur" name="utilisateur" [(ngModel)]="reception.utilisateurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="utilisateurOption.id" *ngFor="let utilisateurOption of utilisateurs; trackBy: trackUtilisateurById">{{utilisateurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.bon" for="field_bon">Bon</label>
+                    <select class="form-control" id="field_bon" name="bon" [(ngModel)]="reception.bonId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bonOption.id" *ngFor="let bonOption of bons; trackBy: trackBonById">{{bonOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.caisse" for="field_caisse">Caisse</label>
+                    <select class="form-control" id="field_caisse" name="caisse" [(ngModel)]="reception.caisseId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="caisseOption.id" *ngFor="let caisseOption of caisses; trackBy: trackCaisseById">{{caisseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.camion" for="field_camion">Camion</label>
+                    <select class="form-control" id="field_camion" name="camion" [(ngModel)]="reception.camionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="camionOption.id" *ngFor="let camionOption of camions; trackBy: trackCamionById">{{camionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.conteneur" for="field_conteneur">Conteneur</label>
+                    <select class="form-control" id="field_conteneur" name="conteneur" [(ngModel)]="reception.conteneurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conteneurOption.id" *ngFor="let conteneurOption of conteneurs; trackBy: trackConteneurById">{{conteneurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.reception.depot" for="field_depot">Depot</label>
+                    <select class="form-control" id="field_depot" name="depot" [(ngModel)]="reception.depotId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="depotOption.id" *ngFor="let depotOption of depots; trackBy: trackDepotById">{{depotOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

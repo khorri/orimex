@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caisse">
+            <h2><span jhiTranslate="orimexApp.caisse.detail.title">Caisse</span> {{caisse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.caisse.idCaisse">Id Caisse</span></dt>
+                <dd>
+                    <span>{{caisse.idCaisse}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.caisse.nombrePlateaux">Nombre Plateaux</span></dt>
+                <dd>
+                    <span>{{caisse.nombrePlateaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.caisse.numeroConteneur">Numero Conteneur</span></dt>
+                <dd>
+                    <span>{{caisse.numeroConteneur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.caisse.referenceCaisse">Reference Caisse</span></dt>
+                <dd>
+                    <span>{{caisse.referenceCaisse}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/caisse', caisse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

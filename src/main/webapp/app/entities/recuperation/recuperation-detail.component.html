@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recuperation">
+            <h2><span jhiTranslate="orimexApp.recuperation.detail.title">Recuperation</span> {{recuperation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.recuperation.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{recuperation.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{recuperation.dateOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.nombrePanneaux">Nombre Panneaux</span></dt>
+                <dd>
+                    <span>{{recuperation.nombrePanneaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{recuperation.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.superficie">Superficie</span></dt>
+                <dd>
+                    <span>{{recuperation.superficie}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="recuperation.produitId">
+                        <a [routerLink]="['/produit', recuperation.produitId, 'view']">{{recuperation.produitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.depot">Depot</span></dt>
+                <dd>
+                    <div *ngIf="recuperation.depotId">
+                        <a [routerLink]="['/depot', recuperation.depotId, 'view']">{{recuperation.depotId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.recuperation.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="recuperation.utilisateurId">
+                        <a [routerLink]="['/utilisateur', recuperation.utilisateurId, 'view']">{{recuperation.utilisateurId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recuperation', recuperation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

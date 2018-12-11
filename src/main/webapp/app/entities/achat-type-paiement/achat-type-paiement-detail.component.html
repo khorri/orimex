@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatTypePaiement">
+            <h2><span jhiTranslate="orimexApp.achatTypePaiement.detail.title">Achat Type Paiement</span> {{achatTypePaiement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatTypePaiement.idTypePaiement">Id Type Paiement</span></dt>
+                <dd>
+                    <span>{{achatTypePaiement.idTypePaiement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatTypePaiement.libelleTypePaiement">Libelle Type Paiement</span></dt>
+                <dd>
+                    <span>{{achatTypePaiement.libelleTypePaiement}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-type-paiement', achatTypePaiement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

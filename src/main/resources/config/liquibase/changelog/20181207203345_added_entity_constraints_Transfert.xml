@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Transfert.
+    -->
+    <changeSet id="20181207203345-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_utilisateur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="utilisateur"/>
+
+        <addForeignKeyConstraint baseColumnNames="bon_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_bon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bon"/>
+
+        <addForeignKeyConstraint baseColumnNames="caisse_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_caisse_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="caisse"/>
+
+        <addForeignKeyConstraint baseColumnNames="camion_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_camion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="camion"/>
+
+        <addForeignKeyConstraint baseColumnNames="conteneur_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_conteneur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conteneur"/>
+
+        <addForeignKeyConstraint baseColumnNames="depot_id"
+                                 baseTableName="transfert"
+                                 constraintName="fk_transfert_depot_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="depot"/>
+
+    </changeSet>
+</databaseChangeLog>

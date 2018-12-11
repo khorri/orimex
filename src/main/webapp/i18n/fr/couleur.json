@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "couleur": {
+            "home": {
+                "title": "Couleurs",
+                "createLabel": "Créer un nouveau Couleur",
+                "createOrEditLabel": "Créer ou éditer un Couleur",
+                "search": "Recherche pour Couleur"
+            },
+            "created": "Un nouveau Couleur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Couleur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Couleur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Couleur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Couleur"
+            },
+            "idCouleur": "Id Couleur",
+            "codeHtml": "Code Html"
+        }
+    }
+}

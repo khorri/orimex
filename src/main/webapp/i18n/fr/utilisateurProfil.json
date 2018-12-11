@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "utilisateurProfil": {
+            "home": {
+                "title": "UtilisateurProfils",
+                "createLabel": "Créer un nouveau Utilisateur Profil",
+                "createOrEditLabel": "Créer ou éditer un Utilisateur Profil",
+                "search": "Recherche pour Utilisateur Profil"
+            },
+            "created": "Un nouveau Utilisateur Profil a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Utilisateur Profil avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Utilisateur Profil avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Utilisateur Profil {{ id }} ?"
+            },
+            "detail": {
+                "title": "Utilisateur Profil"
+            },
+            "utilisateur": "Utilisateur",
+            "profil": "Profil"
+        }
+    }
+}

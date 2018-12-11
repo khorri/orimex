@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "action": {
+            "home": {
+                "title": "Actions",
+                "createLabel": "Créer un nouveau Action",
+                "createOrEditLabel": "Créer ou éditer un Action",
+                "search": "Recherche pour Action"
+            },
+            "created": "Un nouveau Action a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Action avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Action avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Action {{ id }} ?"
+            },
+            "detail": {
+                "title": "Action"
+            },
+            "codeAction": "Code Action",
+            "libelleAction": "Libelle Action",
+            "menu": "Menu",
+            "profilAction": "Profil Action"
+        }
+    }
+}

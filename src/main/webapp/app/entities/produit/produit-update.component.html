@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-produit-heading" jhiTranslate="orimexApp.produit.home.createOrEditLabel">Create or edit a Produit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!produit.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="produit.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.idProduit" for="field_idProduit">Id Produit</label>
+                    <input type="number" class="form-control" name="idProduit" id="field_idProduit"
+                        [(ngModel)]="produit.idProduit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.designationProduit" for="field_designationProduit">Designation Produit</label>
+                    <input type="text" class="form-control" name="designationProduit" id="field_designationProduit"
+                        [(ngModel)]="produit.designationProduit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.dimension" for="field_dimension">Dimension</label>
+                    <input type="text" class="form-control" name="dimension" id="field_dimension"
+                        [(ngModel)]="produit.dimension" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.epaisseur" for="field_epaisseur">Epaisseur</label>
+                    <input type="text" class="form-control" name="epaisseur" id="field_epaisseur"
+                        [(ngModel)]="produit.epaisseur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.largeure" for="field_largeure">Largeure</label>
+                    <input type="number" class="form-control" name="largeure" id="field_largeure"
+                        [(ngModel)]="produit.largeure" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.longueur" for="field_longueur">Longueur</label>
+                    <input type="number" class="form-control" name="longueur" id="field_longueur"
+                        [(ngModel)]="produit.longueur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.referenceProduit" for="field_referenceProduit">Reference Produit</label>
+                    <input type="text" class="form-control" name="referenceProduit" id="field_referenceProduit"
+                        [(ngModel)]="produit.referenceProduit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="produit.poids" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.libelleCouleur" for="field_libelleCouleur">Libelle Couleur</label>
+                    <input type="text" class="form-control" name="libelleCouleur" id="field_libelleCouleur"
+                        [(ngModel)]="produit.libelleCouleur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.libelleFamille" for="field_libelleFamille">Libelle Famille</label>
+                    <input type="text" class="form-control" name="libelleFamille" id="field_libelleFamille"
+                        [(ngModel)]="produit.libelleFamille" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.libelleOrigine" for="field_libelleOrigine">Libelle Origine</label>
+                    <input type="text" class="form-control" name="libelleOrigine" id="field_libelleOrigine"
+                        [(ngModel)]="produit.libelleOrigine" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.couleur" for="field_couleur">Couleur</label>
+                    <select class="form-control" id="field_couleur" name="couleur" [(ngModel)]="produit.couleurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="couleurOption.id" *ngFor="let couleurOption of couleurs; trackBy: trackCouleurById">{{couleurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.familleProduit" for="field_familleProduit">Famille Produit</label>
+                    <select class="form-control" id="field_familleProduit" name="familleProduit" [(ngModel)]="produit.familleProduitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="familleProduitOption.id" *ngFor="let familleProduitOption of familleproduits; trackBy: trackFamilleProduitById">{{familleProduitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.produit.origine" for="field_origine">Origine</label>
+                    <select class="form-control" id="field_origine" name="origine" [(ngModel)]="produit.origineId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="origineOption.id" *ngFor="let origineOption of origines; trackBy: trackOrigineById">{{origineOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

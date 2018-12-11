@@ -1,61 +1,129 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:20:19
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatStatutDossier.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="ACHAT_STATUT_DOSSIER")
-public class AchatStatutDossier
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
-    public AchatStatutDossier()
-    {
+/**
+ * A AchatStatutDossier.
+ */
+@Entity
+@Table(name = "achat_statut_dossier")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatstatutdossier")
+public class AchatStatutDossier implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_statut_dossier")
+    private Integer idStatutDossier;
+
+    @Column(name = "libelle_statut_dossier")
+    private String libelleStatutDossier;
+
+    @OneToMany(mappedBy = "achatStatutDossier")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<AchatDossier> achatDossiers = new HashSet<>();
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdStatutDossier()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdStatutDossier() {
         return idStatutDossier;
     }
 
-    public void setIdStatutDossier(int idStatutDossier)
-    {
+    public AchatStatutDossier idStatutDossier(Integer idStatutDossier) {
+        this.idStatutDossier = idStatutDossier;
+        return this;
+    }
+
+    public void setIdStatutDossier(Integer idStatutDossier) {
         this.idStatutDossier = idStatutDossier;
     }
 
-    public String getLibelleStatutDossier()
-    {
+    public String getLibelleStatutDossier() {
         return libelleStatutDossier;
     }
 
-    public void setLibelleStatutDossier(String libelleStatutDossier)
-    {
+    public AchatStatutDossier libelleStatutDossier(String libelleStatutDossier) {
+        this.libelleStatutDossier = libelleStatutDossier;
+        return this;
+    }
+
+    public void setLibelleStatutDossier(String libelleStatutDossier) {
         this.libelleStatutDossier = libelleStatutDossier;
     }
 
-    public Set getAchatDossiers()
-    {
+    public Set<AchatDossier> getAchatDossiers() {
         return achatDossiers;
     }
 
-    public void setAchatDossiers(Set achatDossiers)
-    {
+    public AchatStatutDossier achatDossiers(Set<AchatDossier> achatDossiers) {
         this.achatDossiers = achatDossiers;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_STATUT_DOSSIER")
-    @GeneratedValue
-    private int idStatutDossier;
-    @Column(name="LIBELLE_STATUT_DOSSIER")
-    private String libelleStatutDossier;
-    @OneToMany(mappedBy="statut")
-    private Set achatDossiers;
+    public AchatStatutDossier addAchatDossier(AchatDossier achatDossier) {
+        this.achatDossiers.add(achatDossier);
+        achatDossier.setAchatStatutDossier(this);
+        return this;
+    }
+
+    public AchatStatutDossier removeAchatDossier(AchatDossier achatDossier) {
+        this.achatDossiers.remove(achatDossier);
+        achatDossier.setAchatStatutDossier(null);
+        return this;
+    }
+
+    public void setAchatDossiers(Set<AchatDossier> achatDossiers) {
+        this.achatDossiers = achatDossiers;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatStatutDossier achatStatutDossier = (AchatStatutDossier) o;
+        if (achatStatutDossier.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatStatutDossier.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "AchatStatutDossier{" +
+            "id=" + getId() +
+            ", idStatutDossier=" + getIdStatutDossier() +
+            ", libelleStatutDossier='" + getLibelleStatutDossier() + "'" +
+            "}";
+    }
 }

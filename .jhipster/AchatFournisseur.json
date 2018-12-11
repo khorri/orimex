@@ -1,0 +1,27 @@
+{
+    "name": "AchatFournisseur",
+    "fields": [
+        {
+            "fieldName": "typeFournisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeFournisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationFournisseur",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203314",
+    "entityTableName": "achat_fournisseur",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

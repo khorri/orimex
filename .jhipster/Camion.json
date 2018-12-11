@@ -1,0 +1,23 @@
+{
+    "name": "Camion",
+    "fields": [
+        {
+            "fieldName": "idCamion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroCamion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203325",
+    "entityTableName": "camion",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

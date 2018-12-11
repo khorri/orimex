@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.reception.home.title">Receptions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reception" [routerLink]="['/reception/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.reception.home.createLabel">
+            Create new Reception
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.reception.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="receptions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idOperation"><span jhiTranslate="orimexApp.reception.idOperation">Id Operation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateReception"><span jhiTranslate="orimexApp.reception.dateReception">Date Reception</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombrePlateaux"><span jhiTranslate="orimexApp.reception.nombrePlateaux">Nombre Plateaux</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroOperation"><span jhiTranslate="orimexApp.reception.numeroOperation">Numero Operation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="utilisateurId"><span jhiTranslate="orimexApp.reception.utilisateur">Utilisateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bonId"><span jhiTranslate="orimexApp.reception.bon">Bon</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="caisseId"><span jhiTranslate="orimexApp.reception.caisse">Caisse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="camionId"><span jhiTranslate="orimexApp.reception.camion">Camion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conteneurId"><span jhiTranslate="orimexApp.reception.conteneur">Conteneur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="depotId"><span jhiTranslate="orimexApp.reception.depot">Depot</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let reception of receptions ;trackBy: trackId">
+                <td><a [routerLink]="['/reception', reception.id, 'view' ]">{{reception.id}}</a></td>
+                <td>{{reception.idOperation}}</td>
+                <td>{{reception.dateReception | date:'medium'}}</td>
+                <td>{{reception.nombrePlateaux}}</td>
+                <td>{{reception.numeroOperation}}</td>
+                <td>
+                    <div *ngIf="reception.utilisateurId">
+                        <a [routerLink]="['../utilisateur', reception.utilisateurId , 'view' ]" >{{reception.utilisateurId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reception.bonId">
+                        <a [routerLink]="['../bon', reception.bonId , 'view' ]" >{{reception.bonId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reception.caisseId">
+                        <a [routerLink]="['../caisse', reception.caisseId , 'view' ]" >{{reception.caisseId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reception.camionId">
+                        <a [routerLink]="['../camion', reception.camionId , 'view' ]" >{{reception.camionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reception.conteneurId">
+                        <a [routerLink]="['../conteneur', reception.conteneurId , 'view' ]" >{{reception.conteneurId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="reception.depotId">
+                        <a [routerLink]="['../depot', reception.depotId , 'view' ]" >{{reception.depotId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/reception', reception.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/reception', reception.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'reception/'+ reception.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="receptions && receptions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

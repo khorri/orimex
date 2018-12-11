@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-stock-article-conteneur-reception-heading" jhiTranslate="orimexApp.stockArticleConteneurReception.home.createOrEditLabel">Create or edit a Stock Article Conteneur Reception</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!stockArticleConteneurReception.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="stockArticleConteneurReception.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.idArticleConteneurReception" for="field_idArticleConteneurReception">Id Article Conteneur Reception</label>
+                    <input type="number" class="form-control" name="idArticleConteneurReception" id="field_idArticleConteneurReception"
+                        [(ngModel)]="stockArticleConteneurReception.idArticleConteneurReception" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.dimension" for="field_dimension">Dimension</label>
+                    <input type="number" class="form-control" name="dimension" id="field_dimension"
+                        [(ngModel)]="stockArticleConteneurReception.dimension" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.nombreCaissestc" for="field_nombreCaissestc">Nombre Caissestc</label>
+                    <input type="number" class="form-control" name="nombreCaissestc" id="field_nombreCaissestc"
+                        [(ngModel)]="stockArticleConteneurReception.nombreCaissestc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.nombreFeuillecaisse" for="field_nombreFeuillecaisse">Nombre Feuillecaisse</label>
+                    <input type="number" class="form-control" name="nombreFeuillecaisse" id="field_nombreFeuillecaisse"
+                        [(ngModel)]="stockArticleConteneurReception.nombreFeuillecaisse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.isNonConfrome" for="field_isNonConfrome">Is Non Confrome</label>
+                    <input type="number" class="form-control" name="isNonConfrome" id="field_isNonConfrome"
+                        [(ngModel)]="stockArticleConteneurReception.isNonConfrome" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.achatArticleConteneurArrivage" for="field_achatArticleConteneurArrivage">Achat Article Conteneur Arrivage</label>
+                    <select class="form-control" id="field_achatArticleConteneurArrivage" name="achatArticleConteneurArrivage" [(ngModel)]="stockArticleConteneurReception.achatArticleConteneurArrivageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatArticleConteneurArrivageOption.id" *ngFor="let achatArticleConteneurArrivageOption of achatarticleconteneurarrivages; trackBy: trackAchatArticleConteneurArrivageById">{{achatArticleConteneurArrivageOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockArticleConteneurReception.stockConteneurReception" for="field_stockConteneurReception">Stock Conteneur Reception</label>
+                    <select class="form-control" id="field_stockConteneurReception" name="stockConteneurReception" [(ngModel)]="stockArticleConteneurReception.stockConteneurReceptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockConteneurReceptionOption.id" *ngFor="let stockConteneurReceptionOption of stockconteneurreceptions; trackBy: trackStockConteneurReceptionById">{{stockConteneurReceptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

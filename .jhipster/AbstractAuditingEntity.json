@@ -1,0 +1,29 @@
+{
+  "fluentMethods": true,
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "serialVersionUid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate"
+    }
+  ],
+  "changelogDate": "20181207203302",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "abstract_auditing_entity"
+}

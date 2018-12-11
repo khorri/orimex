@@ -1,0 +1,30 @@
+{
+    "orimexApp": {
+        "achatConteneurArrivage": {
+            "home": {
+                "title": "AchatConteneurArrivages",
+                "createLabel": "Créer un nouveau Achat Conteneur Arrivage",
+                "createOrEditLabel": "Créer ou éditer un Achat Conteneur Arrivage",
+                "search": "Recherche pour Achat Conteneur Arrivage"
+            },
+            "created": "Un nouveau Achat Conteneur Arrivage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Conteneur Arrivage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Conteneur Arrivage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Conteneur Arrivage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Conteneur Arrivage"
+            },
+            "idConteneurArrivage": "Id Conteneur Arrivage",
+            "montant": "Montant",
+            "numeroConteneurs": "Numero Conteneurs",
+            "numeroSequence": "Numero Sequence",
+            "poids": "Poids",
+            "quantite": "Quantite",
+            "achatFacture": "Achat Facture",
+            "stockConteneurReception": "Stock Conteneur Reception",
+            "achatArticleConteneurArrivage": "Achat Article Conteneur Arrivage"
+        }
+    }
+}

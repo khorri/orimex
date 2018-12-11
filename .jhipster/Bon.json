@@ -1,0 +1,34 @@
+{
+    "name": "Bon",
+    "fields": [
+        {
+            "fieldName": "idBon",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idTypeBon",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroBon",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "retour",
+            "otherEntityName": "retour",
+            "otherEntityRelationshipName": "bon"
+        }
+    ],
+    "changelogDate": "20181207203323",
+    "entityTableName": "bon",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

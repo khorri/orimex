@@ -1,126 +1,203 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:21:18
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Casse.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            Caisse, Utilisateur
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.Objects;
 
+/**
+ * A Casse.
+ */
 @Entity
-@Table(name="CASSE")
-public class Casse
-    implements Serializable
-{
+@Table(name = "casse")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "casse")
+public class Casse implements Serializable {
 
-    public Casse()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_operation")
+    private Integer idOperation;
+
+    @Column(name = "date_operation")
+    private Instant dateOperation;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "nombre_plateaux")
+    private Integer nombrePlateaux;
+
+    @Column(name = "numero_operation")
+    private String numeroOperation;
+
+    @Column(name = "superfcie", precision = 10, scale = 2)
+    private BigDecimal superfcie;
+
+    @ManyToOne
+    @JsonIgnoreProperties("casses")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Caisse caisse;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdOperation()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdOperation() {
         return idOperation;
     }
 
-    public void setIdOperation(int idOperation)
-    {
+    public Casse idOperation(Integer idOperation) {
+        this.idOperation = idOperation;
+        return this;
+    }
+
+    public void setIdOperation(Integer idOperation) {
         this.idOperation = idOperation;
     }
 
-    public Timestamp getDateOperation()
-    {
+    public Instant getDateOperation() {
         return dateOperation;
     }
 
-    public void setDateOperation(Timestamp dateOperation)
-    {
+    public Casse dateOperation(Instant dateOperation) {
+        this.dateOperation = dateOperation;
+        return this;
+    }
+
+    public void setDateOperation(Instant dateOperation) {
         this.dateOperation = dateOperation;
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    public Casse description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getNombrePlateaux()
-    {
+    public Integer getNombrePlateaux() {
         return nombrePlateaux;
     }
 
-    public void setNombrePlateaux(int nombrePlateaux)
-    {
+    public Casse nombrePlateaux(Integer nombrePlateaux) {
+        this.nombrePlateaux = nombrePlateaux;
+        return this;
+    }
+
+    public void setNombrePlateaux(Integer nombrePlateaux) {
         this.nombrePlateaux = nombrePlateaux;
     }
 
-    public String getNumeroOperation()
-    {
+    public String getNumeroOperation() {
         return numeroOperation;
     }
 
-    public void setNumeroOperation(String numeroOperation)
-    {
+    public Casse numeroOperation(String numeroOperation) {
+        this.numeroOperation = numeroOperation;
+        return this;
+    }
+
+    public void setNumeroOperation(String numeroOperation) {
         this.numeroOperation = numeroOperation;
     }
 
-    public BigDecimal getSuperfcie()
-    {
+    public BigDecimal getSuperfcie() {
         return superfcie;
     }
 
-    public void setSuperfcie(BigDecimal superfcie)
-    {
+    public Casse superfcie(BigDecimal superfcie) {
+        this.superfcie = superfcie;
+        return this;
+    }
+
+    public void setSuperfcie(BigDecimal superfcie) {
         this.superfcie = superfcie;
     }
 
-    public Caisse getCaisse()
-    {
-        return caisse;
-    }
-
-    public void setCaisse(Caisse caisse)
-    {
-        this.caisse = caisse;
-    }
-
-    public Utilisateur getUtilisateur()
-    {
+    public Utilisateur getUtilisateur() {
         return utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur)
-    {
+    public Casse utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_OPERATION")
-    private int idOperation;
-    @Column(name="DATE_OPERATION")
-    private Timestamp dateOperation;
-    @Column(name="DESCRIPTION")
-    private String description;
-    @Column(name="NOMBRE_PLATEAUX")
-    private int nombrePlateaux;
-    @Column(name="NUMERO_OPERATION")
-    private String numeroOperation;
-    @Column(name="SUPERFCIE")
-    private BigDecimal superfcie;
-    @ManyToOne
-    @JoinColumn(name="ID_CAISSE")
-    private Caisse caisse;
-    @ManyToOne
-    @JoinColumn(name="ID_UTILISATEUR")
-    private Utilisateur utilisateur;
+    public Caisse getCaisse() {
+        return caisse;
+    }
+
+    public Casse caisse(Caisse caisse) {
+        this.caisse = caisse;
+        return this;
+    }
+
+    public void setCaisse(Caisse caisse) {
+        this.caisse = caisse;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Casse casse = (Casse) o;
+        if (casse.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), casse.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Casse{" +
+            "id=" + getId() +
+            ", idOperation=" + getIdOperation() +
+            ", dateOperation='" + getDateOperation() + "'" +
+            ", description='" + getDescription() + "'" +
+            ", nombrePlateaux=" + getNombrePlateaux() +
+            ", numeroOperation='" + getNumeroOperation() + "'" +
+            ", superfcie=" + getSuperfcie() +
+            "}";
+    }
 }

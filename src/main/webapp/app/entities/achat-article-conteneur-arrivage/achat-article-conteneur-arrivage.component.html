@@ -30,12 +30,40 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idArticleConteneurArrivage"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.idArticleConteneurArrivage">Id Article Conteneur Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dimension"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.dimension">Dimension</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montant"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.montant">Montant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreCaissestc"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.nombreCaissestc">Nombre Caissestc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreFeuillecaisse"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.nombreFeuillecaisse">Nombre Feuillecaisse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prixUnitaire"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.prixUnitaire">Prix Unitaire</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quantite"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.quantite">Quantite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poids"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.poids">Poids</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatConteneurArrivageId"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.achatConteneurArrivage">Achat Conteneur Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="produitId"><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.produit">Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let achatArticleConteneurArrivage of achatArticleConteneurArrivages ;trackBy: trackId">
                 <td><a [routerLink]="['/achat-article-conteneur-arrivage', achatArticleConteneurArrivage.id, 'view' ]">{{achatArticleConteneurArrivage.id}}</a></td>
+                <td>{{achatArticleConteneurArrivage.idArticleConteneurArrivage}}</td>
+                <td>{{achatArticleConteneurArrivage.dimension}}</td>
+                <td>{{achatArticleConteneurArrivage.montant}}</td>
+                <td>{{achatArticleConteneurArrivage.nombreCaissestc}}</td>
+                <td>{{achatArticleConteneurArrivage.nombreFeuillecaisse}}</td>
+                <td>{{achatArticleConteneurArrivage.prixUnitaire}}</td>
+                <td>{{achatArticleConteneurArrivage.quantite}}</td>
+                <td>{{achatArticleConteneurArrivage.poids}}</td>
+                <td>
+                    <div *ngIf="achatArticleConteneurArrivage.achatConteneurArrivageId">
+                        <a [routerLink]="['../achat-conteneur-arrivage', achatArticleConteneurArrivage.achatConteneurArrivageId , 'view' ]" >{{achatArticleConteneurArrivage.achatConteneurArrivageId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="achatArticleConteneurArrivage.produitId">
+                        <a [routerLink]="['../produit', achatArticleConteneurArrivage.produitId , 'view' ]" >{{achatArticleConteneurArrivage.produitId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

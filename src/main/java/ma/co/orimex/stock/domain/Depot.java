@@ -1,160 +1,133 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:21:44
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Depot.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            Ville
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
+/**
+ * A Depot.
+ */
 @Entity
-@Table(name="DEPOT")
-public class Depot
-    implements Serializable
-{
+@Table(name = "depot")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "depot")
+public class Depot implements Serializable {
 
-    public Depot()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_depot")
+    private Integer idDepot;
+
+    @Column(name = "reference_depot")
+    private String referenceDepot;
+
+    @Column(name = "utilisateur_depots")
+    private String utilisateurDepots;
+
+    @ManyToOne
+    @JsonIgnoreProperties("depots")
+    private Ville ville;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdDepot()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdDepot() {
         return idDepot;
     }
 
-    public void setIdDepot(int idDepot)
-    {
+    public Depot idDepot(Integer idDepot) {
+        this.idDepot = idDepot;
+        return this;
+    }
+
+    public void setIdDepot(Integer idDepot) {
         this.idDepot = idDepot;
     }
 
-    public String getReferenceDepot()
-    {
+    public String getReferenceDepot() {
         return referenceDepot;
     }
 
-    public void setReferenceDepot(String referenceDepot)
-    {
+    public Depot referenceDepot(String referenceDepot) {
+        this.referenceDepot = referenceDepot;
+        return this;
+    }
+
+    public void setReferenceDepot(String referenceDepot) {
         this.referenceDepot = referenceDepot;
     }
 
-    public Ville getVille()
-    {
-        return ville;
-    }
-
-    public void setVille(Ville ville)
-    {
-        this.ville = ville;
-    }
-
-    public Set getReceptions()
-    {
-        return receptions;
-    }
-
-    public void setReceptions(Set receptions)
-    {
-        this.receptions = receptions;
-    }
-
-    public Set getRecuperations()
-    {
-        return recuperations;
-    }
-
-    public void setRecuperations(Set recuperations)
-    {
-        this.recuperations = recuperations;
-    }
-
-    public Set getRetours()
-    {
-        return retours;
-    }
-
-    public void setRetours(Set retours)
-    {
-        this.retours = retours;
-    }
-
-    public Set getTransfertsDestinatiaire()
-    {
-        return transfertsDestinatiaire;
-    }
-
-    public void setTransfertsDestinatiaire(Set transfertsDestinatiaire)
-    {
-        this.transfertsDestinatiaire = transfertsDestinatiaire;
-    }
-
-    public Set getTransfertsExpediteur()
-    {
-        return transfertsExpediteur;
-    }
-
-    public void setTransfertsExpediteur(Set transfertsExpediteur)
-    {
-        this.transfertsExpediteur = transfertsExpediteur;
-    }
-
-    public Set getSorties()
-    {
-        return sorties;
-    }
-
-    public void setSorties(Set sorties)
-    {
-        this.sorties = sorties;
-    }
-
-    public Set getUtilisateurDepots()
-    {
+    public String getUtilisateurDepots() {
         return utilisateurDepots;
     }
 
-    public void setUtilisateurDepots(Set utilisateurDepots)
-    {
+    public Depot utilisateurDepots(String utilisateurDepots) {
+        this.utilisateurDepots = utilisateurDepots;
+        return this;
+    }
+
+    public void setUtilisateurDepots(String utilisateurDepots) {
         this.utilisateurDepots = utilisateurDepots;
     }
 
-    public Set getStockReceptions()
-    {
-        return stockReceptions;
+    public Ville getVille() {
+        return ville;
     }
 
-    public void setStockReceptions(Set stockReceptions)
-    {
-        this.stockReceptions = stockReceptions;
+    public Depot ville(Ville ville) {
+        this.ville = ville;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_DEPOT")
-    private int idDepot;
-    @Column(name="REFERENCE_DEPOT")
-    private String referenceDepot;
-    @ManyToOne
-    @JoinColumn(name="ID_VILLE")
-    private Ville ville;
-    @OneToMany(mappedBy="depot")
-    private Set receptions;
-    @OneToMany(mappedBy="depot")
-    private Set recuperations;
-    @OneToMany(mappedBy="depot")
-    private Set retours;
-    @OneToMany(mappedBy="depot")
-    private Set sorties;
-    @OneToMany(mappedBy="depotDestinataire")
-    private Set transfertsDestinatiaire;
-    @OneToMany(mappedBy="depotExpediteur")
-    private Set transfertsExpediteur;
-    @OneToMany(mappedBy="id.depot")
-    private Set utilisateurDepots;
-    @OneToMany(mappedBy="depot")
-    private Set stockReceptions;
+    public void setVille(Ville ville) {
+        this.ville = ville;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Depot depot = (Depot) o;
+        if (depot.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), depot.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Depot{" +
+            "id=" + getId() +
+            ", idDepot=" + getIdDepot() +
+            ", referenceDepot='" + getReferenceDepot() + "'" +
+            ", utilisateurDepots='" + getUtilisateurDepots() + "'" +
+            "}";
+    }
 }

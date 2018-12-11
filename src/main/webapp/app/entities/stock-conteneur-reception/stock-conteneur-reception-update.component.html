@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-stock-conteneur-reception-heading" jhiTranslate="orimexApp.stockConteneurReception.home.createOrEditLabel">Create or edit a Stock Conteneur Reception</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!stockConteneurReception.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="stockConteneurReception.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.idOperation" for="field_idOperation">Id Operation</label>
+                    <input type="number" class="form-control" name="idOperation" id="field_idOperation"
+                        [(ngModel)]="stockConteneurReception.idOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.dateReception" for="field_dateReception">Date Reception</label>
+                    <div class="input-group">
+                        <input id="field_dateReception" type="text" class="form-control" name="dateReception" ngbDatepicker  #dateReceptionDp="ngbDatepicker" [(ngModel)]="stockConteneurReception.dateReception"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReceptionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.numeroOperation" for="field_numeroOperation">Numero Operation</label>
+                    <input type="text" class="form-control" name="numeroOperation" id="field_numeroOperation"
+                        [(ngModel)]="stockConteneurReception.numeroOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.numeroBonEntree" for="field_numeroBonEntree">Numero Bon Entree</label>
+                    <input type="text" class="form-control" name="numeroBonEntree" id="field_numeroBonEntree"
+                        [(ngModel)]="stockConteneurReception.numeroBonEntree" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.numeroConstatNonConformite" for="field_numeroConstatNonConformite">Numero Constat Non Conformite</label>
+                    <input type="text" class="form-control" name="numeroConstatNonConformite" id="field_numeroConstatNonConformite"
+                        [(ngModel)]="stockConteneurReception.numeroConstatNonConformite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.isValide" for="field_isValide">Is Valide</label>
+                    <input type="number" class="form-control" name="isValide" id="field_isValide"
+                        [(ngModel)]="stockConteneurReception.isValide" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.stockConteneurReception.stockReception" for="field_stockReception">Stock Reception</label>
+                    <select class="form-control" id="field_stockReception" name="stockReception" [(ngModel)]="stockConteneurReception.stockReceptionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stockReceptionOption.id" *ngFor="let stockReceptionOption of stockreceptions; trackBy: trackStockReceptionById">{{stockReceptionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

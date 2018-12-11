@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.achatFacture.home.title">Achat Factures</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-achat-facture" [routerLink]="['/achat-facture/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.achatFacture.home.createLabel">
+            Create new Achat Facture
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.achatFacture.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="achatFactures">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idFacture"><span jhiTranslate="orimexApp.achatFacture.idFacture">Id Facture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroFacture"><span jhiTranslate="orimexApp.achatFacture.numeroFacture">Numero Facture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateFacture"><span jhiTranslate="orimexApp.achatFacture.dateFacture">Date Facture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantFob"><span jhiTranslate="orimexApp.achatFacture.montantFob">Montant Fob</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantFret"><span jhiTranslate="orimexApp.achatFacture.montantFret">Montant Fret</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantTotal"><span jhiTranslate="orimexApp.achatFacture.montantTotal">Montant Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreTc"><span jhiTranslate="orimexApp.achatFacture.nombreTc">Nombre Tc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poids"><span jhiTranslate="orimexApp.achatFacture.poids">Poids</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quantite"><span jhiTranslate="orimexApp.achatFacture.quantite">Quantite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ajustement"><span jhiTranslate="orimexApp.achatFacture.ajustement">Ajustement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroPiece"><span jhiTranslate="orimexApp.achatFacture.numeroPiece">Numero Piece</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateBl"><span jhiTranslate="orimexApp.achatFacture.dateBl">Date Bl</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroBl"><span jhiTranslate="orimexApp.achatFacture.numeroBl">Numero Bl</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateEcheance"><span jhiTranslate="orimexApp.achatFacture.dateEcheance">Date Echeance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="etat"><span jhiTranslate="orimexApp.achatFacture.etat">Etat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="banqueReglement"><span jhiTranslate="orimexApp.achatFacture.banqueReglement">Banque Reglement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateValeur"><span jhiTranslate="orimexApp.achatFacture.dateValeur">Date Valeur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cours"><span jhiTranslate="orimexApp.achatFacture.cours">Cours</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montantDh"><span jhiTranslate="orimexApp.achatFacture.montantDh">Montant Dh</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="echecanceFinancement"><span jhiTranslate="orimexApp.achatFacture.echecanceFinancement">Echecance Financement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interet1"><span jhiTranslate="orimexApp.achatFacture.interet1">Interet 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateReglement"><span jhiTranslate="orimexApp.achatFacture.dateReglement">Date Reglement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="derniereEcheance"><span jhiTranslate="orimexApp.achatFacture.derniereEcheance">Derniere Echeance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transmise"><span jhiTranslate="orimexApp.achatFacture.transmise">Transmise</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="echeanceRefinancement"><span jhiTranslate="orimexApp.achatFacture.echeanceRefinancement">Echeance Refinancement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interet2"><span jhiTranslate="orimexApp.achatFacture.interet2">Interet 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interet1Regle"><span jhiTranslate="orimexApp.achatFacture.interet1Regle">Interet 1 Regle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatArrivageId"><span jhiTranslate="orimexApp.achatFacture.achatArrivage">Achat Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let achatFacture of achatFactures ;trackBy: trackId">
+                <td><a [routerLink]="['/achat-facture', achatFacture.id, 'view' ]">{{achatFacture.id}}</a></td>
+                <td>{{achatFacture.idFacture}}</td>
+                <td>{{achatFacture.numeroFacture}}</td>
+                <td>{{achatFacture.dateFacture | date:'mediumDate'}}</td>
+                <td>{{achatFacture.montantFob}}</td>
+                <td>{{achatFacture.montantFret}}</td>
+                <td>{{achatFacture.montantTotal}}</td>
+                <td>{{achatFacture.nombreTc}}</td>
+                <td>{{achatFacture.poids}}</td>
+                <td>{{achatFacture.quantite}}</td>
+                <td>{{achatFacture.ajustement}}</td>
+                <td>{{achatFacture.numeroPiece}}</td>
+                <td>{{achatFacture.dateBl | date:'mediumDate'}}</td>
+                <td>{{achatFacture.numeroBl}}</td>
+                <td>{{achatFacture.dateEcheance | date:'mediumDate'}}</td>
+                <td>{{achatFacture.etat}}</td>
+                <td>{{achatFacture.banqueReglement}}</td>
+                <td>{{achatFacture.dateValeur | date:'mediumDate'}}</td>
+                <td>{{achatFacture.cours}}</td>
+                <td>{{achatFacture.montantDh}}</td>
+                <td>{{achatFacture.echecanceFinancement | date:'mediumDate'}}</td>
+                <td>{{achatFacture.interet1}}</td>
+                <td>{{achatFacture.dateReglement | date:'mediumDate'}}</td>
+                <td>{{achatFacture.derniereEcheance | date:'mediumDate'}}</td>
+                <td>{{achatFacture.transmise}}</td>
+                <td>{{achatFacture.echeanceRefinancement | date:'mediumDate'}}</td>
+                <td>{{achatFacture.interet2}}</td>
+                <td>{{achatFacture.interet1Regle}}</td>
+                <td>
+                    <div *ngIf="achatFacture.achatArrivageId">
+                        <a [routerLink]="['../achat-arrivage', achatFacture.achatArrivageId , 'view' ]" >{{achatFacture.achatArrivageId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/achat-facture', achatFacture.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/achat-facture', achatFacture.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'achat-facture/'+ achatFacture.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="achatFactures && achatFactures.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{
+    "name": "AchatBanque",
+    "fields": [
+        {
+            "fieldName": "idBanque",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codeBanque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationBanque",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityRelationshipName": "achatBanque"
+        }
+    ],
+    "changelogDate": "20181207203308",
+    "entityTableName": "achat_banque",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

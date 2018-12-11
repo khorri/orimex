@@ -1,0 +1,29 @@
+{
+    "orimexApp": {
+        "retour": {
+            "home": {
+                "title": "Retours",
+                "createLabel": "Créer un nouveau Retour",
+                "createOrEditLabel": "Créer ou éditer un Retour",
+                "search": "Recherche pour Retour"
+            },
+            "created": "Un nouveau Retour a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Retour avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Retour avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Retour {{ id }} ?"
+            },
+            "detail": {
+                "title": "Retour"
+            },
+            "idOperation": "Id Operation",
+            "dateOperation": "Date Operation",
+            "nombrePlateaux": "Nombre Plateaux",
+            "numeroOperation": "Numero Operation",
+            "superfecie": "Superfecie",
+            "produit": "Produit",
+            "utilisateur": "Utilisateur",
+            "bon": "Bon"
+        }
+    }
+}

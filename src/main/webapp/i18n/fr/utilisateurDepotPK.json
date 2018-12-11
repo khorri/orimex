@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "utilisateurDepotPK": {
+            "home": {
+                "title": "UtilisateurDepotPKS",
+                "createLabel": "Créer un nouveau Utilisateur Depot PK",
+                "createOrEditLabel": "Créer ou éditer un Utilisateur Depot PK",
+                "search": "Recherche pour Utilisateur Depot PK"
+            },
+            "created": "Un nouveau Utilisateur Depot PK a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Utilisateur Depot PK avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Utilisateur Depot PK avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Utilisateur Depot PK {{ id }} ?"
+            },
+            "detail": {
+                "title": "Utilisateur Depot PK"
+            },
+            "utilisateur": "Utilisateur",
+            "depot": "Depot"
+        }
+    }
+}

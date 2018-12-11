@@ -1,0 +1,94 @@
+{
+    "name": "Utilisateur",
+    "fields": [
+        {
+            "fieldName": "idUtilisateur",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "loginUtilisateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "matriculeUtilisateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomUtilsateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "passwordUtilisateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomUtilsateur",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "casse",
+            "otherEntityName": "casse",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "reception",
+            "otherEntityName": "reception",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sortie",
+            "otherEntityName": "sortie",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "retour",
+            "otherEntityName": "retour",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "recuperation",
+            "otherEntityName": "recuperation",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "utilisateurProfil",
+            "otherEntityName": "utilisateurProfil",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "utilisateurDepot",
+            "otherEntityName": "utilisateurDepot",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "transfert",
+            "otherEntityName": "transfert",
+            "otherEntityRelationshipName": "utilisateur"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "stockReception",
+            "otherEntityName": "stockReception",
+            "otherEntityRelationshipName": "utilisateur"
+        }
+    ],
+    "changelogDate": "20181207203347",
+    "entityTableName": "utilisateur",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

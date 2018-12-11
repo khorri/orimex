@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockReception">
+            <h2><span jhiTranslate="orimexApp.stockReception.detail.title">Stock Reception</span> {{stockReception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.stockReception.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{stockReception.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.dateReception">Date Reception</span></dt>
+                <dd>
+                    <span>{{stockReception.dateReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{stockReception.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.numeroBonEntree">Numero Bon Entree</span></dt>
+                <dd>
+                    <span>{{stockReception.numeroBonEntree}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.numeroConstatNonConformite">Numero Constat Non Conformite</span></dt>
+                <dd>
+                    <span>{{stockReception.numeroConstatNonConformite}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.isValide">Is Valide</span></dt>
+                <dd>
+                    <span>{{stockReception.isValide}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockReception.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="stockReception.utilisateurId">
+                        <a [routerLink]="['/utilisateur', stockReception.utilisateurId, 'view']">{{stockReception.utilisateurId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-reception', stockReception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

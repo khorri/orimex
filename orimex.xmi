@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0UhG8PpREeiofPV7ahrDAg" name="orimex">
+  <eAnnotations xmi:id="_0UhG8fpREeiofPV7ahrDAg" source="genmymodel">
+    <details xmi:id="_0UhG8vpREeiofPV7ahrDAg" key="uuid" value="_HrKoAPpREeiofPV7ahrDAg"/>
+  </eAnnotations>
+  <ownedComment xmi:id="_0UhG8_pREeiofPV7ahrDAg" body="To view your model, drag and drop elements from the tree. Enjoy!">
+    <eAnnotations xmi:id="_0UhG9PpREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhG9fpREeiofPV7ahrDAg" key="uuid" value="_IR-JVPpREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+  </ownedComment>
+  <packageImport xmi:id="_0UhG9vpREeiofPV7ahrDAg">
+    <eAnnotations xmi:id="_0UhG9_pREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhG-PpREeiofPV7ahrDAg" key="uuid" value="_IR-JVfpREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+    <importedPackage href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#/"/>
+  </packageImport>
+  <packageImport xmi:id="_0UhG-fpREeiofPV7ahrDAg">
+    <eAnnotations xmi:id="_0UhG-vpREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhG-_pREeiofPV7ahrDAg" key="uuid" value="_IR-JVvpREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+    <importedPackage href="pathmap://GENMYMODEL_LIBRARIES/GenMyModelPrimitiveTypes.library.uml#/"/>
+  </packageImport>
+  <packagedElement xsi:typeAchat="uml:Package" xmi:id="_0UhG_PpREeiofPV7ahrDAg" name="ma">
+    <eAnnotations xmi:id="_0UhG_fpREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhG_vpREeiofPV7ahrDAg" key="uuid" value="_IR-JV_pREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+    <packagedElement xsi:typeAchat="uml:Package" xmi:id="_0UhG__pREeiofPV7ahrDAg" name="co">
+      <eAnnotations xmi:id="_0UhHAPpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHAfpREeiofPV7ahrDAg" key="uuid" value="_IR-JWPpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+      <packagedElement xsi:typeAchat="uml:Package" xmi:id="_0UhHAvpREeiofPV7ahrDAg" name="orimex">
+        <eAnnotations xmi:id="_0UhHA_pREeiofPV7ahrDAg" source="genmymodel">
+          <details xmi:id="_0UhHBPpREeiofPV7ahrDAg" key="uuid" value="_IR-JWfpREeiVJ-LgVHoDQQ"/>
+        </eAnnotations>
+        <packagedElement xsi:typeAchat="uml:Package" xmi:id="_0UhHBfpREeiofPV7ahrDAg" name="stock">
+          <eAnnotations xmi:id="_0UhHBvpREeiofPV7ahrDAg" source="genmymodel">
+            <details xmi:id="_0UhHB_pREeiofPV7ahrDAg" key="uuid" value="_IR-JWvpREeiVJ-LgVHoDQQ"/>
+          </eAnnotations>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xsi:typeAchat="uml:Package" xmi:id="_0UhHCPpREeiofPV7ahrDAg" name="genmymodelreverse">
+    <eAnnotations xmi:id="_0UhHCfpREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhHCvpREeiofPV7ahrDAg" key="uuid" value="_ISiKYvpREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+    <packagedElement xsi:typeAchat="uml:Interface" xmi:id="_0UhHC_pREeiofPV7ahrDAg" name="java.io.Serializable" isAbstract="true">
+      <eAnnotations xmi:id="_0UhHDPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHDfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHDvpREeiofPV7ahrDAg" key="uuid" value="_ISiKY_pREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Class" xmi:id="_0UhHD_pREeiofPV7ahrDAg" name="java.time.Instant" isLeaf="true">
+      <eAnnotations xmi:id="_0UhHEPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHEfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHEvpREeiofPV7ahrDAg" key="uuid" value="_ISiKZfpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Class" xmi:id="_0UhHE_pREeiofPV7ahrDAg" name="java.math.BigDecimal">
+      <eAnnotations xmi:id="_0UhHFPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHFfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHFvpREeiofPV7ahrDAg" key="uuid" value="_ISiKZ_pREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Class" xmi:id="_0UhHF_pREeiofPV7ahrDAg" name="java.util.Date">
+      <eAnnotations xmi:id="_0UhHGPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHGfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHGvpREeiofPV7ahrDAg" key="uuid" value="_ISiKafpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Interface" xmi:id="_0UhHG_pREeiofPV7ahrDAg" name="java.util.Set" isAbstract="true">
+      <eAnnotations xmi:id="_0UhHHPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHHfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHHvpREeiofPV7ahrDAg" key="uuid" value="_ISiKa_pREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+      <ownedTemplateSignature xsi:typeAchat="uml:RedefinableTemplateSignature" xmi:id="_0UhHH_pREeiofPV7ahrDAg" parameter="_0UhHIvpREeiofPV7ahrDAg">
+        <eAnnotations xmi:id="_0UhHIPpREeiofPV7ahrDAg" source="genmymodel">
+          <details xmi:id="_0UhHIfpREeiofPV7ahrDAg" key="uuid" value="_ISixEfpREeiVJ-LgVHoDQQ"/>
+        </eAnnotations>
+        <ownedParameter xsi:typeAchat="uml:ClassifierTemplateParameter" xmi:id="_0UhHIvpREeiofPV7ahrDAg" parameteredElement="_0UhHJfpREeiofPV7ahrDAg">
+          <eAnnotations xmi:id="_0UhHI_pREeiofPV7ahrDAg" source="genmymodel">
+            <details xmi:id="_0UhHJPpREeiofPV7ahrDAg" key="uuid" value="_ISixEvpREeiVJ-LgVHoDQQ"/>
+          </eAnnotations>
+          <ownedParameteredElement xsi:typeAchat="uml:Class" xmi:id="_0UhHJfpREeiofPV7ahrDAg" name="C1" templateParameter="_0UhHIvpREeiofPV7ahrDAg">
+            <eAnnotations xmi:id="_0UhHJvpREeiofPV7ahrDAg" source="genmymodel">
+              <details xmi:id="_0UhHJ_pREeiofPV7ahrDAg" key="uuid" value="_ISixE_pREeiVJ-LgVHoDQQ"/>
+            </eAnnotations>
+          </ownedParameteredElement>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Class" xmi:id="_0UhHKPpREeiofPV7ahrDAg" name="java.sql.Timestamp">
+      <eAnnotations xmi:id="_0UhHKfpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHKvpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHK_pREeiofPV7ahrDAg" key="uuid" value="_ISixFPpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Interface" xmi:id="_0UhHLPpREeiofPV7ahrDAg" name="java.util.Map" isAbstract="true">
+      <eAnnotations xmi:id="_0UhHLfpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHLvpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHL_pREeiofPV7ahrDAg" key="uuid" value="_ISixFvpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+      <ownedTemplateSignature xsi:typeAchat="uml:RedefinableTemplateSignature" xmi:id="_0UhHMPpREeiofPV7ahrDAg" parameter="_0UhHM_pREeiofPV7ahrDAg _0UhHOfpREeiofPV7ahrDAg">
+        <eAnnotations xmi:id="_0UhHMfpREeiofPV7ahrDAg" source="genmymodel">
+          <details xmi:id="_0UhHMvpREeiofPV7ahrDAg" key="uuid" value="_ISixGPpREeiVJ-LgVHoDQQ"/>
+        </eAnnotations>
+        <ownedParameter xsi:typeAchat="uml:ClassifierTemplateParameter" xmi:id="_0UhHM_pREeiofPV7ahrDAg" parameteredElement="_0UhHNvpREeiofPV7ahrDAg">
+          <eAnnotations xmi:id="_0UhHNPpREeiofPV7ahrDAg" source="genmymodel">
+            <details xmi:id="_0UhHNfpREeiofPV7ahrDAg" key="uuid" value="_ISixGfpREeiVJ-LgVHoDQQ"/>
+          </eAnnotations>
+          <ownedParameteredElement xsi:typeAchat="uml:Class" xmi:id="_0UhHNvpREeiofPV7ahrDAg" name="C1" templateParameter="_0UhHM_pREeiofPV7ahrDAg">
+            <eAnnotations xmi:id="_0UhHN_pREeiofPV7ahrDAg" source="genmymodel">
+              <details xmi:id="_0UhHOPpREeiofPV7ahrDAg" key="uuid" value="_ISixGvpREeiVJ-LgVHoDQQ"/>
+            </eAnnotations>
+          </ownedParameteredElement>
+        </ownedParameter>
+        <ownedParameter xsi:typeAchat="uml:ClassifierTemplateParameter" xmi:id="_0UhHOfpREeiofPV7ahrDAg" parameteredElement="_0UhHPPpREeiofPV7ahrDAg">
+          <eAnnotations xmi:id="_0UhHOvpREeiofPV7ahrDAg" source="genmymodel">
+            <details xmi:id="_0UhHO_pREeiofPV7ahrDAg" key="uuid" value="_ISixG_pREeiVJ-LgVHoDQQ"/>
+          </eAnnotations>
+          <ownedParameteredElement xsi:typeAchat="uml:Class" xmi:id="_0UhHPPpREeiofPV7ahrDAg" name="C2" templateParameter="_0UhHOfpREeiofPV7ahrDAg">
+            <eAnnotations xmi:id="_0UhHPfpREeiofPV7ahrDAg" source="genmymodel">
+              <details xmi:id="_0UhHPvpREeiofPV7ahrDAg" key="uuid" value="_ISixHPpREeiVJ-LgVHoDQQ"/>
+            </eAnnotations>
+          </ownedParameteredElement>
+        </ownedParameter>
+      </ownedTemplateSignature>
+    </packagedElement>
+    <packagedElement xsi:typeAchat="uml:Class" xmi:id="_0UhHP_pREeiofPV7ahrDAg" name="java.lang.Object">
+      <eAnnotations xmi:id="_0UhHQPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+      <eAnnotations xmi:id="_0UhHQfpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHQvpREeiofPV7ahrDAg" key="uuid" value="_ISixHfpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xsi:typeAchat="uml:DataType" xmi:id="_0UhHQ_pREeiofPV7ahrDAg" name="Map&lt;String,String>">
+    <eAnnotations xmi:id="_0UhHRPpREeiofPV7ahrDAg" source="@gmm-discovered"/>
+    <eAnnotations xmi:id="_0UhHRfpREeiofPV7ahrDAg" source="genmymodel">
+      <details xmi:id="_0UhHRvpREeiofPV7ahrDAg" key="uuid" value="_ISixH_pREeiVJ-LgVHoDQQ"/>
+    </eAnnotations>
+    <templateBinding xmi:id="_0UhHR_pREeiofPV7ahrDAg" signature="_0UhHMPpREeiofPV7ahrDAg">
+      <eAnnotations xmi:id="_0UhHSPpREeiofPV7ahrDAg" source="genmymodel">
+        <details xmi:id="_0UhHSfpREeiofPV7ahrDAg" key="uuid" value="_ISixIfpREeiVJ-LgVHoDQQ"/>
+      </eAnnotations>
+      <parameterSubstitution xmi:id="_0UhHSvpREeiofPV7ahrDAg" formal="_0UhHM_pREeiofPV7ahrDAg">
+        <eAnnotations xmi:id="_0UhHS_pREeiofPV7ahrDAg" source="genmymodel">
+          <details xmi:id="_0UhHTPpREeiofPV7ahrDAg" key="uuid" value="_ISixIvpREeiVJ-LgVHoDQQ"/>
+        </eAnnotations>
+        <actual xsi:typeAchat="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      </parameterSubstitution>
+      <parameterSubstitution xmi:id="_0UhHTfpREeiofPV7ahrDAg" formal="_0UhHOfpREeiofPV7ahrDAg">
+        <eAnnotations xmi:id="_0UhHTvpREeiofPV7ahrDAg" source="genmymodel">
+          <details xmi:id="_0UhHT_pREeiofPV7ahrDAg" key="uuid" value="_ISixI_pREeiVJ-LgVHoDQQ"/>
+        </eAnnotations>
+        <actual xsi:typeAchat="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#//String"/>
+      </parameterSubstitution>
+    </templateBinding>
+  </packagedElement>
+</uml:Model>

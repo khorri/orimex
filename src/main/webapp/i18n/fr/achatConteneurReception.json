@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "achatConteneurReception": {
+            "home": {
+                "title": "AchatConteneurReceptions",
+                "createLabel": "Créer un nouveau Achat Conteneur Reception",
+                "createOrEditLabel": "Créer ou éditer un Achat Conteneur Reception",
+                "search": "Recherche pour Achat Conteneur Reception"
+            },
+            "created": "Un nouveau Achat Conteneur Reception a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Conteneur Reception avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Conteneur Reception avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Conteneur Reception {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Conteneur Reception"
+            },
+            "idConteneurReception": "Id Conteneur Reception",
+            "numeroConteneur": "Numero Conteneur",
+            "numeroSequence": "Numero Sequence",
+            "achatConteneurArrivage": "Achat Conteneur Arrivage"
+        }
+    }
+}

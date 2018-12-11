@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "achatDevise": {
+            "home": {
+                "title": "AchatDevises",
+                "createLabel": "Créer un nouveau Achat Devise",
+                "createOrEditLabel": "Créer ou éditer un Achat Devise",
+                "search": "Recherche pour Achat Devise"
+            },
+            "created": "Un nouveau Achat Devise a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Devise avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Devise avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Devise {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Devise"
+            },
+            "idDevise": "Id Devise",
+            "codeDevise": "Code Devise",
+            "libelleDevise": "Libelle Devise",
+            "achatDossier": "Achat Dossier"
+        }
+    }
+}

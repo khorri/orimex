@@ -1,60 +1,98 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:22:04
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   FamilleProduit.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="FAMILLE_PRODUIT")
-public class FamilleProduit
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public FamilleProduit()
-    {
+/**
+ * A FamilleProduit.
+ */
+@Entity
+@Table(name = "famille_produit")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "familleproduit")
+public class FamilleProduit implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_famille")
+    private Integer idFamille;
+
+    @Column(name = "designation_famille")
+    private String designationFamille;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdFamille()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdFamille() {
         return idFamille;
     }
 
-    public void setIdFamille(int idFamille)
-    {
+    public FamilleProduit idFamille(Integer idFamille) {
+        this.idFamille = idFamille;
+        return this;
+    }
+
+    public void setIdFamille(Integer idFamille) {
         this.idFamille = idFamille;
     }
 
-    public String getDesignationFamille()
-    {
+    public String getDesignationFamille() {
         return designationFamille;
     }
 
-    public void setDesignationFamille(String designationFamille)
-    {
+    public FamilleProduit designationFamille(String designationFamille) {
+        this.designationFamille = designationFamille;
+        return this;
+    }
+
+    public void setDesignationFamille(String designationFamille) {
         this.designationFamille = designationFamille;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getProduits()
-    {
-        return produits;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FamilleProduit familleProduit = (FamilleProduit) o;
+        if (familleProduit.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), familleProduit.getId());
     }
 
-    public void setProduits(Set produits)
-    {
-        this.produits = produits;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_FAMILLE")
-    private int idFamille;
-    @Column(name="DESIGNATION_FAMILLE")
-    private String designationFamille;
-    @OneToMany(mappedBy="familleProduit")
-    private Set produits;
+    @Override
+    public String toString() {
+        return "FamilleProduit{" +
+            "id=" + getId() +
+            ", idFamille=" + getIdFamille() +
+            ", designationFamille='" + getDesignationFamille() + "'" +
+            "}";
+    }
 }

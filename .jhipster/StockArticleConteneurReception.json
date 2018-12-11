@@ -1,0 +1,50 @@
+{
+    "name": "StockArticleConteneurReception",
+    "fields": [
+        {
+            "fieldName": "idArticleConteneurReception",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dimension",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nombreCaissestc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreFeuillecaisse",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isNonConfrome",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "achatArticleConteneurArrivage",
+            "otherEntityName": "achatArticleConteneurArrivage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "stockArticleConteneurReception"
+        },
+        {
+            "relationshipName": "stockConteneurReception",
+            "otherEntityName": "stockConteneurReception",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203342",
+    "entityTableName": "stock_article_conteneur_reception",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

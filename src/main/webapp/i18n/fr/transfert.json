@@ -1,0 +1,31 @@
+{
+    "orimexApp": {
+        "transfert": {
+            "home": {
+                "title": "Transferts",
+                "createLabel": "Créer un nouveau Transfert",
+                "createOrEditLabel": "Créer ou éditer un Transfert",
+                "search": "Recherche pour Transfert"
+            },
+            "created": "Un nouveau Transfert a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Transfert avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Transfert avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Transfert {{ id }} ?"
+            },
+            "detail": {
+                "title": "Transfert"
+            },
+            "idOperation": "Id Operation",
+            "dateOperation": "Date Operation",
+            "nombrePlateaux": "Nombre Plateaux",
+            "numeroOperation": "Numero Operation",
+            "utilisateur": "Utilisateur",
+            "bon": "Bon",
+            "caisse": "Caisse",
+            "camion": "Camion",
+            "conteneur": "Conteneur",
+            "depot": "Depot"
+        }
+    }
+}

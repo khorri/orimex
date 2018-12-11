@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="utilisateur">
+            <h2><span jhiTranslate="orimexApp.utilisateur.detail.title">Utilisateur</span> {{utilisateur.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.utilisateur.idUtilisateur">Id Utilisateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.idUtilisateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateur.loginUtilisateur">Login Utilisateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.loginUtilisateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateur.matriculeUtilisateur">Matricule Utilisateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.matriculeUtilisateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateur.nomUtilsateur">Nom Utilsateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.nomUtilsateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateur.passwordUtilisateur">Password Utilisateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.passwordUtilisateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateur.prenomUtilsateur">Prenom Utilsateur</span></dt>
+                <dd>
+                    <span>{{utilisateur.prenomUtilsateur}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/utilisateur', utilisateur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

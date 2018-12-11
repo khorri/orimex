@@ -1,0 +1,61 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "achatLigneProformaCopy",
+      "otherEntityName": "achatLigneProformaCopy",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "achatarticleligneproformacopy"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "produit",
+      "otherEntityName": "produit",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "achatarticleligneproformacopy"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "serialVersionUid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idArticleLigneProformaCopy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numeroSequence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombreCaissesTc",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombreFeuillesCaisse",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dimention"
+    },
+    {
+      "fieldName": "quantite"
+    },
+    {
+      "fieldName": "prixUnitaire"
+    },
+    {
+      "fieldName": "montant"
+    },
+    {
+      "fieldName": "poids"
+    }
+  ],
+  "changelogDate": "20181207203307",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "achat_article_ligne_proforma_copy"
+}

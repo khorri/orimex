@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-conteneur-reception-heading" jhiTranslate="orimexApp.achatConteneurReception.home.createOrEditLabel">Create or edit a Achat Conteneur Reception</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatConteneurReception.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatConteneurReception.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurReception.idConteneurReception" for="field_idConteneurReception">Id Conteneur Reception</label>
+                    <input type="number" class="form-control" name="idConteneurReception" id="field_idConteneurReception"
+                        [(ngModel)]="achatConteneurReception.idConteneurReception" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurReception.numeroConteneur" for="field_numeroConteneur">Numero Conteneur</label>
+                    <input type="text" class="form-control" name="numeroConteneur" id="field_numeroConteneur"
+                        [(ngModel)]="achatConteneurReception.numeroConteneur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurReception.numeroSequence" for="field_numeroSequence">Numero Sequence</label>
+                    <input type="number" class="form-control" name="numeroSequence" id="field_numeroSequence"
+                        [(ngModel)]="achatConteneurReception.numeroSequence" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatConteneurReception.achatConteneurArrivage" for="field_achatConteneurArrivage">Achat Conteneur Arrivage</label>
+                    <select class="form-control" id="field_achatConteneurArrivage" name="achatConteneurArrivage" [(ngModel)]="achatConteneurReception.achatConteneurArrivageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatConteneurArrivageOption.id" *ngFor="let achatConteneurArrivageOption of achatconteneurarrivages; trackBy: trackAchatConteneurArrivageById">{{achatConteneurArrivageOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

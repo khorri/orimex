@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sortie">
+            <h2><span jhiTranslate="orimexApp.sortie.detail.title">Sortie</span> {{sortie.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.sortie.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{sortie.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{sortie.dateOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.nombrePlateaux">Nombre Plateaux</span></dt>
+                <dd>
+                    <span>{{sortie.nombrePlateaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{sortie.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="sortie.utilisateurId">
+                        <a [routerLink]="['/utilisateur', sortie.utilisateurId, 'view']">{{sortie.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.bon">Bon</span></dt>
+                <dd>
+                    <div *ngIf="sortie.bonId">
+                        <a [routerLink]="['/bon', sortie.bonId, 'view']">{{sortie.bonId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.caisse">Caisse</span></dt>
+                <dd>
+                    <div *ngIf="sortie.caisseId">
+                        <a [routerLink]="['/caisse', sortie.caisseId, 'view']">{{sortie.caisseId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.sortie.depot">Depot</span></dt>
+                <dd>
+                    <div *ngIf="sortie.depotId">
+                        <a [routerLink]="['/depot', sortie.depotId, 'view']">{{sortie.depotId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sortie', sortie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

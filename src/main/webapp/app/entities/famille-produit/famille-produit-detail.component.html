@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="familleProduit">
+            <h2><span jhiTranslate="orimexApp.familleProduit.detail.title">Famille Produit</span> {{familleProduit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.familleProduit.idFamille">Id Famille</span></dt>
+                <dd>
+                    <span>{{familleProduit.idFamille}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.familleProduit.designationFamille">Designation Famille</span></dt>
+                <dd>
+                    <span>{{familleProduit.designationFamille}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/famille-produit', familleProduit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

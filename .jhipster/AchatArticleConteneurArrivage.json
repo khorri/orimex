@@ -1,13 +1,60 @@
 {
+    "name": "AchatArticleConteneurArrivage",
+    "fields": [
+        {
+            "fieldName": "idArticleConteneurArrivage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dimension",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nombreCaissestc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreFeuillecaisse",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixUnitaire",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatConteneurArrivage",
+            "otherEntityName": "achatConteneurArrivage",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181206223032",
+    "entityTableName": "achat_article_conteneur_arrivage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
-    "fields": [],
-    "changelogDate": "20181206223032",
-    "dto": "mapstruct",
-    "searchEngine": "elasticsearch",
-    "service": "serviceClass",
-    "entityTableName": "achat_article_conteneur_arrivage",
-    "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "applications": "*"
 }

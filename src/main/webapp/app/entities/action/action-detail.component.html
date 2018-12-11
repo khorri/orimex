@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="action">
+            <h2><span jhiTranslate="orimexApp.action.detail.title">Action</span> {{action.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.action.codeAction">Code Action</span></dt>
+                <dd>
+                    <span>{{action.codeAction}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.action.libelleAction">Libelle Action</span></dt>
+                <dd>
+                    <span>{{action.libelleAction}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.action.menu">Menu</span></dt>
+                <dd>
+                    <div *ngIf="action.menuId">
+                        <a [routerLink]="['/menu', action.menuId, 'view']">{{action.menuId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/action', action.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

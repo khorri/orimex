@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "bon": {
+            "home": {
+                "title": "Bons",
+                "createLabel": "Créer un nouveau Bon",
+                "createOrEditLabel": "Créer ou éditer un Bon",
+                "search": "Recherche pour Bon"
+            },
+            "created": "Un nouveau Bon a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bon avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bon avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bon {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bon"
+            },
+            "idBon": "Id Bon",
+            "idTypeBon": "Id Type Bon",
+            "numeroBon": "Numero Bon",
+            "retour": "Retour"
+        }
+    }
+}

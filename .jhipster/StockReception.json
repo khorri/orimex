@@ -1,0 +1,46 @@
+{
+    "name": "StockReception",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateReception",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroBonEntree",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroConstatNonConformite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isValide",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203344",
+    "entityTableName": "stock_reception",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatArticleConteneurReception">
+            <h2><span jhiTranslate="orimexApp.achatArticleConteneurReception.detail.title">Achat Article Conteneur Reception</span> {{achatArticleConteneurReception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.idArticleConteneurReception">Id Article Conteneur Reception</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurReception.idArticleConteneurReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.dimension">Dimension</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurReception.dimension}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.nombreCaissestc">Nombre Caissestc</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurReception.nombreCaissestc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.nombreFeuillecaisse">Nombre Feuillecaisse</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurReception.nombreFeuillecaisse}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.achatConteneurReception">Achat Conteneur Reception</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleConteneurReception.achatConteneurReceptionId">
+                        <a [routerLink]="['/achat-conteneur-reception', achatArticleConteneurReception.achatConteneurReceptionId, 'view']">{{achatArticleConteneurReception.achatConteneurReceptionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurReception.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleConteneurReception.produitId">
+                        <a [routerLink]="['/produit', achatArticleConteneurReception.produitId, 'view']">{{achatArticleConteneurReception.produitId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-article-conteneur-reception', achatArticleConteneurReception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

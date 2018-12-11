@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatStatutDossier">
+            <h2><span jhiTranslate="orimexApp.achatStatutDossier.detail.title">Achat Statut Dossier</span> {{achatStatutDossier.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatStatutDossier.idStatutDossier">Id Statut Dossier</span></dt>
+                <dd>
+                    <span>{{achatStatutDossier.idStatutDossier}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatStatutDossier.libelleStatutDossier">Libelle Statut Dossier</span></dt>
+                <dd>
+                    <span>{{achatStatutDossier.libelleStatutDossier}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-statut-dossier', achatStatutDossier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

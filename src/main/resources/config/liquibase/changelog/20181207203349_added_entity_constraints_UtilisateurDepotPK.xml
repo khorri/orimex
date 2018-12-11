@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity UtilisateurDepotPK.
+    -->
+    <changeSet id="20181207203349-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id"
+                                 baseTableName="utilisateur_depot_pk"
+                                 constraintName="fk_utilisateur_depotpk_utilisateur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="utilisateur"/>
+
+        <addForeignKeyConstraint baseColumnNames="depot_id"
+                                 baseTableName="utilisateur_depot_pk"
+                                 constraintName="fk_utilisateur_depotpk_depot_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="depot"/>
+
+    </changeSet>
+</databaseChangeLog>

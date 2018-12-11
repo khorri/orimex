@@ -1,0 +1,25 @@
+{
+    "orimexApp": {
+        "profil": {
+            "home": {
+                "title": "Profils",
+                "createLabel": "Créer un nouveau Profil",
+                "createOrEditLabel": "Créer ou éditer un Profil",
+                "search": "Recherche pour Profil"
+            },
+            "created": "Un nouveau Profil a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Profil avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Profil avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Profil {{ id }} ?"
+            },
+            "detail": {
+                "title": "Profil"
+            },
+            "codeProfil": "Code Profil",
+            "descriptionProfil": "Description Profil",
+            "utilisateurProfil": "Utilisateur Profil",
+            "profilAction": "Profil Action"
+        }
+    }
+}

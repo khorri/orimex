@@ -1,0 +1,34 @@
+{
+    "name": "AchatDevise",
+    "fields": [
+        {
+            "fieldName": "idDevise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codeDevise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleDevise",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityRelationshipName": "achatDevise"
+        }
+    ],
+    "changelogDate": "20181207203311",
+    "entityTableName": "achat_devise",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

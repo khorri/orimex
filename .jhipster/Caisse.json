@@ -1,0 +1,31 @@
+{
+    "name": "Caisse",
+    "fields": [
+        {
+            "fieldName": "idCaisse",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombrePlateaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroConteneur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceCaisse",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203324",
+    "entityTableName": "caisse",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

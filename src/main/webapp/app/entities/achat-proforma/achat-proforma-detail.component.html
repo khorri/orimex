@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatProforma">
+            <h2><span jhiTranslate="orimexApp.achatProforma.detail.title">Achat Proforma</span> {{achatProforma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatProforma.idProforma">Id Proforma</span></dt>
+                <dd>
+                    <span>{{achatProforma.idProforma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.nombreTc">Nombre Tc</span></dt>
+                <dd>
+                    <span>{{achatProforma.nombreTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.coutFob">Cout Fob</span></dt>
+                <dd>
+                    <span>{{achatProforma.coutFob}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.coutFret">Cout Fret</span></dt>
+                <dd>
+                    <span>{{achatProforma.coutFret}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.montantTotal">Montant Total</span></dt>
+                <dd>
+                    <span>{{achatProforma.montantTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.numeroBonProforma">Numero Bon Proforma</span></dt>
+                <dd>
+                    <span>{{achatProforma.numeroBonProforma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.typeAcht">Type Acht</span></dt>
+                <dd>
+                    <span>{{achatProforma.typeAcht}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.poids">Poids</span></dt>
+                <dd>
+                    <span>{{achatProforma.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.dateProforma">Date Proforma</span></dt>
+                <dd>
+                    <span>{{achatProforma.dateProforma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatProforma.achatDossier">Achat Dossier</span></dt>
+                <dd>
+                    <div *ngIf="achatProforma.achatDossierId">
+                        <a [routerLink]="['/achat-dossier', achatProforma.achatDossierId, 'view']">{{achatProforma.achatDossierId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-proforma', achatProforma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

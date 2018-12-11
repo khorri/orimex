@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeBon">
+            <h2><span jhiTranslate="orimexApp.typeBon.detail.title">Type Bon</span> {{typeBon.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.typeBon.idTypeBon">Id Type Bon</span></dt>
+                <dd>
+                    <span>{{typeBon.idTypeBon}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.typeBon.libelleTypeBon">Libelle Type Bon</span></dt>
+                <dd>
+                    <span>{{typeBon.libelleTypeBon}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-bon', typeBon.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

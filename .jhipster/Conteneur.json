@@ -1,0 +1,19 @@
+{
+    "name": "Conteneur",
+    "fields": [
+        {
+            "fieldName": "numeroConteneur",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203327",
+    "entityTableName": "conteneur",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

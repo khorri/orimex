@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reception">
+            <h2><span jhiTranslate="orimexApp.reception.detail.title">Reception</span> {{reception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.reception.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{reception.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.dateReception">Date Reception</span></dt>
+                <dd>
+                    <span>{{reception.dateReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.nombrePlateaux">Nombre Plateaux</span></dt>
+                <dd>
+                    <span>{{reception.nombrePlateaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{reception.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="reception.utilisateurId">
+                        <a [routerLink]="['/utilisateur', reception.utilisateurId, 'view']">{{reception.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.bon">Bon</span></dt>
+                <dd>
+                    <div *ngIf="reception.bonId">
+                        <a [routerLink]="['/bon', reception.bonId, 'view']">{{reception.bonId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.caisse">Caisse</span></dt>
+                <dd>
+                    <div *ngIf="reception.caisseId">
+                        <a [routerLink]="['/caisse', reception.caisseId, 'view']">{{reception.caisseId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.camion">Camion</span></dt>
+                <dd>
+                    <div *ngIf="reception.camionId">
+                        <a [routerLink]="['/camion', reception.camionId, 'view']">{{reception.camionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.conteneur">Conteneur</span></dt>
+                <dd>
+                    <div *ngIf="reception.conteneurId">
+                        <a [routerLink]="['/conteneur', reception.conteneurId, 'view']">{{reception.conteneurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.reception.depot">Depot</span></dt>
+                <dd>
+                    <div *ngIf="reception.depotId">
+                        <a [routerLink]="['/depot', reception.depotId, 'view']">{{reception.depotId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reception', reception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+{
+    "name": "AchatProforma",
+    "fields": [
+        {
+            "fieldName": "idProforma",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "coutFob",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "coutFret",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantTotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "numeroBonProforma",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeAcht",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dateProforma",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatLigneProforma",
+            "otherEntityName": "achatLigneProforma",
+            "otherEntityRelationshipName": "achatProforma"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203318",
+    "entityTableName": "achat_proforma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

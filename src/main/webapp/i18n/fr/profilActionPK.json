@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "profilActionPK": {
+            "home": {
+                "title": "ProfilActionPKS",
+                "createLabel": "Créer un nouveau Profil Action PK",
+                "createOrEditLabel": "Créer ou éditer un Profil Action PK",
+                "search": "Recherche pour Profil Action PK"
+            },
+            "created": "Un nouveau Profil Action PK a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Profil Action PK avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Profil Action PK avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Profil Action PK {{ id }} ?"
+            },
+            "detail": {
+                "title": "Profil Action PK"
+            },
+            "action": "Action",
+            "profil": "Profil"
+        }
+    }
+}

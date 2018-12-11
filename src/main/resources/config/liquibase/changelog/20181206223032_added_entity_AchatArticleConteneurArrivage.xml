@@ -17,10 +17,50 @@
         Added the entity AchatArticleConteneurArrivage.
     -->
     <changeSet id="20181206223032-1" author="jhipster">
-        <createTable tableName="achat_article_conteneur_arrivage">
+        <createTable tableName="article_conteneur_arrivage">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="id_article_conteneur_arrivage" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dimension" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="montant" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nombre_caissestc" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nombre_feuillecaisse" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="prix_unitaire" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="quantite" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="poids" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="achat_conteneur_arrivage_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="produit_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

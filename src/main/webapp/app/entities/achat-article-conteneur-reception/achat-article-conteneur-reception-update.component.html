@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-article-conteneur-reception-heading" jhiTranslate="orimexApp.achatArticleConteneurReception.home.createOrEditLabel">Create or edit a Achat Article Conteneur Reception</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatArticleConteneurReception.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatArticleConteneurReception.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.idArticleConteneurReception" for="field_idArticleConteneurReception">Id Article Conteneur Reception</label>
+                    <input type="number" class="form-control" name="idArticleConteneurReception" id="field_idArticleConteneurReception"
+                        [(ngModel)]="achatArticleConteneurReception.idArticleConteneurReception" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.dimension" for="field_dimension">Dimension</label>
+                    <input type="number" class="form-control" name="dimension" id="field_dimension"
+                        [(ngModel)]="achatArticleConteneurReception.dimension" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.nombreCaissestc" for="field_nombreCaissestc">Nombre Caissestc</label>
+                    <input type="number" class="form-control" name="nombreCaissestc" id="field_nombreCaissestc"
+                        [(ngModel)]="achatArticleConteneurReception.nombreCaissestc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.nombreFeuillecaisse" for="field_nombreFeuillecaisse">Nombre Feuillecaisse</label>
+                    <input type="number" class="form-control" name="nombreFeuillecaisse" id="field_nombreFeuillecaisse"
+                        [(ngModel)]="achatArticleConteneurReception.nombreFeuillecaisse" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.achatConteneurReception" for="field_achatConteneurReception">Achat Conteneur Reception</label>
+                    <select class="form-control" id="field_achatConteneurReception" name="achatConteneurReception" [(ngModel)]="achatArticleConteneurReception.achatConteneurReceptionId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatConteneurReceptionOption.id" *ngFor="let achatConteneurReceptionOption of achatconteneurreceptions; trackBy: trackAchatConteneurReceptionById">{{achatConteneurReceptionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleConteneurReception.produit" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" [(ngModel)]="achatArticleConteneurReception.produitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackProduitById">{{produitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

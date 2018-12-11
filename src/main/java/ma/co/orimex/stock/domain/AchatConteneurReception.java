@@ -1,88 +1,131 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 05/12/2018 11:46:05
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatConteneurReception.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            AchatConteneurArrivage
 
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+ * A AchatConteneurReception.
+ */
 @Entity
-@Table(name="ACHAT_CONTENEUR_RECEPTION")
-public class AchatConteneurReception
-    implements Serializable
-{
+@Table(name = "achat_conteneur_reception")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatconteneurreception")
+public class AchatConteneurReception implements Serializable {
 
-    public AchatConteneurReception()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_conteneur_reception")
+    private Integer idConteneurReception;
+
+    @Column(name = "numero_conteneur")
+    private String numeroConteneur;
+
+    @Column(name = "numero_sequence")
+    private Integer numeroSequence;
+
+    @OneToOne    @JoinColumn(unique = true)
+    private AchatConteneurArrivage achatConteneurArrivage;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdConteneurReception()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdConteneurReception() {
         return idConteneurReception;
     }
 
-    public void setIdConteneurReception(int idConteneurReception)
-    {
+    public AchatConteneurReception idConteneurReception(Integer idConteneurReception) {
+        this.idConteneurReception = idConteneurReception;
+        return this;
+    }
+
+    public void setIdConteneurReception(Integer idConteneurReception) {
         this.idConteneurReception = idConteneurReception;
     }
 
-    public String getNumeroConteneur()
-    {
+    public String getNumeroConteneur() {
         return numeroConteneur;
     }
 
-    public void setNumeroConteneur(String numeroConteneur)
-    {
+    public AchatConteneurReception numeroConteneur(String numeroConteneur) {
+        this.numeroConteneur = numeroConteneur;
+        return this;
+    }
+
+    public void setNumeroConteneur(String numeroConteneur) {
         this.numeroConteneur = numeroConteneur;
     }
 
-    public int getNumeroSequence()
-    {
+    public Integer getNumeroSequence() {
         return numeroSequence;
     }
 
-    public void setNumeroSequence(int numeroSequence)
-    {
+    public AchatConteneurReception numeroSequence(Integer numeroSequence) {
+        this.numeroSequence = numeroSequence;
+        return this;
+    }
+
+    public void setNumeroSequence(Integer numeroSequence) {
         this.numeroSequence = numeroSequence;
     }
 
-    public AchatConteneurArrivage getAchatConteneurArrivage()
-    {
+    public AchatConteneurArrivage getAchatConteneurArrivage() {
         return achatConteneurArrivage;
     }
 
-    public void setAchatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage)
-    {
+    public AchatConteneurReception achatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage) {
+        this.achatConteneurArrivage = achatConteneurArrivage;
+        return this;
+    }
+
+    public void setAchatConteneurArrivage(AchatConteneurArrivage achatConteneurArrivage) {
         this.achatConteneurArrivage = achatConteneurArrivage;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getAchatArticleConteneurReception()
-    {
-        return achatArticleConteneurReception;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatConteneurReception achatConteneurReception = (AchatConteneurReception) o;
+        if (achatConteneurReception.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatConteneurReception.getId());
     }
 
-    public void setAchatArticleConteneurReception(Set achatArticleConteneurReception)
-    {
-        this.achatArticleConteneurReception = achatArticleConteneurReception;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_CONTENEUR_RECEPTION")
-    @GeneratedValue
-    private int idConteneurReception;
-    @Column(name="NUMERO_CONTENEUR")
-    private String numeroConteneur;
-    @Column(name="NUMERO_SEQUENCE")
-    private int numeroSequence;
-    @OneToOne
-    @JoinColumn(name="FK_ID_CONTENEUR_ARRIVAGE")
-    private AchatConteneurArrivage achatConteneurArrivage;
-    @OneToMany(mappedBy="achatConteneurReception")
-    private Set achatArticleConteneurReception;
+    @Override
+    public String toString() {
+        return "AchatConteneurReception{" +
+            "id=" + getId() +
+            ", idConteneurReception=" + getIdConteneurReception() +
+            ", numeroConteneur='" + getNumeroConteneur() + "'" +
+            ", numeroSequence=" + getNumeroSequence() +
+            "}";
+    }
 }

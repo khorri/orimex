@@ -1,0 +1,23 @@
+{
+    "name": "Couleur",
+    "fields": [
+        {
+            "fieldName": "idCouleur",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codeHtml",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203328",
+    "entityTableName": "couleur",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

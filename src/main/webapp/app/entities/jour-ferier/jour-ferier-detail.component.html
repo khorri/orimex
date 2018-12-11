@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jourFerier">
+            <h2><span jhiTranslate="orimexApp.jourFerier.detail.title">Jour Ferier</span> {{jourFerier.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.jourFerier.annee">Annee</span></dt>
+                <dd>
+                    <span>{{jourFerier.annee}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.jourFerier.debut">Debut</span></dt>
+                <dd>
+                    <span>{{jourFerier.debut}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.jourFerier.fin">Fin</span></dt>
+                <dd>
+                    <span>{{jourFerier.fin}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/jour-ferier', jourFerier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

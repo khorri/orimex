@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "typeBon": {
+            "home": {
+                "title": "TypeBons",
+                "createLabel": "Créer un nouveau Type Bon",
+                "createOrEditLabel": "Créer ou éditer un Type Bon",
+                "search": "Recherche pour Type Bon"
+            },
+            "created": "Un nouveau Type Bon a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Type Bon avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Type Bon avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Type Bon {{ id }} ?"
+            },
+            "detail": {
+                "title": "Type Bon"
+            },
+            "idTypeBon": "Id Type Bon",
+            "libelleTypeBon": "Libelle Type Bon"
+        }
+    }
+}

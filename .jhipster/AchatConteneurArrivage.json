@@ -1,0 +1,60 @@
+{
+    "name": "AchatConteneurArrivage",
+    "fields": [
+        {
+            "fieldName": "idConteneurArrivage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "numeroConteneurs",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroSequence",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "achatFacture",
+            "otherEntityName": "achatFacture",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "stockConteneurReception",
+            "otherEntityName": "stockConteneurReception",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "achatConteneurArrivage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatArticleConteneurArrivage",
+            "otherEntityName": "achatArticleConteneurArrivage",
+            "otherEntityRelationshipName": "achatConteneurArrivage"
+        }
+    ],
+    "changelogDate": "20181207203309",
+    "entityTableName": "achat_conteneur_arrivage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

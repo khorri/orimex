@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-article-ligne-proforma-heading" jhiTranslate="orimexApp.achatArticleLigneProforma.home.createOrEditLabel">Create or edit a Achat Article Ligne Proforma</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatArticleLigneProforma.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatArticleLigneProforma.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.idArticleLigneProforma" for="field_idArticleLigneProforma">Id Article Ligne Proforma</label>
+                    <input type="number" class="form-control" name="idArticleLigneProforma" id="field_idArticleLigneProforma"
+                        [(ngModel)]="achatArticleLigneProforma.idArticleLigneProforma" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.numeroSequence" for="field_numeroSequence">Numero Sequence</label>
+                    <input type="number" class="form-control" name="numeroSequence" id="field_numeroSequence"
+                        [(ngModel)]="achatArticleLigneProforma.numeroSequence" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.nombreCaissesTc" for="field_nombreCaissesTc">Nombre Caisses Tc</label>
+                    <input type="number" class="form-control" name="nombreCaissesTc" id="field_nombreCaissesTc"
+                        [(ngModel)]="achatArticleLigneProforma.nombreCaissesTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.nombreFeuillesCaisse" for="field_nombreFeuillesCaisse">Nombre Feuilles Caisse</label>
+                    <input type="number" class="form-control" name="nombreFeuillesCaisse" id="field_nombreFeuillesCaisse"
+                        [(ngModel)]="achatArticleLigneProforma.nombreFeuillesCaisse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.dimention" for="field_dimention">Dimention</label>
+                    <input type="number" class="form-control" name="dimention" id="field_dimention"
+                        [(ngModel)]="achatArticleLigneProforma.dimention" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.quantite" for="field_quantite">Quantite</label>
+                    <input type="number" class="form-control" name="quantite" id="field_quantite"
+                        [(ngModel)]="achatArticleLigneProforma.quantite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.prixUnitaire" for="field_prixUnitaire">Prix Unitaire</label>
+                    <input type="number" class="form-control" name="prixUnitaire" id="field_prixUnitaire"
+                        [(ngModel)]="achatArticleLigneProforma.prixUnitaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                        [(ngModel)]="achatArticleLigneProforma.montant" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="achatArticleLigneProforma.poids" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.produit" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" [(ngModel)]="achatArticleLigneProforma.produitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackProduitById">{{produitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArticleLigneProforma.achatLigneProforma" for="field_achatLigneProforma">Achat Ligne Proforma</label>
+                    <select class="form-control" id="field_achatLigneProforma" name="achatLigneProforma" [(ngModel)]="achatArticleLigneProforma.achatLigneProformaId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatLigneProformaOption.id" *ngFor="let achatLigneProformaOption of achatligneproformas; trackBy: trackAchatLigneProformaById">{{achatLigneProformaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="retour">
+            <h2><span jhiTranslate="orimexApp.retour.detail.title">Retour</span> {{retour.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.retour.idOperation">Id Operation</span></dt>
+                <dd>
+                    <span>{{retour.idOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{retour.dateOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.nombrePlateaux">Nombre Plateaux</span></dt>
+                <dd>
+                    <span>{{retour.nombrePlateaux}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.numeroOperation">Numero Operation</span></dt>
+                <dd>
+                    <span>{{retour.numeroOperation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.superfecie">Superfecie</span></dt>
+                <dd>
+                    <span>{{retour.superfecie}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="retour.produitId">
+                        <a [routerLink]="['/produit', retour.produitId, 'view']">{{retour.produitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="retour.utilisateurId">
+                        <a [routerLink]="['/utilisateur', retour.utilisateurId, 'view']">{{retour.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.retour.bon">Bon</span></dt>
+                <dd>
+                    <div *ngIf="retour.bonId">
+                        <a [routerLink]="['/bon', retour.bonId, 'view']">{{retour.bonId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/retour', retour.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

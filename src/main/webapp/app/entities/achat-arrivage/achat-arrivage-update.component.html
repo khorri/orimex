@@ -9,7 +9,119 @@
                     <input type="text" class="form-control" id="id" name="id"
                         [(ngModel)]="achatArrivage.id" readonly />
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.idArrivage" for="field_idArrivage">Id Arrivage</label>
+                    <input type="number" class="form-control" name="idArrivage" id="field_idArrivage"
+                        [(ngModel)]="achatArrivage.idArrivage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.numeroDossierArrivage" for="field_numeroDossierArrivage">Numero Dossier Arrivage</label>
+                    <input type="text" class="form-control" name="numeroDossierArrivage" id="field_numeroDossierArrivage"
+                        [(ngModel)]="achatArrivage.numeroDossierArrivage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.codeCompagnieMaritime" for="field_codeCompagnieMaritime">Code Compagnie Maritime</label>
+                    <input type="text" class="form-control" name="codeCompagnieMaritime" id="field_codeCompagnieMaritime"
+                        [(ngModel)]="achatArrivage.codeCompagnieMaritime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.codeOperateur" for="field_codeOperateur">Code Operateur</label>
+                    <input type="text" class="form-control" name="codeOperateur" id="field_codeOperateur"
+                        [(ngModel)]="achatArrivage.codeOperateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.codeTransitaire" for="field_codeTransitaire">Code Transitaire</label>
+                    <input type="text" class="form-control" name="codeTransitaire" id="field_codeTransitaire"
+                        [(ngModel)]="achatArrivage.codeTransitaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.codeTransporteur" for="field_codeTransporteur">Code Transporteur</label>
+                    <input type="text" class="form-control" name="codeTransporteur" id="field_codeTransporteur"
+                        [(ngModel)]="achatArrivage.codeTransporteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.dateArrivePort" for="field_dateArrivePort">Date Arrive Port</label>
+                    <div class="input-group">
+                        <input id="field_dateArrivePort" type="text" class="form-control" name="dateArrivePort" ngbDatepicker  #dateArrivePortDp="ngbDatepicker" [(ngModel)]="achatArrivage.dateArrivePort"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateArrivePortDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.designationCompagnieMaritime" for="field_designationCompagnieMaritime">Designation Compagnie Maritime</label>
+                    <input type="text" class="form-control" name="designationCompagnieMaritime" id="field_designationCompagnieMaritime"
+                        [(ngModel)]="achatArrivage.designationCompagnieMaritime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.designationOperateur" for="field_designationOperateur">Designation Operateur</label>
+                    <input type="text" class="form-control" name="designationOperateur" id="field_designationOperateur"
+                        [(ngModel)]="achatArrivage.designationOperateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.designationTransitaire" for="field_designationTransitaire">Designation Transitaire</label>
+                    <input type="text" class="form-control" name="designationTransitaire" id="field_designationTransitaire"
+                        [(ngModel)]="achatArrivage.designationTransitaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.designationTransporteur" for="field_designationTransporteur">Designation Transporteur</label>
+                    <input type="text" class="form-control" name="designationTransporteur" id="field_designationTransporteur"
+                        [(ngModel)]="achatArrivage.designationTransporteur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.flagProduit" for="field_flagProduit">Flag Produit</label>
+                    <input type="text" class="form-control" name="flagProduit" id="field_flagProduit"
+                        [(ngModel)]="achatArrivage.flagProduit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.franchise" for="field_franchise">Franchise</label>
+                    <input type="number" class="form-control" name="franchise" id="field_franchise"
+                        [(ngModel)]="achatArrivage.franchise" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.montantFob" for="field_montantFob">Montant Fob</label>
+                    <input type="number" class="form-control" name="montantFob" id="field_montantFob"
+                        [(ngModel)]="achatArrivage.montantFob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.montantFret" for="field_montantFret">Montant Fret</label>
+                    <input type="number" class="form-control" name="montantFret" id="field_montantFret"
+                        [(ngModel)]="achatArrivage.montantFret" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.montantTotal" for="field_montantTotal">Montant Total</label>
+                    <input type="number" class="form-control" name="montantTotal" id="field_montantTotal"
+                        [(ngModel)]="achatArrivage.montantTotal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.nombreTc" for="field_nombreTc">Nombre Tc</label>
+                    <input type="number" class="form-control" name="nombreTc" id="field_nombreTc"
+                        [(ngModel)]="achatArrivage.nombreTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.dateRealisation" for="field_dateRealisation">Date Realisation</label>
+                    <div class="input-group">
+                        <input id="field_dateRealisation" type="text" class="form-control" name="dateRealisation" ngbDatepicker  #dateRealisationDp="ngbDatepicker" [(ngModel)]="achatArrivage.dateRealisation"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRealisationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.poid" for="field_poid">Poid</label>
+                    <input type="number" class="form-control" name="poid" id="field_poid"
+                        [(ngModel)]="achatArrivage.poid" />
+                </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatArrivage.achatDossier" for="field_achatDossier">Achat Dossier</label>
+                    <select class="form-control" id="field_achatDossier" name="achatDossier" [(ngModel)]="achatArrivage.achatDossierId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatDossierOption.id" *ngFor="let achatDossierOption of achatdossiers; trackBy: trackAchatDossierById">{{achatDossierOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

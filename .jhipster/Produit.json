@@ -1,0 +1,102 @@
+{
+    "name": "Produit",
+    "fields": [
+        {
+            "fieldName": "idProduit",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "designationProduit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dimension",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "epaisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "largeure",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "longueur",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "referenceProduit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "libelleCouleur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleFamille",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleOrigine",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "recuperation",
+            "otherEntityName": "recuperation",
+            "otherEntityRelationshipName": "produit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "retour",
+            "otherEntityName": "retour",
+            "otherEntityRelationshipName": "produit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatArticleLigneProforma",
+            "otherEntityName": "achatArticleLigneProforma",
+            "otherEntityRelationshipName": "produit"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "couleur",
+            "otherEntityName": "couleur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "familleProduit",
+            "otherEntityName": "familleProduit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "origine",
+            "otherEntityName": "origine",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatArticleConteneurArrivage",
+            "otherEntityName": "achatArticleConteneurArrivage",
+            "otherEntityRelationshipName": "produit"
+        }
+    ],
+    "changelogDate": "20181207203334",
+    "entityTableName": "produit",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

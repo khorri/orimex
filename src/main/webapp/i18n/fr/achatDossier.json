@@ -1,0 +1,50 @@
+{
+    "orimexApp": {
+        "achatDossier": {
+            "home": {
+                "title": "AchatDossiers",
+                "createLabel": "Créer un nouveau Achat Dossier",
+                "createOrEditLabel": "Créer ou éditer un Achat Dossier",
+                "search": "Recherche pour Achat Dossier"
+            },
+            "created": "Un nouveau Achat Dossier a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Dossier avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Dossier avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Dossier {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Dossier"
+            },
+            "idDossier": "Id Dossier",
+            "numeroDossier": "Numero Dossier",
+            "codeFournisseur": "Code Fournisseur",
+            "designationFournisseur": "Designation Fournisseur",
+            "incoterm": "Incoterm",
+            "reference": "Reference",
+            "tolerance": "Tolerance",
+            "numeroEi": "Numero Ei",
+            "numeroEiComp": "Numero Ei Comp",
+            "dateCreation": "Date Creation",
+            "delaiPaiement": "Delai Paiement",
+            "delaiValiditeLc": "Delai Validite Lc",
+            "dateExpedition": "Date Expedition",
+            "dateOuverture": "Date Ouverture",
+            "dateValiditeEi": "Date Validite Ei",
+            "dateLimiteExp": "Date Limite Exp",
+            "dateValiditeLc": "Date Validite Lc",
+            "montnatTotal": "Montnat Total",
+            "montnatFob": "Montnat Fob",
+            "montnatFret": "Montnat Fret",
+            "totalTc": "Total Tc",
+            "designationBanque": "Designation Banque",
+            "paiementAvue": "Paiement Avue",
+            "encours": "Encours",
+            "achatBanque": "Achat Banque",
+            "typePaiement": "Type Paiement",
+            "achatDevise": "Achat Devise",
+            "achatPrevisionArrivage": "Achat Prevision Arrivage",
+            "achatStatutDossier": "Achat Statut Dossier"
+        }
+    }
+}

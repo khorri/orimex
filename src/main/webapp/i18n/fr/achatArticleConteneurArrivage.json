@@ -15,7 +15,17 @@
             },
             "detail": {
                 "title": "Achat Article Conteneur Arrivage"
-            }
+            },
+            "idArticleConteneurArrivage": "Id Article Conteneur Arrivage",
+            "dimension": "Dimension",
+            "montant": "Montant",
+            "nombreCaissestc": "Nombre Caissestc",
+            "nombreFeuillecaisse": "Nombre Feuillecaisse",
+            "prixUnitaire": "Prix Unitaire",
+            "quantite": "Quantite",
+            "poids": "Poids",
+            "achatConteneurArrivage": "Achat Conteneur Arrivage",
+            "produit": "Produit"
         }
     }
 }

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="camion">
+            <h2><span jhiTranslate="orimexApp.camion.detail.title">Camion</span> {{camion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.camion.idCamion">Id Camion</span></dt>
+                <dd>
+                    <span>{{camion.idCamion}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.camion.numeroCamion">Numero Camion</span></dt>
+                <dd>
+                    <span>{{camion.numeroCamion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/camion', camion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

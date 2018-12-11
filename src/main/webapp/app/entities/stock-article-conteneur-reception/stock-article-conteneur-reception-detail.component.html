@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockArticleConteneurReception">
+            <h2><span jhiTranslate="orimexApp.stockArticleConteneurReception.detail.title">Stock Article Conteneur Reception</span> {{stockArticleConteneurReception.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.idArticleConteneurReception">Id Article Conteneur Reception</span></dt>
+                <dd>
+                    <span>{{stockArticleConteneurReception.idArticleConteneurReception}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.dimension">Dimension</span></dt>
+                <dd>
+                    <span>{{stockArticleConteneurReception.dimension}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.nombreCaissestc">Nombre Caissestc</span></dt>
+                <dd>
+                    <span>{{stockArticleConteneurReception.nombreCaissestc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.nombreFeuillecaisse">Nombre Feuillecaisse</span></dt>
+                <dd>
+                    <span>{{stockArticleConteneurReception.nombreFeuillecaisse}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.isNonConfrome">Is Non Confrome</span></dt>
+                <dd>
+                    <span>{{stockArticleConteneurReception.isNonConfrome}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.achatArticleConteneurArrivage">Achat Article Conteneur Arrivage</span></dt>
+                <dd>
+                    <div *ngIf="stockArticleConteneurReception.achatArticleConteneurArrivageId">
+                        <a [routerLink]="['/achat-article-conteneur-arrivage', stockArticleConteneurReception.achatArticleConteneurArrivageId, 'view']">{{stockArticleConteneurReception.achatArticleConteneurArrivageId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.stockArticleConteneurReception.stockConteneurReception">Stock Conteneur Reception</span></dt>
+                <dd>
+                    <div *ngIf="stockArticleConteneurReception.stockConteneurReceptionId">
+                        <a [routerLink]="['/stock-conteneur-reception', stockArticleConteneurReception.stockConteneurReceptionId, 'view']">{{stockArticleConteneurReception.stockConteneurReceptionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-article-conteneur-reception', stockArticleConteneurReception.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

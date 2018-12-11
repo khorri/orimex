@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-prevision-arrivage-heading" jhiTranslate="orimexApp.achatPrevisionArrivage.home.createOrEditLabel">Create or edit a Achat Prevision Arrivage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatPrevisionArrivage.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatPrevisionArrivage.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.idPrevisionArrivage" for="field_idPrevisionArrivage">Id Prevision Arrivage</label>
+                    <input type="number" class="form-control" name="idPrevisionArrivage" id="field_idPrevisionArrivage"
+                        [(ngModel)]="achatPrevisionArrivage.idPrevisionArrivage" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.produit" for="field_produit">Produit</label>
+                    <input type="text" class="form-control" name="produit" id="field_produit"
+                        [(ngModel)]="achatPrevisionArrivage.produit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.desigantionCopagnieMaritme" for="field_desigantionCopagnieMaritme">Desigantion Copagnie Maritme</label>
+                    <input type="text" class="form-control" name="desigantionCopagnieMaritme" id="field_desigantionCopagnieMaritme"
+                        [(ngModel)]="achatPrevisionArrivage.desigantionCopagnieMaritme" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.pol" for="field_pol">Pol</label>
+                    <input type="text" class="form-control" name="pol" id="field_pol"
+                        [(ngModel)]="achatPrevisionArrivage.pol" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.numeroBl" for="field_numeroBl">Numero Bl</label>
+                    <input type="text" class="form-control" name="numeroBl" id="field_numeroBl"
+                        [(ngModel)]="achatPrevisionArrivage.numeroBl" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.nombreTc" for="field_nombreTc">Nombre Tc</label>
+                    <input type="number" class="form-control" name="nombreTc" id="field_nombreTc"
+                        [(ngModel)]="achatPrevisionArrivage.nombreTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.etd" for="field_etd">Etd</label>
+                    <div class="input-group">
+                        <input id="field_etd" type="text" class="form-control" name="etd" ngbDatepicker  #etdDp="ngbDatepicker" [(ngModel)]="achatPrevisionArrivage.etd"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="etdDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.eta" for="field_eta">Eta</label>
+                    <div class="input-group">
+                        <input id="field_eta" type="text" class="form-control" name="eta" ngbDatepicker  #etaDp="ngbDatepicker" [(ngModel)]="achatPrevisionArrivage.eta"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="etaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.documents" for="field_documents">Documents</label>
+                    <input type="text" class="form-control" name="documents" id="field_documents"
+                        [(ngModel)]="achatPrevisionArrivage.documents" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.douane" for="field_douane">Douane</label>
+                    <input type="text" class="form-control" name="douane" id="field_douane"
+                        [(ngModel)]="achatPrevisionArrivage.douane" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.active" for="field_active">Active</label>
+                    <input type="number" class="form-control" name="active" id="field_active"
+                        [(ngModel)]="achatPrevisionArrivage.active" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatPrevisionArrivage.achatDossier" for="field_achatDossier">Achat Dossier</label>
+                    <select class="form-control" id="field_achatDossier" name="achatDossier" [(ngModel)]="achatPrevisionArrivage.achatDossierId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatDossierOption.id" *ngFor="let achatDossierOption of achatdossiers; trackBy: trackAchatDossierById">{{achatDossierOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

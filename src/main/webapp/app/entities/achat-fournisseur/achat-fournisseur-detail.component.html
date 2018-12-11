@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatFournisseur">
+            <h2><span jhiTranslate="orimexApp.achatFournisseur.detail.title">Achat Fournisseur</span> {{achatFournisseur.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatFournisseur.typeFournisseur">Type Fournisseur</span></dt>
+                <dd>
+                    <span>{{achatFournisseur.typeFournisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFournisseur.codeFournisseur">Code Fournisseur</span></dt>
+                <dd>
+                    <span>{{achatFournisseur.codeFournisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatFournisseur.designationFournisseur">Designation Fournisseur</span></dt>
+                <dd>
+                    <span>{{achatFournisseur.designationFournisseur}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-fournisseur', achatFournisseur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

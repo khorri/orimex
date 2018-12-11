@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-retour-heading" jhiTranslate="orimexApp.retour.home.createOrEditLabel">Create or edit a Retour</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!retour.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="retour.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.idOperation" for="field_idOperation">Id Operation</label>
+                    <input type="number" class="form-control" name="idOperation" id="field_idOperation"
+                        [(ngModel)]="retour.idOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" [(ngModel)]="dateOperation"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.nombrePlateaux" for="field_nombrePlateaux">Nombre Plateaux</label>
+                    <input type="number" class="form-control" name="nombrePlateaux" id="field_nombrePlateaux"
+                        [(ngModel)]="retour.nombrePlateaux" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.numeroOperation" for="field_numeroOperation">Numero Operation</label>
+                    <input type="text" class="form-control" name="numeroOperation" id="field_numeroOperation"
+                        [(ngModel)]="retour.numeroOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.superfecie" for="field_superfecie">Superfecie</label>
+                    <input type="number" class="form-control" name="superfecie" id="field_superfecie"
+                        [(ngModel)]="retour.superfecie" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.produit" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" [(ngModel)]="retour.produitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackProduitById">{{produitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.utilisateur" for="field_utilisateur">Utilisateur</label>
+                    <select class="form-control" id="field_utilisateur" name="utilisateur" [(ngModel)]="retour.utilisateurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="utilisateurOption.id" *ngFor="let utilisateurOption of utilisateurs; trackBy: trackUtilisateurById">{{utilisateurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.retour.bon" for="field_bon">Bon</label>
+                    <select class="form-control" id="field_bon" name="bon" [(ngModel)]="retour.bonId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bonOption.id" *ngFor="let bonOption of bons; trackBy: trackBonById">{{bonOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

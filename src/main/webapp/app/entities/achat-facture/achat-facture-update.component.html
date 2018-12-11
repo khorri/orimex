@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-facture-heading" jhiTranslate="orimexApp.achatFacture.home.createOrEditLabel">Create or edit a Achat Facture</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatFacture.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatFacture.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.idFacture" for="field_idFacture">Id Facture</label>
+                    <input type="number" class="form-control" name="idFacture" id="field_idFacture"
+                        [(ngModel)]="achatFacture.idFacture" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.numeroFacture" for="field_numeroFacture">Numero Facture</label>
+                    <input type="text" class="form-control" name="numeroFacture" id="field_numeroFacture"
+                        [(ngModel)]="achatFacture.numeroFacture" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.dateFacture" for="field_dateFacture">Date Facture</label>
+                    <div class="input-group">
+                        <input id="field_dateFacture" type="text" class="form-control" name="dateFacture" ngbDatepicker  #dateFactureDp="ngbDatepicker" [(ngModel)]="achatFacture.dateFacture"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateFactureDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.montantFob" for="field_montantFob">Montant Fob</label>
+                    <input type="number" class="form-control" name="montantFob" id="field_montantFob"
+                        [(ngModel)]="achatFacture.montantFob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.montantFret" for="field_montantFret">Montant Fret</label>
+                    <input type="number" class="form-control" name="montantFret" id="field_montantFret"
+                        [(ngModel)]="achatFacture.montantFret" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.montantTotal" for="field_montantTotal">Montant Total</label>
+                    <input type="number" class="form-control" name="montantTotal" id="field_montantTotal"
+                        [(ngModel)]="achatFacture.montantTotal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.nombreTc" for="field_nombreTc">Nombre Tc</label>
+                    <input type="number" class="form-control" name="nombreTc" id="field_nombreTc"
+                        [(ngModel)]="achatFacture.nombreTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="achatFacture.poids" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.quantite" for="field_quantite">Quantite</label>
+                    <input type="number" class="form-control" name="quantite" id="field_quantite"
+                        [(ngModel)]="achatFacture.quantite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.ajustement" for="field_ajustement">Ajustement</label>
+                    <input type="number" class="form-control" name="ajustement" id="field_ajustement"
+                        [(ngModel)]="achatFacture.ajustement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.numeroPiece" for="field_numeroPiece">Numero Piece</label>
+                    <input type="text" class="form-control" name="numeroPiece" id="field_numeroPiece"
+                        [(ngModel)]="achatFacture.numeroPiece" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.dateBl" for="field_dateBl">Date Bl</label>
+                    <div class="input-group">
+                        <input id="field_dateBl" type="text" class="form-control" name="dateBl" ngbDatepicker  #dateBlDp="ngbDatepicker" [(ngModel)]="achatFacture.dateBl"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateBlDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.numeroBl" for="field_numeroBl">Numero Bl</label>
+                    <input type="text" class="form-control" name="numeroBl" id="field_numeroBl"
+                        [(ngModel)]="achatFacture.numeroBl" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.dateEcheance" for="field_dateEcheance">Date Echeance</label>
+                    <div class="input-group">
+                        <input id="field_dateEcheance" type="text" class="form-control" name="dateEcheance" ngbDatepicker  #dateEcheanceDp="ngbDatepicker" [(ngModel)]="achatFacture.dateEcheance"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEcheanceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.etat" for="field_etat">Etat</label>
+                    <input type="number" class="form-control" name="etat" id="field_etat"
+                        [(ngModel)]="achatFacture.etat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.banqueReglement" for="field_banqueReglement">Banque Reglement</label>
+                    <input type="number" class="form-control" name="banqueReglement" id="field_banqueReglement"
+                        [(ngModel)]="achatFacture.banqueReglement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.dateValeur" for="field_dateValeur">Date Valeur</label>
+                    <div class="input-group">
+                        <input id="field_dateValeur" type="text" class="form-control" name="dateValeur" ngbDatepicker  #dateValeurDp="ngbDatepicker" [(ngModel)]="achatFacture.dateValeur"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValeurDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.cours" for="field_cours">Cours</label>
+                    <input type="number" class="form-control" name="cours" id="field_cours"
+                        [(ngModel)]="achatFacture.cours" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.montantDh" for="field_montantDh">Montant Dh</label>
+                    <input type="number" class="form-control" name="montantDh" id="field_montantDh"
+                        [(ngModel)]="achatFacture.montantDh" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.echecanceFinancement" for="field_echecanceFinancement">Echecance Financement</label>
+                    <div class="input-group">
+                        <input id="field_echecanceFinancement" type="text" class="form-control" name="echecanceFinancement" ngbDatepicker  #echecanceFinancementDp="ngbDatepicker" [(ngModel)]="achatFacture.echecanceFinancement"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="echecanceFinancementDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.interet1" for="field_interet1">Interet 1</label>
+                    <input type="number" class="form-control" name="interet1" id="field_interet1"
+                        [(ngModel)]="achatFacture.interet1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.dateReglement" for="field_dateReglement">Date Reglement</label>
+                    <div class="input-group">
+                        <input id="field_dateReglement" type="text" class="form-control" name="dateReglement" ngbDatepicker  #dateReglementDp="ngbDatepicker" [(ngModel)]="achatFacture.dateReglement"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReglementDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.derniereEcheance" for="field_derniereEcheance">Derniere Echeance</label>
+                    <div class="input-group">
+                        <input id="field_derniereEcheance" type="text" class="form-control" name="derniereEcheance" ngbDatepicker  #derniereEcheanceDp="ngbDatepicker" [(ngModel)]="achatFacture.derniereEcheance"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="derniereEcheanceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.transmise" for="field_transmise">Transmise</label>
+                    <input type="number" class="form-control" name="transmise" id="field_transmise"
+                        [(ngModel)]="achatFacture.transmise" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.echeanceRefinancement" for="field_echeanceRefinancement">Echeance Refinancement</label>
+                    <div class="input-group">
+                        <input id="field_echeanceRefinancement" type="text" class="form-control" name="echeanceRefinancement" ngbDatepicker  #echeanceRefinancementDp="ngbDatepicker" [(ngModel)]="achatFacture.echeanceRefinancement"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="echeanceRefinancementDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.interet2" for="field_interet2">Interet 2</label>
+                    <input type="number" class="form-control" name="interet2" id="field_interet2"
+                        [(ngModel)]="achatFacture.interet2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.interet1Regle" for="field_interet1Regle">Interet 1 Regle</label>
+                    <input type="number" class="form-control" name="interet1Regle" id="field_interet1Regle"
+                        [(ngModel)]="achatFacture.interet1Regle" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatFacture.achatArrivage" for="field_achatArrivage">Achat Arrivage</label>
+                    <select class="form-control" id="field_achatArrivage" name="achatArrivage" [(ngModel)]="achatFacture.achatArrivageId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatArrivageOption.id" *ngFor="let achatArrivageOption of achatarrivages; trackBy: trackAchatArrivageById">{{achatArrivageOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,202 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-dossier-heading" jhiTranslate="orimexApp.achatDossier.home.createOrEditLabel">Create or edit a Achat Dossier</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatDossier.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatDossier.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.idDossier" for="field_idDossier">Id Dossier</label>
+                    <input type="number" class="form-control" name="idDossier" id="field_idDossier"
+                        [(ngModel)]="achatDossier.idDossier" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.numeroDossier" for="field_numeroDossier">Numero Dossier</label>
+                    <input type="text" class="form-control" name="numeroDossier" id="field_numeroDossier"
+                        [(ngModel)]="achatDossier.numeroDossier" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.codeFournisseur" for="field_codeFournisseur">Code Fournisseur</label>
+                    <input type="text" class="form-control" name="codeFournisseur" id="field_codeFournisseur"
+                        [(ngModel)]="achatDossier.codeFournisseur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.designationFournisseur" for="field_designationFournisseur">Designation Fournisseur</label>
+                    <input type="text" class="form-control" name="designationFournisseur" id="field_designationFournisseur"
+                        [(ngModel)]="achatDossier.designationFournisseur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.incoterm" for="field_incoterm">Incoterm</label>
+                    <input type="text" class="form-control" name="incoterm" id="field_incoterm"
+                        [(ngModel)]="achatDossier.incoterm" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.reference" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                        [(ngModel)]="achatDossier.reference" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.tolerance" for="field_tolerance">Tolerance</label>
+                    <input type="number" class="form-control" name="tolerance" id="field_tolerance"
+                        [(ngModel)]="achatDossier.tolerance" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.numeroEi" for="field_numeroEi">Numero Ei</label>
+                    <input type="text" class="form-control" name="numeroEi" id="field_numeroEi"
+                        [(ngModel)]="achatDossier.numeroEi" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.numeroEiComp" for="field_numeroEiComp">Numero Ei Comp</label>
+                    <input type="text" class="form-control" name="numeroEiComp" id="field_numeroEiComp"
+                        [(ngModel)]="achatDossier.numeroEiComp" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateCreation" for="field_dateCreation">Date Creation</label>
+                    <div class="input-group">
+                        <input id="field_dateCreation" type="text" class="form-control" name="dateCreation" ngbDatepicker  #dateCreationDp="ngbDatepicker" [(ngModel)]="achatDossier.dateCreation"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreationDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.delaiPaiement" for="field_delaiPaiement">Delai Paiement</label>
+                    <input type="number" class="form-control" name="delaiPaiement" id="field_delaiPaiement"
+                        [(ngModel)]="achatDossier.delaiPaiement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.delaiValiditeLc" for="field_delaiValiditeLc">Delai Validite Lc</label>
+                    <input type="number" class="form-control" name="delaiValiditeLc" id="field_delaiValiditeLc"
+                        [(ngModel)]="achatDossier.delaiValiditeLc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateExpedition" for="field_dateExpedition">Date Expedition</label>
+                    <div class="input-group">
+                        <input id="field_dateExpedition" type="text" class="form-control" name="dateExpedition" ngbDatepicker  #dateExpeditionDp="ngbDatepicker" [(ngModel)]="achatDossier.dateExpedition"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateExpeditionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateOuverture" for="field_dateOuverture">Date Ouverture</label>
+                    <div class="input-group">
+                        <input id="field_dateOuverture" type="text" class="form-control" name="dateOuverture" ngbDatepicker  #dateOuvertureDp="ngbDatepicker" [(ngModel)]="achatDossier.dateOuverture"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOuvertureDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateValiditeEi" for="field_dateValiditeEi">Date Validite Ei</label>
+                    <div class="input-group">
+                        <input id="field_dateValiditeEi" type="text" class="form-control" name="dateValiditeEi" ngbDatepicker  #dateValiditeEiDp="ngbDatepicker" [(ngModel)]="achatDossier.dateValiditeEi"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValiditeEiDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateLimiteExp" for="field_dateLimiteExp">Date Limite Exp</label>
+                    <div class="input-group">
+                        <input id="field_dateLimiteExp" type="text" class="form-control" name="dateLimiteExp" ngbDatepicker  #dateLimiteExpDp="ngbDatepicker" [(ngModel)]="achatDossier.dateLimiteExp"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateLimiteExpDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.dateValiditeLc" for="field_dateValiditeLc">Date Validite Lc</label>
+                    <div class="input-group">
+                        <input id="field_dateValiditeLc" type="text" class="form-control" name="dateValiditeLc" ngbDatepicker  #dateValiditeLcDp="ngbDatepicker" [(ngModel)]="achatDossier.dateValiditeLc"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValiditeLcDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.montnatTotal" for="field_montnatTotal">Montnat Total</label>
+                    <input type="number" class="form-control" name="montnatTotal" id="field_montnatTotal"
+                        [(ngModel)]="achatDossier.montnatTotal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.montnatFob" for="field_montnatFob">Montnat Fob</label>
+                    <input type="number" class="form-control" name="montnatFob" id="field_montnatFob"
+                        [(ngModel)]="achatDossier.montnatFob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.montnatFret" for="field_montnatFret">Montnat Fret</label>
+                    <input type="number" class="form-control" name="montnatFret" id="field_montnatFret"
+                        [(ngModel)]="achatDossier.montnatFret" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.totalTc" for="field_totalTc">Total Tc</label>
+                    <input type="number" class="form-control" name="totalTc" id="field_totalTc"
+                        [(ngModel)]="achatDossier.totalTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.designationBanque" for="field_designationBanque">Designation Banque</label>
+                    <input type="text" class="form-control" name="designationBanque" id="field_designationBanque"
+                        [(ngModel)]="achatDossier.designationBanque" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.paiementAvue" for="field_paiementAvue">Paiement Avue</label>
+                    <input type="number" class="form-control" name="paiementAvue" id="field_paiementAvue"
+                        [(ngModel)]="achatDossier.paiementAvue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.encours" for="field_encours">Encours</label>
+                    <input type="number" class="form-control" name="encours" id="field_encours"
+                        [(ngModel)]="achatDossier.encours" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.achatBanque" for="field_achatBanque">Achat Banque</label>
+                    <select class="form-control" id="field_achatBanque" name="achatBanque" [(ngModel)]="achatDossier.achatBanqueId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatBanqueOption.id" *ngFor="let achatBanqueOption of achatbanques; trackBy: trackAchatBanqueById">{{achatBanqueOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.typePaiement" for="field_typePaiement">Type Paiement</label>
+                    <select class="form-control" id="field_typePaiement" name="typePaiement" [(ngModel)]="achatDossier.typePaiementId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatTypePaiementOption.id" *ngFor="let achatTypePaiementOption of achattypepaiements; trackBy: trackAchatTypePaiementById">{{achatTypePaiementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.achatDevise" for="field_achatDevise">Achat Devise</label>
+                    <select class="form-control" id="field_achatDevise" name="achatDevise" [(ngModel)]="achatDossier.achatDeviseId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatDeviseOption.id" *ngFor="let achatDeviseOption of achatdevises; trackBy: trackAchatDeviseById">{{achatDeviseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatDossier.achatStatutDossier" for="field_achatStatutDossier">Achat Statut Dossier</label>
+                    <select class="form-control" id="field_achatStatutDossier" name="achatStatutDossier" [(ngModel)]="achatDossier.achatStatutDossierId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatStatutDossierOption.id" *ngFor="let achatStatutDossierOption of achatstatutdossiers; trackBy: trackAchatStatutDossierById">{{achatStatutDossierOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+{
+    "name": "AchatDossier",
+    "fields": [
+        {
+            "fieldName": "idDossier",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroDossier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeFournisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationFournisseur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "incoterm",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tolerance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroEi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroEiComp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "delaiPaiement",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "delaiValiditeLc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateExpedition",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateOuverture",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateValiditeEi",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateLimiteExp",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateValiditeLc",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montnatTotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montnatFob",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montnatFret",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "designationBanque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paiementAvue",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "encours",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "achatBanque",
+            "otherEntityName": "achatBanque",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "typePaiement",
+            "otherEntityName": "achatTypePaiement",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatDevise",
+            "otherEntityName": "achatDevise",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatPrevisionArrivage",
+            "otherEntityName": "achatPrevisionArrivage",
+            "otherEntityRelationshipName": "achatDossier"
+        },
+        {
+            "relationshipName": "achatStatutDossier",
+            "otherEntityName": "achatStatutDossier",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203312",
+    "entityTableName": "achat_dossier",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

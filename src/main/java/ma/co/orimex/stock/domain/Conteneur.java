@@ -1,60 +1,81 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:21:28
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Conteneur.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="CONTENEUR")
-public class Conteneur
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public Conteneur()
-    {
+/**
+ * A Conteneur.
+ */
+@Entity
+@Table(name = "conteneur")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "conteneur")
+public class Conteneur implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "numero_conteneur")
+    private String numeroConteneur;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public String getNumeroConteneur()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNumeroConteneur() {
         return numeroConteneur;
     }
 
-    public void setNumeroConteneur(String numeroConteneur)
-    {
+    public Conteneur numeroConteneur(String numeroConteneur) {
+        this.numeroConteneur = numeroConteneur;
+        return this;
+    }
+
+    public void setNumeroConteneur(String numeroConteneur) {
         this.numeroConteneur = numeroConteneur;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getReceptions()
-    {
-        return receptions;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Conteneur conteneur = (Conteneur) o;
+        if (conteneur.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), conteneur.getId());
     }
 
-    public void setReceptions(Set receptions)
-    {
-        this.receptions = receptions;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    public Set getTransferts()
-    {
-        return transferts;
+    @Override
+    public String toString() {
+        return "Conteneur{" +
+            "id=" + getId() +
+            ", numeroConteneur='" + getNumeroConteneur() + "'" +
+            "}";
     }
-
-    public void setTransferts(Set transferts)
-    {
-        this.transferts = transferts;
-    }
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="NUMERO_CONTENEUR")
-    private String numeroConteneur;
-    @OneToMany(mappedBy="conteneur")
-    private Set receptions;
-    @OneToMany(mappedBy="conteneur")
-    private Set transferts;
 }

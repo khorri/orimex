@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.achatConteneurArrivage.home.title">Achat Conteneur Arrivages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-achat-conteneur-arrivage" [routerLink]="['/achat-conteneur-arrivage/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.achatConteneurArrivage.home.createLabel">
+            Create new Achat Conteneur Arrivage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.achatConteneurArrivage.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="achatConteneurArrivages">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idConteneurArrivage"><span jhiTranslate="orimexApp.achatConteneurArrivage.idConteneurArrivage">Id Conteneur Arrivage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montant"><span jhiTranslate="orimexApp.achatConteneurArrivage.montant">Montant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroConteneurs"><span jhiTranslate="orimexApp.achatConteneurArrivage.numeroConteneurs">Numero Conteneurs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroSequence"><span jhiTranslate="orimexApp.achatConteneurArrivage.numeroSequence">Numero Sequence</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poids"><span jhiTranslate="orimexApp.achatConteneurArrivage.poids">Poids</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quantite"><span jhiTranslate="orimexApp.achatConteneurArrivage.quantite">Quantite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatFactureId"><span jhiTranslate="orimexApp.achatConteneurArrivage.achatFacture">Achat Facture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="stockConteneurReceptionId"><span jhiTranslate="orimexApp.achatConteneurArrivage.stockConteneurReception">Stock Conteneur Reception</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let achatConteneurArrivage of achatConteneurArrivages ;trackBy: trackId">
+                <td><a [routerLink]="['/achat-conteneur-arrivage', achatConteneurArrivage.id, 'view' ]">{{achatConteneurArrivage.id}}</a></td>
+                <td>{{achatConteneurArrivage.idConteneurArrivage}}</td>
+                <td>{{achatConteneurArrivage.montant}}</td>
+                <td>{{achatConteneurArrivage.numeroConteneurs}}</td>
+                <td>{{achatConteneurArrivage.numeroSequence}}</td>
+                <td>{{achatConteneurArrivage.poids}}</td>
+                <td>{{achatConteneurArrivage.quantite}}</td>
+                <td>
+                    <div *ngIf="achatConteneurArrivage.achatFactureId">
+                        <a [routerLink]="['../achat-facture', achatConteneurArrivage.achatFactureId , 'view' ]" >{{achatConteneurArrivage.achatFactureId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="achatConteneurArrivage.stockConteneurReceptionId">
+                        <a [routerLink]="['../stock-conteneur-reception', achatConteneurArrivage.stockConteneurReceptionId , 'view' ]" >{{achatConteneurArrivage.stockConteneurReceptionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/achat-conteneur-arrivage', achatConteneurArrivage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/achat-conteneur-arrivage', achatConteneurArrivage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'achat-conteneur-arrivage/'+ achatConteneurArrivage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="achatConteneurArrivages && achatConteneurArrivages.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

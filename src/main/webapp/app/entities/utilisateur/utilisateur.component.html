@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.utilisateur.home.title">Utilisateurs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-utilisateur" [routerLink]="['/utilisateur/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.utilisateur.home.createLabel">
+            Create new Utilisateur
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.utilisateur.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="utilisateurs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idUtilisateur"><span jhiTranslate="orimexApp.utilisateur.idUtilisateur">Id Utilisateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="loginUtilisateur"><span jhiTranslate="orimexApp.utilisateur.loginUtilisateur">Login Utilisateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="matriculeUtilisateur"><span jhiTranslate="orimexApp.utilisateur.matriculeUtilisateur">Matricule Utilisateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nomUtilsateur"><span jhiTranslate="orimexApp.utilisateur.nomUtilsateur">Nom Utilsateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="passwordUtilisateur"><span jhiTranslate="orimexApp.utilisateur.passwordUtilisateur">Password Utilisateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenomUtilsateur"><span jhiTranslate="orimexApp.utilisateur.prenomUtilsateur">Prenom Utilsateur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let utilisateur of utilisateurs ;trackBy: trackId">
+                <td><a [routerLink]="['/utilisateur', utilisateur.id, 'view' ]">{{utilisateur.id}}</a></td>
+                <td>{{utilisateur.idUtilisateur}}</td>
+                <td>{{utilisateur.loginUtilisateur}}</td>
+                <td>{{utilisateur.matriculeUtilisateur}}</td>
+                <td>{{utilisateur.nomUtilsateur}}</td>
+                <td>{{utilisateur.passwordUtilisateur}}</td>
+                <td>{{utilisateur.prenomUtilsateur}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/utilisateur', utilisateur.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/utilisateur', utilisateur.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'utilisateur/'+ utilisateur.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="utilisateurs && utilisateurs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

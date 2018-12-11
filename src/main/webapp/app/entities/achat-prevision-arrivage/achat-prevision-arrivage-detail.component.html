@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatPrevisionArrivage">
+            <h2><span jhiTranslate="orimexApp.achatPrevisionArrivage.detail.title">Achat Prevision Arrivage</span> {{achatPrevisionArrivage.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.idPrevisionArrivage">Id Prevision Arrivage</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.idPrevisionArrivage}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.produit">Produit</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.produit}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.desigantionCopagnieMaritme">Desigantion Copagnie Maritme</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.desigantionCopagnieMaritme}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.pol">Pol</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.pol}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.numeroBl">Numero Bl</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.numeroBl}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.nombreTc">Nombre Tc</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.nombreTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.etd">Etd</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.etd}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.eta">Eta</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.eta}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.documents">Documents</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.documents}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.douane">Douane</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.douane}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.active">Active</span></dt>
+                <dd>
+                    <span>{{achatPrevisionArrivage.active}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatPrevisionArrivage.achatDossier">Achat Dossier</span></dt>
+                <dd>
+                    <div *ngIf="achatPrevisionArrivage.achatDossierId">
+                        <a [routerLink]="['/achat-dossier', achatPrevisionArrivage.achatDossierId, 'view']">{{achatPrevisionArrivage.achatDossierId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-prevision-arrivage', achatPrevisionArrivage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

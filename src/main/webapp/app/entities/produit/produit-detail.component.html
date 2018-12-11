@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produit">
+            <h2><span jhiTranslate="orimexApp.produit.detail.title">Produit</span> {{produit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.produit.idProduit">Id Produit</span></dt>
+                <dd>
+                    <span>{{produit.idProduit}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.designationProduit">Designation Produit</span></dt>
+                <dd>
+                    <span>{{produit.designationProduit}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.dimension">Dimension</span></dt>
+                <dd>
+                    <span>{{produit.dimension}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.epaisseur">Epaisseur</span></dt>
+                <dd>
+                    <span>{{produit.epaisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.largeure">Largeure</span></dt>
+                <dd>
+                    <span>{{produit.largeure}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.longueur">Longueur</span></dt>
+                <dd>
+                    <span>{{produit.longueur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.referenceProduit">Reference Produit</span></dt>
+                <dd>
+                    <span>{{produit.referenceProduit}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.poids">Poids</span></dt>
+                <dd>
+                    <span>{{produit.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.libelleCouleur">Libelle Couleur</span></dt>
+                <dd>
+                    <span>{{produit.libelleCouleur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.libelleFamille">Libelle Famille</span></dt>
+                <dd>
+                    <span>{{produit.libelleFamille}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.libelleOrigine">Libelle Origine</span></dt>
+                <dd>
+                    <span>{{produit.libelleOrigine}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.couleur">Couleur</span></dt>
+                <dd>
+                    <div *ngIf="produit.couleurId">
+                        <a [routerLink]="['/couleur', produit.couleurId, 'view']">{{produit.couleurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.familleProduit">Famille Produit</span></dt>
+                <dd>
+                    <div *ngIf="produit.familleProduitId">
+                        <a [routerLink]="['/famille-produit', produit.familleProduitId, 'view']">{{produit.familleProduitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.produit.origine">Origine</span></dt>
+                <dd>
+                    <div *ngIf="produit.origineId">
+                        <a [routerLink]="['/origine', produit.origineId, 'view']">{{produit.origineId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produit', produit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

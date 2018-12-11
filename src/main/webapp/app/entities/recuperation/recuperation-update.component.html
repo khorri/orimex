@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-recuperation-heading" jhiTranslate="orimexApp.recuperation.home.createOrEditLabel">Create or edit a Recuperation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!recuperation.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="recuperation.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.idOperation" for="field_idOperation">Id Operation</label>
+                    <input type="number" class="form-control" name="idOperation" id="field_idOperation"
+                        [(ngModel)]="recuperation.idOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" [(ngModel)]="dateOperation"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.nombrePanneaux" for="field_nombrePanneaux">Nombre Panneaux</label>
+                    <input type="number" class="form-control" name="nombrePanneaux" id="field_nombrePanneaux"
+                        [(ngModel)]="recuperation.nombrePanneaux" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.numeroOperation" for="field_numeroOperation">Numero Operation</label>
+                    <input type="text" class="form-control" name="numeroOperation" id="field_numeroOperation"
+                        [(ngModel)]="recuperation.numeroOperation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.superficie" for="field_superficie">Superficie</label>
+                    <input type="number" class="form-control" name="superficie" id="field_superficie"
+                        [(ngModel)]="recuperation.superficie" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.produit" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" [(ngModel)]="recuperation.produitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackProduitById">{{produitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.depot" for="field_depot">Depot</label>
+                    <select class="form-control" id="field_depot" name="depot" [(ngModel)]="recuperation.depotId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="depotOption.id" *ngFor="let depotOption of depots; trackBy: trackDepotById">{{depotOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.recuperation.utilisateur" for="field_utilisateur">Utilisateur</label>
+                    <select class="form-control" id="field_utilisateur" name="utilisateur" [(ngModel)]="recuperation.utilisateurId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="utilisateurOption.id" *ngFor="let utilisateurOption of utilisateurs; trackBy: trackUtilisateurById">{{utilisateurOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

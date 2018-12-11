@@ -4,6 +4,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
+import * as moment from 'moment';
+import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { AchatArrivageService } from 'app/entities/achat-arrivage/achat-arrivage.service';
 import { IAchatArrivage, AchatArrivage } from 'app/shared/model/achat-arrivage.model';
 
@@ -13,6 +15,7 @@ describe('Service Tests', () => {
         let service: AchatArrivageService;
         let httpMock: HttpTestingController;
         let elemDefault: IAchatArrivage;
+        let currentDate: moment.Moment;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
@@ -20,13 +23,41 @@ describe('Service Tests', () => {
             injector = getTestBed();
             service = injector.get(AchatArrivageService);
             httpMock = injector.get(HttpTestingController);
+            currentDate = moment();
 
-            elemDefault = new AchatArrivage(0);
+            elemDefault = new AchatArrivage(
+                0,
+                0,
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                currentDate,
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                'AAAAAAA',
+                0,
+                0,
+                0,
+                0,
+                0,
+                currentDate,
+                0
+            );
         });
 
         describe('Service methods', async () => {
             it('should find an element', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        dateArrivePort: currentDate.format(DATE_FORMAT),
+                        dateRealisation: currentDate.format(DATE_FORMAT)
+                    },
+                    elemDefault
+                );
                 service
                     .find(123)
                     .pipe(take(1))
@@ -39,11 +70,19 @@ describe('Service Tests', () => {
             it('should create a AchatArrivage', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        id: 0
+                        id: 0,
+                        dateArrivePort: currentDate.format(DATE_FORMAT),
+                        dateRealisation: currentDate.format(DATE_FORMAT)
                     },
                     elemDefault
                 );
-                const expected = Object.assign({}, returnedFromService);
+                const expected = Object.assign(
+                    {
+                        dateArrivePort: currentDate,
+                        dateRealisation: currentDate
+                    },
+                    returnedFromService
+                );
                 service
                     .create(new AchatArrivage(null))
                     .pipe(take(1))
@@ -53,9 +92,38 @@ describe('Service Tests', () => {
             });
 
             it('should update a AchatArrivage', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        idArrivage: 1,
+                        numeroDossierArrivage: 'BBBBBB',
+                        codeCompagnieMaritime: 'BBBBBB',
+                        codeOperateur: 'BBBBBB',
+                        codeTransitaire: 'BBBBBB',
+                        codeTransporteur: 'BBBBBB',
+                        dateArrivePort: currentDate.format(DATE_FORMAT),
+                        designationCompagnieMaritime: 'BBBBBB',
+                        designationOperateur: 'BBBBBB',
+                        designationTransitaire: 'BBBBBB',
+                        designationTransporteur: 'BBBBBB',
+                        flagProduit: 'BBBBBB',
+                        franchise: 1,
+                        montantFob: 1,
+                        montantFret: 1,
+                        montantTotal: 1,
+                        nombreTc: 1,
+                        dateRealisation: currentDate.format(DATE_FORMAT),
+                        poid: 1
+                    },
+                    elemDefault
+                );
 
-                const expected = Object.assign({}, returnedFromService);
+                const expected = Object.assign(
+                    {
+                        dateArrivePort: currentDate,
+                        dateRealisation: currentDate
+                    },
+                    returnedFromService
+                );
                 service
                     .update(expected)
                     .pipe(take(1))
@@ -65,8 +133,37 @@ describe('Service Tests', () => {
             });
 
             it('should return a list of AchatArrivage', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
-                const expected = Object.assign({}, returnedFromService);
+                const returnedFromService = Object.assign(
+                    {
+                        idArrivage: 1,
+                        numeroDossierArrivage: 'BBBBBB',
+                        codeCompagnieMaritime: 'BBBBBB',
+                        codeOperateur: 'BBBBBB',
+                        codeTransitaire: 'BBBBBB',
+                        codeTransporteur: 'BBBBBB',
+                        dateArrivePort: currentDate.format(DATE_FORMAT),
+                        designationCompagnieMaritime: 'BBBBBB',
+                        designationOperateur: 'BBBBBB',
+                        designationTransitaire: 'BBBBBB',
+                        designationTransporteur: 'BBBBBB',
+                        flagProduit: 'BBBBBB',
+                        franchise: 1,
+                        montantFob: 1,
+                        montantFret: 1,
+                        montantTotal: 1,
+                        nombreTc: 1,
+                        dateRealisation: currentDate.format(DATE_FORMAT),
+                        poid: 1
+                    },
+                    elemDefault
+                );
+                const expected = Object.assign(
+                    {
+                        dateArrivePort: currentDate,
+                        dateRealisation: currentDate
+                    },
+                    returnedFromService
+                );
                 service
                     .query(expected)
                     .pipe(

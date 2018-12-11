@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-achat-proforma-heading" jhiTranslate="orimexApp.achatProforma.home.createOrEditLabel">Create or edit a Achat Proforma</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!achatProforma.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="achatProforma.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.idProforma" for="field_idProforma">Id Proforma</label>
+                    <input type="number" class="form-control" name="idProforma" id="field_idProforma"
+                        [(ngModel)]="achatProforma.idProforma" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.nombreTc" for="field_nombreTc">Nombre Tc</label>
+                    <input type="number" class="form-control" name="nombreTc" id="field_nombreTc"
+                        [(ngModel)]="achatProforma.nombreTc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.coutFob" for="field_coutFob">Cout Fob</label>
+                    <input type="number" class="form-control" name="coutFob" id="field_coutFob"
+                        [(ngModel)]="achatProforma.coutFob" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.coutFret" for="field_coutFret">Cout Fret</label>
+                    <input type="number" class="form-control" name="coutFret" id="field_coutFret"
+                        [(ngModel)]="achatProforma.coutFret" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.montantTotal" for="field_montantTotal">Montant Total</label>
+                    <input type="number" class="form-control" name="montantTotal" id="field_montantTotal"
+                        [(ngModel)]="achatProforma.montantTotal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.numeroBonProforma" for="field_numeroBonProforma">Numero Bon Proforma</label>
+                    <input type="text" class="form-control" name="numeroBonProforma" id="field_numeroBonProforma"
+                        [(ngModel)]="achatProforma.numeroBonProforma" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.typeAcht" for="field_typeAcht">Type Acht</label>
+                    <input type="text" class="form-control" name="typeAcht" id="field_typeAcht"
+                        [(ngModel)]="achatProforma.typeAcht" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                        [(ngModel)]="achatProforma.poids" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.dateProforma" for="field_dateProforma">Date Proforma</label>
+                    <div class="input-group">
+                        <input id="field_dateProforma" type="text" class="form-control" name="dateProforma" ngbDatepicker  #dateProformaDp="ngbDatepicker" [(ngModel)]="achatProforma.dateProforma"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateProformaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.achatProforma.achatDossier" for="field_achatDossier">Achat Dossier</label>
+                    <select class="form-control" id="field_achatDossier" name="achatDossier" [(ngModel)]="achatProforma.achatDossierId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="achatDossierOption.id" *ngFor="let achatDossierOption of achatdossiers; trackBy: trackAchatDossierById">{{achatDossierOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

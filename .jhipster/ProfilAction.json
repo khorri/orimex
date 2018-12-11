@@ -1,0 +1,27 @@
+{
+    "name": "ProfilAction",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "action",
+            "otherEntityName": "action",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "profil",
+            "otherEntityName": "profil",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203336",
+    "entityTableName": "profil_action",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

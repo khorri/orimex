@@ -1,0 +1,23 @@
+{
+    "name": "FamilleProduit",
+    "fields": [
+        {
+            "fieldName": "idFamille",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "designationFamille",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203330",
+    "entityTableName": "famille_produit",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

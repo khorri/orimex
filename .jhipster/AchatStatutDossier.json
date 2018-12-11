@@ -1,0 +1,30 @@
+{
+    "name": "AchatStatutDossier",
+    "fields": [
+        {
+            "fieldName": "idStatutDossier",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleStatutDossier",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityRelationshipName": "achatStatutDossier"
+        }
+    ],
+    "changelogDate": "20181207203319",
+    "entityTableName": "achat_statut_dossier",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

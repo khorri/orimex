@@ -21,6 +21,86 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="id_arrivage" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="numero_dossier_arrivage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_compagnie_maritime" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_operateur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_transitaire" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code_transporteur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_arrive_port" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="designation_compagnie_maritime" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="designation_operateur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="designation_transitaire" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="designation_transporteur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="flag_produit" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="franchise" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="montant_fob" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="montant_fret" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="montant_total" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nombre_tc" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_realisation" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="poid" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="achat_dossier_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

@@ -1,0 +1,50 @@
+{
+    "orimexApp": {
+        "achatFacture": {
+            "home": {
+                "title": "AchatFactures",
+                "createLabel": "Créer un nouveau Achat Facture",
+                "createOrEditLabel": "Créer ou éditer un Achat Facture",
+                "search": "Recherche pour Achat Facture"
+            },
+            "created": "Un nouveau Achat Facture a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Facture avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Facture avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Facture {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Facture"
+            },
+            "idFacture": "Id Facture",
+            "numeroFacture": "Numero Facture",
+            "dateFacture": "Date Facture",
+            "montantFob": "Montant Fob",
+            "montantFret": "Montant Fret",
+            "montantTotal": "Montant Total",
+            "nombreTc": "Nombre Tc",
+            "poids": "Poids",
+            "quantite": "Quantite",
+            "ajustement": "Ajustement",
+            "numeroPiece": "Numero Piece",
+            "dateBl": "Date Bl",
+            "numeroBl": "Numero Bl",
+            "dateEcheance": "Date Echeance",
+            "etat": "Etat",
+            "banqueReglement": "Banque Reglement",
+            "dateValeur": "Date Valeur",
+            "cours": "Cours",
+            "montantDh": "Montant Dh",
+            "echecanceFinancement": "Echecance Financement",
+            "interet1": "Interet 1",
+            "dateReglement": "Date Reglement",
+            "derniereEcheance": "Derniere Echeance",
+            "transmise": "Transmise",
+            "echeanceRefinancement": "Echeance Refinancement",
+            "interet2": "Interet 2",
+            "interet1Regle": "Interet 1 Regle",
+            "achatArrivage": "Achat Arrivage",
+            "achatConteneurArrivage": "Achat Conteneur Arrivage"
+        }
+    }
+}

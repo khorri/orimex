@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(AchatArticleConteneurArrivageService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new AchatArticleConteneurArrivage(0);
+            elemDefault = new AchatArticleConteneurArrivage(0, 0, 0, 0, 0, 0, 0, 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -53,7 +53,19 @@ describe('Service Tests', () => {
             });
 
             it('should update a AchatArticleConteneurArrivage', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        idArticleConteneurArrivage: 1,
+                        dimension: 1,
+                        montant: 1,
+                        nombreCaissestc: 1,
+                        nombreFeuillecaisse: 1,
+                        prixUnitaire: 1,
+                        quantite: 1,
+                        poids: 1
+                    },
+                    elemDefault
+                );
 
                 const expected = Object.assign({}, returnedFromService);
                 service
@@ -65,7 +77,19 @@ describe('Service Tests', () => {
             });
 
             it('should return a list of AchatArticleConteneurArrivage', async () => {
-                const returnedFromService = Object.assign({}, elemDefault);
+                const returnedFromService = Object.assign(
+                    {
+                        idArticleConteneurArrivage: 1,
+                        dimension: 1,
+                        montant: 1,
+                        nombreCaissestc: 1,
+                        nombreFeuillecaisse: 1,
+                        prixUnitaire: 1,
+                        quantite: 1,
+                        poids: 1
+                    },
+                    elemDefault
+                );
                 const expected = Object.assign({}, returnedFromService);
                 service
                     .query(expected)

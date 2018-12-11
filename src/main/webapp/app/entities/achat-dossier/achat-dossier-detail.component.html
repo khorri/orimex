@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatDossier">
+            <h2><span jhiTranslate="orimexApp.achatDossier.detail.title">Achat Dossier</span> {{achatDossier.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatDossier.idDossier">Id Dossier</span></dt>
+                <dd>
+                    <span>{{achatDossier.idDossier}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.numeroDossier">Numero Dossier</span></dt>
+                <dd>
+                    <span>{{achatDossier.numeroDossier}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.codeFournisseur">Code Fournisseur</span></dt>
+                <dd>
+                    <span>{{achatDossier.codeFournisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.designationFournisseur">Designation Fournisseur</span></dt>
+                <dd>
+                    <span>{{achatDossier.designationFournisseur}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.incoterm">Incoterm</span></dt>
+                <dd>
+                    <span>{{achatDossier.incoterm}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.reference">Reference</span></dt>
+                <dd>
+                    <span>{{achatDossier.reference}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.tolerance">Tolerance</span></dt>
+                <dd>
+                    <span>{{achatDossier.tolerance}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.numeroEi">Numero Ei</span></dt>
+                <dd>
+                    <span>{{achatDossier.numeroEi}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.numeroEiComp">Numero Ei Comp</span></dt>
+                <dd>
+                    <span>{{achatDossier.numeroEiComp}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateCreation}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.delaiPaiement">Delai Paiement</span></dt>
+                <dd>
+                    <span>{{achatDossier.delaiPaiement}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.delaiValiditeLc">Delai Validite Lc</span></dt>
+                <dd>
+                    <span>{{achatDossier.delaiValiditeLc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateExpedition">Date Expedition</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateExpedition}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateOuverture">Date Ouverture</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateOuverture}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateValiditeEi">Date Validite Ei</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateValiditeEi}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateLimiteExp">Date Limite Exp</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateLimiteExp}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.dateValiditeLc">Date Validite Lc</span></dt>
+                <dd>
+                    <span>{{achatDossier.dateValiditeLc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.montnatTotal">Montnat Total</span></dt>
+                <dd>
+                    <span>{{achatDossier.montnatTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.montnatFob">Montnat Fob</span></dt>
+                <dd>
+                    <span>{{achatDossier.montnatFob}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.montnatFret">Montnat Fret</span></dt>
+                <dd>
+                    <span>{{achatDossier.montnatFret}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.totalTc">Total Tc</span></dt>
+                <dd>
+                    <span>{{achatDossier.totalTc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.designationBanque">Designation Banque</span></dt>
+                <dd>
+                    <span>{{achatDossier.designationBanque}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.paiementAvue">Paiement Avue</span></dt>
+                <dd>
+                    <span>{{achatDossier.paiementAvue}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.encours">Encours</span></dt>
+                <dd>
+                    <span>{{achatDossier.encours}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.achatBanque">Achat Banque</span></dt>
+                <dd>
+                    <div *ngIf="achatDossier.achatBanqueId">
+                        <a [routerLink]="['/achat-banque', achatDossier.achatBanqueId, 'view']">{{achatDossier.achatBanqueId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.typePaiement">Type Paiement</span></dt>
+                <dd>
+                    <div *ngIf="achatDossier.typePaiementId">
+                        <a [routerLink]="['/achat-type-paiement', achatDossier.typePaiementId, 'view']">{{achatDossier.typePaiementId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.achatDevise">Achat Devise</span></dt>
+                <dd>
+                    <div *ngIf="achatDossier.achatDeviseId">
+                        <a [routerLink]="['/achat-devise', achatDossier.achatDeviseId, 'view']">{{achatDossier.achatDeviseId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatDossier.achatStatutDossier">Achat Statut Dossier</span></dt>
+                <dd>
+                    <div *ngIf="achatDossier.achatStatutDossierId">
+                        <a [routerLink]="['/achat-statut-dossier', achatDossier.achatStatutDossierId, 'view']">{{achatDossier.achatStatutDossierId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-dossier', achatDossier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "name": "AchatTypePaiement",
+    "fields": [
+        {
+            "fieldName": "idTypePaiement",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleTypePaiement",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203320",
+    "entityTableName": "achat_type_paiement",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

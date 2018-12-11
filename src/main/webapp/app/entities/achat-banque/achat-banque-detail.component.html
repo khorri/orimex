@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatBanque">
+            <h2><span jhiTranslate="orimexApp.achatBanque.detail.title">Achat Banque</span> {{achatBanque.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatBanque.idBanque">Id Banque</span></dt>
+                <dd>
+                    <span>{{achatBanque.idBanque}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatBanque.codeBanque">Code Banque</span></dt>
+                <dd>
+                    <span>{{achatBanque.codeBanque}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatBanque.designationBanque">Designation Banque</span></dt>
+                <dd>
+                    <span>{{achatBanque.designationBanque}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-banque', achatBanque.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,165 +1,268 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:20:11
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   AchatProforma.java
-
 package ma.co.orimex.stock.domain;
 
-import org.hibernate.annotations.Cascade;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.*;
+
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.*;
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            AchatDossier
+import java.util.Objects;
 
+/**
+ * A AchatProforma.
+ */
 @Entity
-@Table(name="ACHAT_PROFORMA")
-public class AchatProforma
-    implements Serializable
-{
+@Table(name = "achat_proforma")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "achatproforma")
+public class AchatProforma implements Serializable {
 
-    public AchatProforma()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_proforma")
+    private Integer idProforma;
+
+    @Column(name = "nombre_tc")
+    private Integer nombreTc;
+
+    @Column(name = "cout_fob", precision = 10, scale = 2)
+    private BigDecimal coutFob;
+
+    @Column(name = "cout_fret", precision = 10, scale = 2)
+    private BigDecimal coutFret;
+
+    @Column(name = "montant_total", precision = 10, scale = 2)
+    private BigDecimal montantTotal;
+
+    @Column(name = "numero_bon_proforma")
+    private String numeroBonProforma;
+
+    @Column(name = "type_acht")
+    private String typeAcht;
+
+    @Column(name = "poids", precision = 10, scale = 2)
+    private BigDecimal poids;
+
+    @Column(name = "date_proforma")
+    private LocalDate dateProforma;
+
+    @OneToMany(mappedBy = "achatProforma")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<AchatLigneProforma> achatLigneProformas = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private AchatDossier achatDossier;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdProforma()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdProforma() {
         return idProforma;
     }
 
-    public void setIdProforma(int idProforma)
-    {
+    public AchatProforma idProforma(Integer idProforma) {
+        this.idProforma = idProforma;
+        return this;
+    }
+
+    public void setIdProforma(Integer idProforma) {
         this.idProforma = idProforma;
     }
 
-    public BigDecimal getCoutFob()
-    {
+    public Integer getNombreTc() {
+        return nombreTc;
+    }
+
+    public AchatProforma nombreTc(Integer nombreTc) {
+        this.nombreTc = nombreTc;
+        return this;
+    }
+
+    public void setNombreTc(Integer nombreTc) {
+        this.nombreTc = nombreTc;
+    }
+
+    public BigDecimal getCoutFob() {
         return coutFob;
     }
 
-    public void setCoutFob(BigDecimal coutFob)
-    {
+    public AchatProforma coutFob(BigDecimal coutFob) {
+        this.coutFob = coutFob;
+        return this;
+    }
+
+    public void setCoutFob(BigDecimal coutFob) {
         this.coutFob = coutFob;
     }
 
-    public BigDecimal getCoutFret()
-    {
+    public BigDecimal getCoutFret() {
         return coutFret;
     }
 
-    public void setCoutFret(BigDecimal coutFret)
-    {
+    public AchatProforma coutFret(BigDecimal coutFret) {
+        this.coutFret = coutFret;
+        return this;
+    }
+
+    public void setCoutFret(BigDecimal coutFret) {
         this.coutFret = coutFret;
     }
 
-    public BigDecimal getMontantTotal()
-    {
+    public BigDecimal getMontantTotal() {
         return montantTotal;
     }
 
-    public void setMontantTotal(BigDecimal montantTotal)
-    {
+    public AchatProforma montantTotal(BigDecimal montantTotal) {
+        this.montantTotal = montantTotal;
+        return this;
+    }
+
+    public void setMontantTotal(BigDecimal montantTotal) {
         this.montantTotal = montantTotal;
     }
 
-    public String getNumeroBonProforma()
-    {
+    public String getNumeroBonProforma() {
         return numeroBonProforma;
     }
 
-    public void setNumeroBonProforma(String numeroBonProforma)
-    {
+    public AchatProforma numeroBonProforma(String numeroBonProforma) {
+        this.numeroBonProforma = numeroBonProforma;
+        return this;
+    }
+
+    public void setNumeroBonProforma(String numeroBonProforma) {
         this.numeroBonProforma = numeroBonProforma;
     }
 
-    public AchatDossier getAchatDossier()
-    {
-        return achatDossier;
+    public String getTypeAcht() {
+        return typeAcht;
     }
 
-    public void setAchatDossier(AchatDossier achatDossier)
-    {
-        this.achatDossier = achatDossier;
+    public AchatProforma typeAcht(String typeAcht) {
+        this.typeAcht = typeAcht;
+        return this;
     }
 
-    public int getNombreTC()
-    {
-        return nombreTC;
+    public void setTypeAcht(String typeAcht) {
+        this.typeAcht = typeAcht;
     }
 
-    public void setNombreTC(int nombreTC)
-    {
-        this.nombreTC = nombreTC;
-    }
-
-    public Set getAchatLigneProformas()
-    {
-        return achatLigneProformas;
-    }
-
-    public void setAchatLigneProformas(Set achatLigneProformas)
-    {
-        this.achatLigneProformas = achatLigneProformas;
-    }
-
-    public String getType()
-    {
-        return type;
-    }
-
-    public void setType(String type)
-    {
-        this.type = type;
-    }
-
-    public BigDecimal getPoids()
-    {
+    public BigDecimal getPoids() {
         return poids;
     }
 
-    public void setPoids(BigDecimal poids)
-    {
+    public AchatProforma poids(BigDecimal poids) {
+        this.poids = poids;
+        return this;
+    }
+
+    public void setPoids(BigDecimal poids) {
         this.poids = poids;
     }
 
-    public Date getDateProforma()
-    {
+    public LocalDate getDateProforma() {
         return dateProforma;
     }
 
-    public void setDateProforma(Date dateProforma)
-    {
+    public AchatProforma dateProforma(LocalDate dateProforma) {
+        this.dateProforma = dateProforma;
+        return this;
+    }
+
+    public void setDateProforma(LocalDate dateProforma) {
         this.dateProforma = dateProforma;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_PROFORMA")
-    @GeneratedValue
-    private int idProforma;
-    @Column(name="NOMBRE_TC")
-    private int nombreTC;
-    @Column(name="COUT_FOB")
-    private BigDecimal coutFob;
-    @Column(name="COUT_FRET")
-    private BigDecimal coutFret;
-    @Column(name="MONTANT_TOTAL")
-    private BigDecimal montantTotal;
-    @Column(name="NUMERO_BON_PROFORMA")
-    private String numeroBonProforma;
-    @Column(name="TYPE")
-    private String type;
-    @Column(name="POIDS")
-    private BigDecimal poids;
-    @Column(name="DATE_PROFORMA")
-    private Date dateProforma;
-    @OneToMany(mappedBy="achatProforma")
-    @Cascade(value={org.hibernate.annotations.CascadeType.DELETE})
-    private Set achatLigneProformas;
-    @ManyToOne
-    @JoinColumn(name="FK_ID_DOSSIER")
-    private AchatDossier achatDossier;
+    public Set<AchatLigneProforma> getAchatLigneProformas() {
+        return achatLigneProformas;
+    }
+
+    public AchatProforma achatLigneProformas(Set<AchatLigneProforma> achatLigneProformas) {
+        this.achatLigneProformas = achatLigneProformas;
+        return this;
+    }
+
+    public AchatProforma addAchatLigneProforma(AchatLigneProforma achatLigneProforma) {
+        this.achatLigneProformas.add(achatLigneProforma);
+        achatLigneProforma.setAchatProforma(this);
+        return this;
+    }
+
+    public AchatProforma removeAchatLigneProforma(AchatLigneProforma achatLigneProforma) {
+        this.achatLigneProformas.remove(achatLigneProforma);
+        achatLigneProforma.setAchatProforma(null);
+        return this;
+    }
+
+    public void setAchatLigneProformas(Set<AchatLigneProforma> achatLigneProformas) {
+        this.achatLigneProformas = achatLigneProformas;
+    }
+
+    public AchatDossier getAchatDossier() {
+        return achatDossier;
+    }
+
+    public AchatProforma achatDossier(AchatDossier achatDossier) {
+        this.achatDossier = achatDossier;
+        return this;
+    }
+
+    public void setAchatDossier(AchatDossier achatDossier) {
+        this.achatDossier = achatDossier;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AchatProforma achatProforma = (AchatProforma) o;
+        if (achatProforma.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), achatProforma.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "AchatProforma{" +
+            "id=" + getId() +
+            ", idProforma=" + getIdProforma() +
+            ", nombreTc=" + getNombreTc() +
+            ", coutFob=" + getCoutFob() +
+            ", coutFret=" + getCoutFret() +
+            ", montantTotal=" + getMontantTotal() +
+            ", numeroBonProforma='" + getNumeroBonProforma() + "'" +
+            ", typeAcht='" + getTypeAcht() + "'" +
+            ", poids=" + getPoids() +
+            ", dateProforma='" + getDateProforma() + "'" +
+            "}";
+    }
 }

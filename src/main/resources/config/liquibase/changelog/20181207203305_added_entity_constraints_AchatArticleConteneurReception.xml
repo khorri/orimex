@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AchatArticleConteneurReception.
+    -->
+    <changeSet id="20181207203305-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="achat_conteneur_reception_id"
+                                 baseTableName="acht_art_conteneur_reception"
+                                 constraintName="fk_achat_article_conteneur_reception_achat_conteneur_reception_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="achat_conteneur_reception"/>
+
+        <addForeignKeyConstraint baseColumnNames="produit_id"
+                                 baseTableName="acht_art_conteneur_reception"
+                                 constraintName="fk_achat_article_conteneur_reception_produit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="produit"/>
+
+    </changeSet>
+</databaseChangeLog>

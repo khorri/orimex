@@ -1,0 +1,136 @@
+{
+    "name": "AchatFacture",
+    "fields": [
+        {
+            "fieldName": "idFacture",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroFacture",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateFacture",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montantFob",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantFret",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantTotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nombreTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "ajustement",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "numeroPiece",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateBl",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroBl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateEcheance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "banqueReglement",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateValeur",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "cours",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantDh",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "echecanceFinancement",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "interet1",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dateReglement",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "derniereEcheance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "transmise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "echeanceRefinancement",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "interet2",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "interet1Regle",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "achatArrivage",
+            "otherEntityName": "achatArrivage",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatConteneurArrivage",
+            "otherEntityName": "achatConteneurArrivage",
+            "otherEntityRelationshipName": "achatFacture"
+        }
+    ],
+    "changelogDate": "20181207203313",
+    "entityTableName": "achat_facture",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

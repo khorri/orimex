@@ -1,0 +1,147 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.achatDossier.home.title">Achat Dossiers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-achat-dossier" [routerLink]="['/achat-dossier/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.achatDossier.home.createLabel">
+            Create new Achat Dossier
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.achatDossier.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="achatDossiers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idDossier"><span jhiTranslate="orimexApp.achatDossier.idDossier">Id Dossier</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroDossier"><span jhiTranslate="orimexApp.achatDossier.numeroDossier">Numero Dossier</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeFournisseur"><span jhiTranslate="orimexApp.achatDossier.codeFournisseur">Code Fournisseur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationFournisseur"><span jhiTranslate="orimexApp.achatDossier.designationFournisseur">Designation Fournisseur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="incoterm"><span jhiTranslate="orimexApp.achatDossier.incoterm">Incoterm</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reference"><span jhiTranslate="orimexApp.achatDossier.reference">Reference</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tolerance"><span jhiTranslate="orimexApp.achatDossier.tolerance">Tolerance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroEi"><span jhiTranslate="orimexApp.achatDossier.numeroEi">Numero Ei</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroEiComp"><span jhiTranslate="orimexApp.achatDossier.numeroEiComp">Numero Ei Comp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateCreation"><span jhiTranslate="orimexApp.achatDossier.dateCreation">Date Creation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="delaiPaiement"><span jhiTranslate="orimexApp.achatDossier.delaiPaiement">Delai Paiement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="delaiValiditeLc"><span jhiTranslate="orimexApp.achatDossier.delaiValiditeLc">Delai Validite Lc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateExpedition"><span jhiTranslate="orimexApp.achatDossier.dateExpedition">Date Expedition</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateOuverture"><span jhiTranslate="orimexApp.achatDossier.dateOuverture">Date Ouverture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateValiditeEi"><span jhiTranslate="orimexApp.achatDossier.dateValiditeEi">Date Validite Ei</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateLimiteExp"><span jhiTranslate="orimexApp.achatDossier.dateLimiteExp">Date Limite Exp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateValiditeLc"><span jhiTranslate="orimexApp.achatDossier.dateValiditeLc">Date Validite Lc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montnatTotal"><span jhiTranslate="orimexApp.achatDossier.montnatTotal">Montnat Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montnatFob"><span jhiTranslate="orimexApp.achatDossier.montnatFob">Montnat Fob</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="montnatFret"><span jhiTranslate="orimexApp.achatDossier.montnatFret">Montnat Fret</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalTc"><span jhiTranslate="orimexApp.achatDossier.totalTc">Total Tc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationBanque"><span jhiTranslate="orimexApp.achatDossier.designationBanque">Designation Banque</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paiementAvue"><span jhiTranslate="orimexApp.achatDossier.paiementAvue">Paiement Avue</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="encours"><span jhiTranslate="orimexApp.achatDossier.encours">Encours</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatBanqueId"><span jhiTranslate="orimexApp.achatDossier.achatBanque">Achat Banque</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typePaiementId"><span jhiTranslate="orimexApp.achatDossier.typePaiement">Type Paiement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatDeviseId"><span jhiTranslate="orimexApp.achatDossier.achatDevise">Achat Devise</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="achatStatutDossierId"><span jhiTranslate="orimexApp.achatDossier.achatStatutDossier">Achat Statut Dossier</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let achatDossier of achatDossiers ;trackBy: trackId">
+                <td><a [routerLink]="['/achat-dossier', achatDossier.id, 'view' ]">{{achatDossier.id}}</a></td>
+                <td>{{achatDossier.idDossier}}</td>
+                <td>{{achatDossier.numeroDossier}}</td>
+                <td>{{achatDossier.codeFournisseur}}</td>
+                <td>{{achatDossier.designationFournisseur}}</td>
+                <td>{{achatDossier.incoterm}}</td>
+                <td>{{achatDossier.reference}}</td>
+                <td>{{achatDossier.tolerance}}</td>
+                <td>{{achatDossier.numeroEi}}</td>
+                <td>{{achatDossier.numeroEiComp}}</td>
+                <td>{{achatDossier.dateCreation | date:'mediumDate'}}</td>
+                <td>{{achatDossier.delaiPaiement}}</td>
+                <td>{{achatDossier.delaiValiditeLc}}</td>
+                <td>{{achatDossier.dateExpedition | date:'mediumDate'}}</td>
+                <td>{{achatDossier.dateOuverture | date:'mediumDate'}}</td>
+                <td>{{achatDossier.dateValiditeEi | date:'mediumDate'}}</td>
+                <td>{{achatDossier.dateLimiteExp | date:'mediumDate'}}</td>
+                <td>{{achatDossier.dateValiditeLc | date:'mediumDate'}}</td>
+                <td>{{achatDossier.montnatTotal}}</td>
+                <td>{{achatDossier.montnatFob}}</td>
+                <td>{{achatDossier.montnatFret}}</td>
+                <td>{{achatDossier.totalTc}}</td>
+                <td>{{achatDossier.designationBanque}}</td>
+                <td>{{achatDossier.paiementAvue}}</td>
+                <td>{{achatDossier.encours}}</td>
+                <td>
+                    <div *ngIf="achatDossier.achatBanqueId">
+                        <a [routerLink]="['../achat-banque', achatDossier.achatBanqueId , 'view' ]" >{{achatDossier.achatBanqueId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="achatDossier.typePaiementId">
+                        <a [routerLink]="['../achat-type-paiement', achatDossier.typePaiementId , 'view' ]" >{{achatDossier.typePaiementId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="achatDossier.achatDeviseId">
+                        <a [routerLink]="['../achat-devise', achatDossier.achatDeviseId , 'view' ]" >{{achatDossier.achatDeviseId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="achatDossier.achatStatutDossierId">
+                        <a [routerLink]="['../achat-statut-dossier', achatDossier.achatStatutDossierId , 'view' ]" >{{achatDossier.achatStatutDossierId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/achat-dossier', achatDossier.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/achat-dossier', achatDossier.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'achat-dossier/'+ achatDossier.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="achatDossiers && achatDossiers.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

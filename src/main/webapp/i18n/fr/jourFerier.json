@@ -1,0 +1,24 @@
+{
+    "orimexApp": {
+        "jourFerier": {
+            "home": {
+                "title": "JourFeriers",
+                "createLabel": "Créer un nouveau Jour Ferier",
+                "createOrEditLabel": "Créer ou éditer un Jour Ferier",
+                "search": "Recherche pour Jour Ferier"
+            },
+            "created": "Un nouveau Jour Ferier a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Jour Ferier avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Jour Ferier avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Jour Ferier {{ id }} ?"
+            },
+            "detail": {
+                "title": "Jour Ferier"
+            },
+            "annee": "Annee",
+            "debut": "Debut",
+            "fin": "Fin"
+        }
+    }
+}

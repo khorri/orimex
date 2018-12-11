@@ -1,13 +1,104 @@
 {
+    "name": "AchatArrivage",
+    "fields": [
+        {
+            "fieldName": "idArrivage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroDossierArrivage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeCompagnieMaritime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeOperateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeTransitaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeTransporteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateArrivePort",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "designationCompagnieMaritime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationOperateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationTransitaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designationTransporteur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flagProduit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "franchise",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montantFob",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantFret",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montantTotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nombreTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateRealisation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "poid",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "achatFacture",
+            "otherEntityName": "achatFacture",
+            "otherEntityRelationshipName": "achatArrivage"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181206222637",
+    "entityTableName": "achat_arrivage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
-    "fields": [],
-    "changelogDate": "20181206222637",
-    "dto": "mapstruct",
-    "searchEngine": "elasticsearch",
-    "service": "serviceClass",
-    "entityTableName": "achat_arrivage",
-    "jpaMetamodelFiltering": false,
-    "pagination": "pagination"
+    "applications": "*"
 }

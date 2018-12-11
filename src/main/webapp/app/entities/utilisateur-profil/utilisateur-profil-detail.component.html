@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="utilisateurProfil">
+            <h2><span jhiTranslate="orimexApp.utilisateurProfil.detail.title">Utilisateur Profil</span> {{utilisateurProfil.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.utilisateurProfil.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="utilisateurProfil.utilisateurId">
+                        <a [routerLink]="['/utilisateur', utilisateurProfil.utilisateurId, 'view']">{{utilisateurProfil.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateurProfil.profil">Profil</span></dt>
+                <dd>
+                    <div *ngIf="utilisateurProfil.profilId">
+                        <a [routerLink]="['/profil', utilisateurProfil.profilId, 'view']">{{utilisateurProfil.profilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/utilisateur-profil', utilisateurProfil.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

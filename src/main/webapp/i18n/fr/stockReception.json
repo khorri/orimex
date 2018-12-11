@@ -1,0 +1,28 @@
+{
+    "orimexApp": {
+        "stockReception": {
+            "home": {
+                "title": "StockReceptions",
+                "createLabel": "Créer un nouveau Stock Reception",
+                "createOrEditLabel": "Créer ou éditer un Stock Reception",
+                "search": "Recherche pour Stock Reception"
+            },
+            "created": "Un nouveau Stock Reception a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Stock Reception avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Stock Reception avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Stock Reception {{ id }} ?"
+            },
+            "detail": {
+                "title": "Stock Reception"
+            },
+            "idOperation": "Id Operation",
+            "dateReception": "Date Reception",
+            "numeroOperation": "Numero Operation",
+            "numeroBonEntree": "Numero Bon Entree",
+            "numeroConstatNonConformite": "Numero Constat Non Conformite",
+            "isValide": "Is Valide",
+            "utilisateur": "Utilisateur"
+        }
+    }
+}

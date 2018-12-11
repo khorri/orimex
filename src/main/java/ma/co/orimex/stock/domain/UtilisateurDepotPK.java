@@ -1,75 +1,99 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:27:47
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   UtilisateurDepotPK.java
-
 package ma.co.orimex.stock.domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+
+import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
+import java.util.Objects;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            UtilisateurProfilPK, Utilisateur, Depot
+/**
+ * A UtilisateurDepotPK.
+ */
+@Entity
+@Table(name = "utilisateur_depot_pk")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "utilisateurdepotpk")
+public class UtilisateurDepotPK implements Serializable {
 
-@Embeddable
-public class UtilisateurDepotPK
-    implements Serializable
-{
+    private static final long serialVersionUID = 1L;
 
-    public UtilisateurDepotPK()
-    {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Depot depot;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public boolean equals(Object other)
-    {
-        if(this == other)
-            return true;
-        if(!(other instanceof UtilisateurProfilPK))
-        {
-            return false;
-        } else
-        {
-            UtilisateurDepotPK castOther = (UtilisateurDepotPK)other;
-            return utilisateur.getIdUtilisateur() == castOther.utilisateur.getIdUtilisateur() && depot.getIdDepot() == castOther.depot.getIdDepot();
-        }
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int hashCode()
-    {
-        int prime = 31;
-        int hash = 17;
-        hash = hash * 31 + utilisateur.getIdUtilisateur();
-        hash = hash * 31 + depot.getIdDepot();
-        return hash;
-    }
-
-    public Utilisateur getUtilisateur()
-    {
+    public Utilisateur getUtilisateur() {
         return utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur)
-    {
+    public UtilisateurDepotPK utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
-    public Depot getDepot()
-    {
+    public Depot getDepot() {
         return depot;
     }
 
-    public void setDepot(Depot depot)
-    {
+    public UtilisateurDepotPK depot(Depot depot) {
         this.depot = depot;
+        return this;
     }
 
-    private static final long serialVersionUID = 1L;
-    @ManyToOne
-    @JoinColumn(name="ID_UTILISATEUR")
-    private Utilisateur utilisateur;
-    @ManyToOne
-    @JoinColumn(name="ID_DEPOT")
-    private Depot depot;
+    public void setDepot(Depot depot) {
+        this.depot = depot;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UtilisateurDepotPK utilisateurDepotPK = (UtilisateurDepotPK) o;
+        if (utilisateurDepotPK.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), utilisateurDepotPK.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "UtilisateurDepotPK{" +
+            "id=" + getId() +
+            "}";
+    }
 }

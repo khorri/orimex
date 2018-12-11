@@ -1,0 +1,31 @@
+{
+    "orimexApp": {
+        "reception": {
+            "home": {
+                "title": "Receptions",
+                "createLabel": "Créer un nouveau Reception",
+                "createOrEditLabel": "Créer ou éditer un Reception",
+                "search": "Recherche pour Reception"
+            },
+            "created": "Un nouveau Reception a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Reception avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Reception avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Reception {{ id }} ?"
+            },
+            "detail": {
+                "title": "Reception"
+            },
+            "idOperation": "Id Operation",
+            "dateReception": "Date Reception",
+            "nombrePlateaux": "Nombre Plateaux",
+            "numeroOperation": "Numero Operation",
+            "utilisateur": "Utilisateur",
+            "bon": "Bon",
+            "caisse": "Caisse",
+            "camion": "Camion",
+            "conteneur": "Conteneur",
+            "depot": "Depot"
+        }
+    }
+}

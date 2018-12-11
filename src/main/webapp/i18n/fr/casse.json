@@ -1,0 +1,29 @@
+{
+    "orimexApp": {
+        "casse": {
+            "home": {
+                "title": "Casses",
+                "createLabel": "Créer un nouveau Casse",
+                "createOrEditLabel": "Créer ou éditer un Casse",
+                "search": "Recherche pour Casse"
+            },
+            "created": "Un nouveau Casse a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Casse avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Casse avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Casse {{ id }} ?"
+            },
+            "detail": {
+                "title": "Casse"
+            },
+            "idOperation": "Id Operation",
+            "dateOperation": "Date Operation",
+            "description": "Description",
+            "nombrePlateaux": "Nombre Plateaux",
+            "numeroOperation": "Numero Operation",
+            "superfcie": "Superfcie",
+            "utilisateur": "Utilisateur",
+            "caisse": "Caisse"
+        }
+    }
+}

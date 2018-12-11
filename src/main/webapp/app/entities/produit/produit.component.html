@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="orimexApp.produit.home.title">Produits</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-produit" [routerLink]="['/produit/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="orimexApp.produit.home.createLabel">
+            Create new Produit
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'orimexApp.produit.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="produits">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idProduit"><span jhiTranslate="orimexApp.produit.idProduit">Id Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="designationProduit"><span jhiTranslate="orimexApp.produit.designationProduit">Designation Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dimension"><span jhiTranslate="orimexApp.produit.dimension">Dimension</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="epaisseur"><span jhiTranslate="orimexApp.produit.epaisseur">Epaisseur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="largeure"><span jhiTranslate="orimexApp.produit.largeure">Largeure</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="longueur"><span jhiTranslate="orimexApp.produit.longueur">Longueur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="referenceProduit"><span jhiTranslate="orimexApp.produit.referenceProduit">Reference Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="poids"><span jhiTranslate="orimexApp.produit.poids">Poids</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleCouleur"><span jhiTranslate="orimexApp.produit.libelleCouleur">Libelle Couleur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleFamille"><span jhiTranslate="orimexApp.produit.libelleFamille">Libelle Famille</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="libelleOrigine"><span jhiTranslate="orimexApp.produit.libelleOrigine">Libelle Origine</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="couleurId"><span jhiTranslate="orimexApp.produit.couleur">Couleur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="familleProduitId"><span jhiTranslate="orimexApp.produit.familleProduit">Famille Produit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="origineId"><span jhiTranslate="orimexApp.produit.origine">Origine</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produit of produits ;trackBy: trackId">
+                <td><a [routerLink]="['/produit', produit.id, 'view' ]">{{produit.id}}</a></td>
+                <td>{{produit.idProduit}}</td>
+                <td>{{produit.designationProduit}}</td>
+                <td>{{produit.dimension}}</td>
+                <td>{{produit.epaisseur}}</td>
+                <td>{{produit.largeure}}</td>
+                <td>{{produit.longueur}}</td>
+                <td>{{produit.referenceProduit}}</td>
+                <td>{{produit.poids}}</td>
+                <td>{{produit.libelleCouleur}}</td>
+                <td>{{produit.libelleFamille}}</td>
+                <td>{{produit.libelleOrigine}}</td>
+                <td>
+                    <div *ngIf="produit.couleurId">
+                        <a [routerLink]="['../couleur', produit.couleurId , 'view' ]" >{{produit.couleurId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="produit.familleProduitId">
+                        <a [routerLink]="['../famille-produit', produit.familleProduitId , 'view' ]" >{{produit.familleProduitId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="produit.origineId">
+                        <a [routerLink]="['../origine', produit.origineId , 'view' ]" >{{produit.origineId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/produit', produit.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/produit', produit.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'produit/'+ produit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="produits && produits.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

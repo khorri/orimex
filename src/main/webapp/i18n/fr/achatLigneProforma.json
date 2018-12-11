@@ -1,0 +1,27 @@
+{
+    "orimexApp": {
+        "achatLigneProforma": {
+            "home": {
+                "title": "AchatLigneProformas",
+                "createLabel": "Créer un nouveau Achat Ligne Proforma",
+                "createOrEditLabel": "Créer ou éditer un Achat Ligne Proforma",
+                "search": "Recherche pour Achat Ligne Proforma"
+            },
+            "created": "Un nouveau Achat Ligne Proforma a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Ligne Proforma avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Ligne Proforma avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Ligne Proforma {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Ligne Proforma"
+            },
+            "idLigneProforma": "Id Ligne Proforma",
+            "nombreConteneurs": "Nombre Conteneurs",
+            "montant": "Montant",
+            "numeroSequence": "Numero Sequence",
+            "poids": "Poids",
+            "achatProforma": "Achat Proforma"
+        }
+    }
+}

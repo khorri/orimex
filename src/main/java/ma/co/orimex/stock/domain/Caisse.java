@@ -1,136 +1,132 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:20:58
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Caisse.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            Produit
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
+/**
+ * A Caisse.
+ */
 @Entity
-@Table(name="CAISSE")
-public class Caisse
-    implements Serializable
-{
+@Table(name = "caisse")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "caisse")
+public class Caisse implements Serializable {
 
-    public Caisse()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_caisse")
+    private Integer idCaisse;
+
+    @Column(name = "nombre_plateaux")
+    private Integer nombrePlateaux;
+
+    @Column(name = "numero_conteneur")
+    private String numeroConteneur;
+
+    @Column(name = "reference_caisse")
+    private String referenceCaisse;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdCaisse()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdCaisse() {
         return idCaisse;
     }
 
-    public void setIdCaisse(int idCaisse)
-    {
+    public Caisse idCaisse(Integer idCaisse) {
+        this.idCaisse = idCaisse;
+        return this;
+    }
+
+    public void setIdCaisse(Integer idCaisse) {
         this.idCaisse = idCaisse;
     }
 
-    public int getNombrePlateaux()
-    {
+    public Integer getNombrePlateaux() {
         return nombrePlateaux;
     }
 
-    public void setNombrePlateaux(int nombrePlateaux)
-    {
+    public Caisse nombrePlateaux(Integer nombrePlateaux) {
+        this.nombrePlateaux = nombrePlateaux;
+        return this;
+    }
+
+    public void setNombrePlateaux(Integer nombrePlateaux) {
         this.nombrePlateaux = nombrePlateaux;
     }
 
-    public String getNumeroConteneur()
-    {
+    public String getNumeroConteneur() {
         return numeroConteneur;
     }
 
-    public void setNumeroConteneur(String numeroConteneur)
-    {
+    public Caisse numeroConteneur(String numeroConteneur) {
+        this.numeroConteneur = numeroConteneur;
+        return this;
+    }
+
+    public void setNumeroConteneur(String numeroConteneur) {
         this.numeroConteneur = numeroConteneur;
     }
 
-    public String getReferenceCaisse()
-    {
+    public String getReferenceCaisse() {
         return referenceCaisse;
     }
 
-    public void setReferenceCaisse(String referenceCaisse)
-    {
+    public Caisse referenceCaisse(String referenceCaisse) {
+        this.referenceCaisse = referenceCaisse;
+        return this;
+    }
+
+    public void setReferenceCaisse(String referenceCaisse) {
         this.referenceCaisse = referenceCaisse;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getCasses()
-    {
-        return casses;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Caisse caisse = (Caisse) o;
+        if (caisse.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), caisse.getId());
     }
 
-    public void setCasses(Set casses)
-    {
-        this.casses = casses;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    public Set getReceptions()
-    {
-        return receptions;
+    @Override
+    public String toString() {
+        return "Caisse{" +
+            "id=" + getId() +
+            ", idCaisse=" + getIdCaisse() +
+            ", nombrePlateaux=" + getNombrePlateaux() +
+            ", numeroConteneur='" + getNumeroConteneur() + "'" +
+            ", referenceCaisse='" + getReferenceCaisse() + "'" +
+            "}";
     }
-
-    public void setReceptions(Set receptions)
-    {
-        this.receptions = receptions;
-    }
-
-    public Set getSorties()
-    {
-        return sorties;
-    }
-
-    public void setSorties(Set sorties)
-    {
-        this.sorties = sorties;
-    }
-
-    public Set getTransferts()
-    {
-        return transferts;
-    }
-
-    public void setTransferts(Set transferts)
-    {
-        this.transferts = transferts;
-    }
-
-    public Produit getProduit()
-    {
-        return produit;
-    }
-
-    public void setProduit(Produit produit)
-    {
-        this.produit = produit;
-    }
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_CAISSE")
-    private int idCaisse;
-    @Column(name="NOMBRE_PLATEAUX")
-    private int nombrePlateaux;
-    @Column(name="NUMERO_CONTENEUR")
-    private String numeroConteneur;
-    @Column(name="REFERENCE_CAISSE")
-    private String referenceCaisse;
-    @ManyToOne
-    @JoinColumn(name="ID_PRODUIT")
-    private Produit produit;
-    @OneToMany(mappedBy="caisse")
-    private Set casses;
-    @OneToMany(mappedBy="caisse")
-    private Set receptions;
-    @OneToMany(mappedBy="caisse")
-    private Set sorties;
-    @OneToMany(mappedBy="caisse")
-    private Set transferts;
 }

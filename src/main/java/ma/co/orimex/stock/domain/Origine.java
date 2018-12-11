@@ -1,60 +1,98 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:22:37
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Origine.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="ORIGINE")
-public class Origine
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public Origine()
-    {
+/**
+ * A Origine.
+ */
+@Entity
+@Table(name = "origine")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "origine")
+public class Origine implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_origine")
+    private Integer idOrigine;
+
+    @Column(name = "designation_origine")
+    private String designationOrigine;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdOrigine()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdOrigine() {
         return idOrigine;
     }
 
-    public void setIdOrigine(int idOrigine)
-    {
+    public Origine idOrigine(Integer idOrigine) {
+        this.idOrigine = idOrigine;
+        return this;
+    }
+
+    public void setIdOrigine(Integer idOrigine) {
         this.idOrigine = idOrigine;
     }
 
-    public String getDesignationOrigine()
-    {
+    public String getDesignationOrigine() {
         return designationOrigine;
     }
 
-    public void setDesignationOrigine(String designationOrigine)
-    {
+    public Origine designationOrigine(String designationOrigine) {
+        this.designationOrigine = designationOrigine;
+        return this;
+    }
+
+    public void setDesignationOrigine(String designationOrigine) {
         this.designationOrigine = designationOrigine;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getProduits()
-    {
-        return produits;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Origine origine = (Origine) o;
+        if (origine.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), origine.getId());
     }
 
-    public void setProduits(Set produits)
-    {
-        this.produits = produits;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_ORIGINE")
-    private int idOrigine;
-    @Column(name="DESIGNATION_ORIGINE")
-    private String designationOrigine;
-    @OneToMany(mappedBy="origine")
-    private Set produits;
+    @Override
+    public String toString() {
+        return "Origine{" +
+            "id=" + getId() +
+            ", idOrigine=" + getIdOrigine() +
+            ", designationOrigine='" + getDesignationOrigine() + "'" +
+            "}";
+    }
 }

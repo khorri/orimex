@@ -1,0 +1,44 @@
+{
+    "name": "AchatArticleConteneurReception",
+    "fields": [
+        {
+            "fieldName": "idArticleConteneurReception",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dimension",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nombreCaissestc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreFeuillecaisse",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatConteneurReception",
+            "otherEntityName": "achatConteneurReception",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203305",
+    "entityTableName": "achat_article_conteneur_reception",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

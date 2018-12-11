@@ -1,60 +1,98 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:21:37
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Couleur.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name="COULEUR")
-public class Couleur
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public Couleur()
-    {
+/**
+ * A Couleur.
+ */
+@Entity
+@Table(name = "couleur")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "couleur")
+public class Couleur implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_couleur")
+    private Integer idCouleur;
+
+    @Column(name = "code_html")
+    private String codeHtml;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdCouleur()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdCouleur() {
         return idCouleur;
     }
 
-    public void setIdCouleur(int idCouleur)
-    {
+    public Couleur idCouleur(Integer idCouleur) {
+        this.idCouleur = idCouleur;
+        return this;
+    }
+
+    public void setIdCouleur(Integer idCouleur) {
         this.idCouleur = idCouleur;
     }
 
-    public String getCodeHtml()
-    {
+    public String getCodeHtml() {
         return codeHtml;
     }
 
-    public void setCodeHtml(String codeHtml)
-    {
+    public Couleur codeHtml(String codeHtml) {
+        this.codeHtml = codeHtml;
+        return this;
+    }
+
+    public void setCodeHtml(String codeHtml) {
         this.codeHtml = codeHtml;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    public Set getProduits()
-    {
-        return produits;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Couleur couleur = (Couleur) o;
+        if (couleur.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), couleur.getId());
     }
 
-    public void setProduits(Set produits)
-    {
-        this.produits = produits;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_COULEUR")
-    private int idCouleur;
-    @Column(name="CODE_HTML")
-    private String codeHtml;
-    @OneToMany(mappedBy="couleur")
-    private Set produits;
+    @Override
+    public String toString() {
+        return "Couleur{" +
+            "id=" + getId() +
+            ", idCouleur=" + getIdCouleur() +
+            ", codeHtml='" + getCodeHtml() + "'" +
+            "}";
+    }
 }

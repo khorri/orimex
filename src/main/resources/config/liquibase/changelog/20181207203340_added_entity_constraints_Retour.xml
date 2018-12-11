@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Retour.
+    -->
+    <changeSet id="20181207203340-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="produit_id"
+                                 baseTableName="retour"
+                                 constraintName="fk_retour_produit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="produit"/>
+
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id"
+                                 baseTableName="retour"
+                                 constraintName="fk_retour_utilisateur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="utilisateur"/>
+
+        <addForeignKeyConstraint baseColumnNames="bon_id"
+                                 baseTableName="retour"
+                                 constraintName="fk_retour_bon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bon"/>
+
+    </changeSet>
+</databaseChangeLog>

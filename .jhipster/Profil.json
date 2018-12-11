@@ -1,0 +1,36 @@
+{
+    "name": "Profil",
+    "fields": [
+        {
+            "fieldName": "codeProfil",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionProfil",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "utilisateurProfil",
+            "otherEntityName": "utilisateurProfil",
+            "otherEntityRelationshipName": "profil"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "profilAction",
+            "otherEntityName": "profilAction",
+            "otherEntityRelationshipName": "profil"
+        }
+    ],
+    "changelogDate": "20181207203335",
+    "entityTableName": "profil",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

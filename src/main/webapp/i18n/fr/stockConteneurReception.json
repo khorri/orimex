@@ -1,0 +1,29 @@
+{
+    "orimexApp": {
+        "stockConteneurReception": {
+            "home": {
+                "title": "StockConteneurReceptions",
+                "createLabel": "Créer un nouveau Stock Conteneur Reception",
+                "createOrEditLabel": "Créer ou éditer un Stock Conteneur Reception",
+                "search": "Recherche pour Stock Conteneur Reception"
+            },
+            "created": "Un nouveau Stock Conteneur Reception a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Stock Conteneur Reception avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Stock Conteneur Reception avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Stock Conteneur Reception {{ id }} ?"
+            },
+            "detail": {
+                "title": "Stock Conteneur Reception"
+            },
+            "idOperation": "Id Operation",
+            "dateReception": "Date Reception",
+            "numeroOperation": "Numero Operation",
+            "numeroBonEntree": "Numero Bon Entree",
+            "numeroConstatNonConformite": "Numero Constat Non Conformite",
+            "isValide": "Is Valide",
+            "stockReception": "Stock Reception",
+            "stockArticleConteneurReception": "Stock Article Conteneur Reception"
+        }
+    }
+}

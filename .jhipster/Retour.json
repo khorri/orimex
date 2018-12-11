@@ -1,0 +1,54 @@
+{
+    "name": "Retour",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "nombrePlateaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "superfecie",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "bon",
+            "otherEntityName": "bon",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203340",
+    "entityTableName": "retour",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

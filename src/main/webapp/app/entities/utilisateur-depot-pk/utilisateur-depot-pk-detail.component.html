@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="utilisateurDepotPK">
+            <h2><span jhiTranslate="orimexApp.utilisateurDepotPK.detail.title">Utilisateur Depot PK</span> {{utilisateurDepotPK.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.utilisateurDepotPK.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="utilisateurDepotPK.utilisateurId">
+                        <a [routerLink]="['/utilisateur', utilisateurDepotPK.utilisateurId, 'view']">{{utilisateurDepotPK.utilisateurId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.utilisateurDepotPK.depot">Depot</span></dt>
+                <dd>
+                    <div *ngIf="utilisateurDepotPK.depotId">
+                        <a [routerLink]="['/depot', utilisateurDepotPK.depotId, 'view']">{{utilisateurDepotPK.depotId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/utilisateur-depot-pk', utilisateurDepotPK.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

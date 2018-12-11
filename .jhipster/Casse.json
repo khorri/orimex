@@ -1,0 +1,52 @@
+{
+    "name": "Casse",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombrePlateaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "superfcie",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "caisse",
+            "otherEntityName": "caisse",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203326",
+    "entityTableName": "casse",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

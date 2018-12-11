@@ -5,6 +5,50 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.idArticleConteneurArrivage">Id Article Conteneur Arrivage</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.idArticleConteneurArrivage}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.dimension">Dimension</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.dimension}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.montant">Montant</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.montant}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.nombreCaissestc">Nombre Caissestc</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.nombreCaissestc}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.nombreFeuillecaisse">Nombre Feuillecaisse</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.nombreFeuillecaisse}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.prixUnitaire">Prix Unitaire</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.prixUnitaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.quantite}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.poids">Poids</span></dt>
+                <dd>
+                    <span>{{achatArticleConteneurArrivage.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.achatConteneurArrivage">Achat Conteneur Arrivage</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleConteneurArrivage.achatConteneurArrivageId">
+                        <a [routerLink]="['/achat-conteneur-arrivage', achatArticleConteneurArrivage.achatConteneurArrivageId, 'view']">{{achatArticleConteneurArrivage.achatConteneurArrivageId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatArticleConteneurArrivage.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="achatArticleConteneurArrivage.produitId">
+                        <a [routerLink]="['/produit', achatArticleConteneurArrivage.produitId, 'view']">{{achatArticleConteneurArrivage.produitId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

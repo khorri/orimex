@@ -15,7 +15,28 @@
             },
             "detail": {
                 "title": "Achat Arrivage"
-            }
+            },
+            "idArrivage": "Id Arrivage",
+            "numeroDossierArrivage": "Numero Dossier Arrivage",
+            "codeCompagnieMaritime": "Code Compagnie Maritime",
+            "codeOperateur": "Code Operateur",
+            "codeTransitaire": "Code Transitaire",
+            "codeTransporteur": "Code Transporteur",
+            "dateArrivePort": "Date Arrive Port",
+            "designationCompagnieMaritime": "Designation Compagnie Maritime",
+            "designationOperateur": "Designation Operateur",
+            "designationTransitaire": "Designation Transitaire",
+            "designationTransporteur": "Designation Transporteur",
+            "flagProduit": "Flag Produit",
+            "franchise": "Franchise",
+            "montantFob": "Montant Fob",
+            "montantFret": "Montant Fret",
+            "montantTotal": "Montant Total",
+            "nombreTc": "Nombre Tc",
+            "dateRealisation": "Date Realisation",
+            "poid": "Poid",
+            "achatFacture": "Achat Facture",
+            "achatDossier": "Achat Dossier"
         }
     }
 }

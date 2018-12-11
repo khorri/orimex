@@ -1,0 +1,24 @@
+{
+    "orimexApp": {
+        "achatStatutDossier": {
+            "home": {
+                "title": "AchatStatutDossiers",
+                "createLabel": "Créer un nouveau Achat Statut Dossier",
+                "createOrEditLabel": "Créer ou éditer un Achat Statut Dossier",
+                "search": "Recherche pour Achat Statut Dossier"
+            },
+            "created": "Un nouveau Achat Statut Dossier a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Statut Dossier avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Statut Dossier avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Statut Dossier {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Statut Dossier"
+            },
+            "idStatutDossier": "Id Statut Dossier",
+            "libelleStatutDossier": "Libelle Statut Dossier",
+            "achatDossier": "Achat Dossier"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "orimexApp": {
+        "achatFournisseur": {
+            "home": {
+                "title": "AchatFournisseurs",
+                "createLabel": "Créer un nouveau Achat Fournisseur",
+                "createOrEditLabel": "Créer ou éditer un Achat Fournisseur",
+                "search": "Recherche pour Achat Fournisseur"
+            },
+            "created": "Un nouveau Achat Fournisseur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Fournisseur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Fournisseur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Fournisseur"
+            },
+            "typeFournisseur": "Type Fournisseur",
+            "codeFournisseur": "Code Fournisseur",
+            "designationFournisseur": "Designation Fournisseur"
+        }
+    }
+}

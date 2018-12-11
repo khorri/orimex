@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="achatLigneProforma">
+            <h2><span jhiTranslate="orimexApp.achatLigneProforma.detail.title">Achat Ligne Proforma</span> {{achatLigneProforma.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.idLigneProforma">Id Ligne Proforma</span></dt>
+                <dd>
+                    <span>{{achatLigneProforma.idLigneProforma}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.nombreConteneurs">Nombre Conteneurs</span></dt>
+                <dd>
+                    <span>{{achatLigneProforma.nombreConteneurs}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.montant">Montant</span></dt>
+                <dd>
+                    <span>{{achatLigneProforma.montant}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.numeroSequence">Numero Sequence</span></dt>
+                <dd>
+                    <span>{{achatLigneProforma.numeroSequence}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.poids">Poids</span></dt>
+                <dd>
+                    <span>{{achatLigneProforma.poids}}</span>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.achatLigneProforma.achatProforma">Achat Proforma</span></dt>
+                <dd>
+                    <div *ngIf="achatLigneProforma.achatProformaId">
+                        <a [routerLink]="['/achat-proforma', achatLigneProforma.achatProformaId, 'view']">{{achatLigneProforma.achatProformaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/achat-ligne-proforma', achatLigneProforma.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+    "name": "Action",
+    "fields": [
+        {
+            "fieldName": "codeAction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleAction",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "menu",
+            "otherEntityName": "menu",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "profilAction",
+            "otherEntityName": "profilAction",
+            "otherEntityRelationshipName": "action"
+        }
+    ],
+    "changelogDate": "20181207203321",
+    "entityTableName": "action",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

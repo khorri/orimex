@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "profilAction": {
+            "home": {
+                "title": "ProfilActions",
+                "createLabel": "Créer un nouveau Profil Action",
+                "createOrEditLabel": "Créer ou éditer un Profil Action",
+                "search": "Recherche pour Profil Action"
+            },
+            "created": "Un nouveau Profil Action a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Profil Action avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Profil Action avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Profil Action {{ id }} ?"
+            },
+            "detail": {
+                "title": "Profil Action"
+            },
+            "action": "Action",
+            "profil": "Profil"
+        }
+    }
+}

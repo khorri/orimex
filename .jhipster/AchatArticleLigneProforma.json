@@ -1,0 +1,64 @@
+{
+    "name": "AchatArticleLigneProforma",
+    "fields": [
+        {
+            "fieldName": "idArticleLigneProforma",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroSequence",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreCaissesTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreFeuillesCaisse",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dimention",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "prixUnitaire",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatLigneProforma",
+            "otherEntityName": "achatLigneProforma",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203306",
+    "entityTableName": "achat_article_ligne_proforma",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,55 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "achatarticleligneproformacopy",
+      "otherEntityName": "achatArticleLigneProformaCopy",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "achatLigneProformaCopy"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "achatDossier",
+      "otherEntityName": "achatDossier",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "achatligneproformacopy"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "serialVersionUid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idLigneProformaCopy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "montantTc"
+    },
+    {
+      "fieldName": "quantiteTc"
+    },
+    {
+      "fieldName": "nombreConteneurs",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numeroSequence",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "poids"
+    },
+    {
+      "fieldName": "achatArticleLigneProformaCopys"
+    }
+  ],
+  "changelogDate": "20181207203316",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "achat_ligne_proforma_copy"
+}

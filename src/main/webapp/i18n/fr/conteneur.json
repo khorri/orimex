@@ -1,0 +1,22 @@
+{
+    "orimexApp": {
+        "conteneur": {
+            "home": {
+                "title": "Conteneurs",
+                "createLabel": "Créer un nouveau Conteneur",
+                "createOrEditLabel": "Créer ou éditer un Conteneur",
+                "search": "Recherche pour Conteneur"
+            },
+            "created": "Un nouveau Conteneur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Conteneur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Conteneur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Conteneur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Conteneur"
+            },
+            "numeroConteneur": "Numero Conteneur"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "name": "AchatPrevisionArrivage",
+    "fields": [
+        {
+            "fieldName": "idPrevisionArrivage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "produit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desigantionCopagnieMaritme",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroBl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombreTc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "etd",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "eta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "documents",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "douane",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "achatDossier",
+            "otherEntityName": "achatDossier",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203317",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "achat_prevision_arrivage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

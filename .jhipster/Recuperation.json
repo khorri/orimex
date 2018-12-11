@@ -1,0 +1,54 @@
+{
+    "name": "Recuperation",
+    "fields": [
+        {
+            "fieldName": "idOperation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "nombrePanneaux",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numeroOperation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "superficie",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "depot",
+            "otherEntityName": "depot",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "utilisateur",
+            "otherEntityName": "utilisateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181207203339",
+    "entityTableName": "recuperation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

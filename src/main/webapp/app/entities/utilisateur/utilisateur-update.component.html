@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-utilisateur-heading" jhiTranslate="orimexApp.utilisateur.home.createOrEditLabel">Create or edit a Utilisateur</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!utilisateur.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="utilisateur.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.idUtilisateur" for="field_idUtilisateur">Id Utilisateur</label>
+                    <input type="number" class="form-control" name="idUtilisateur" id="field_idUtilisateur"
+                        [(ngModel)]="utilisateur.idUtilisateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.loginUtilisateur" for="field_loginUtilisateur">Login Utilisateur</label>
+                    <input type="text" class="form-control" name="loginUtilisateur" id="field_loginUtilisateur"
+                        [(ngModel)]="utilisateur.loginUtilisateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.matriculeUtilisateur" for="field_matriculeUtilisateur">Matricule Utilisateur</label>
+                    <input type="text" class="form-control" name="matriculeUtilisateur" id="field_matriculeUtilisateur"
+                        [(ngModel)]="utilisateur.matriculeUtilisateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.nomUtilsateur" for="field_nomUtilsateur">Nom Utilsateur</label>
+                    <input type="text" class="form-control" name="nomUtilsateur" id="field_nomUtilsateur"
+                        [(ngModel)]="utilisateur.nomUtilsateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.passwordUtilisateur" for="field_passwordUtilisateur">Password Utilisateur</label>
+                    <input type="text" class="form-control" name="passwordUtilisateur" id="field_passwordUtilisateur"
+                        [(ngModel)]="utilisateur.passwordUtilisateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="orimexApp.utilisateur.prenomUtilsateur" for="field_prenomUtilsateur">Prenom Utilsateur</label>
+                    <input type="text" class="form-control" name="prenomUtilsateur" id="field_prenomUtilsateur"
+                        [(ngModel)]="utilisateur.prenomUtilsateur" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+    "orimexApp": {
+        "achatArticleLigneProforma": {
+            "home": {
+                "title": "AchatArticleLigneProformas",
+                "createLabel": "Créer un nouveau Achat Article Ligne Proforma",
+                "createOrEditLabel": "Créer ou éditer un Achat Article Ligne Proforma",
+                "search": "Recherche pour Achat Article Ligne Proforma"
+            },
+            "created": "Un nouveau Achat Article Ligne Proforma a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Achat Article Ligne Proforma avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Achat Article Ligne Proforma avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Achat Article Ligne Proforma {{ id }} ?"
+            },
+            "detail": {
+                "title": "Achat Article Ligne Proforma"
+            },
+            "idArticleLigneProforma": "Id Article Ligne Proforma",
+            "numeroSequence": "Numero Sequence",
+            "nombreCaissesTc": "Nombre Caisses Tc",
+            "nombreFeuillesCaisse": "Nombre Feuilles Caisse",
+            "dimention": "Dimention",
+            "quantite": "Quantite",
+            "prixUnitaire": "Prix Unitaire",
+            "montant": "Montant",
+            "poids": "Poids",
+            "produit": "Produit",
+            "achatLigneProforma": "Achat Ligne Proforma"
+        }
+    }
+}

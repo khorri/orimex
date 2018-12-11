@@ -1,0 +1,23 @@
+{
+    "orimexApp": {
+        "utilisateurProfilPK": {
+            "home": {
+                "title": "UtilisateurProfilPKS",
+                "createLabel": "Créer un nouveau Utilisateur Profil PK",
+                "createOrEditLabel": "Créer ou éditer un Utilisateur Profil PK",
+                "search": "Recherche pour Utilisateur Profil PK"
+            },
+            "created": "Un nouveau Utilisateur Profil PK a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Utilisateur Profil PK avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Utilisateur Profil PK avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Utilisateur Profil PK {{ id }} ?"
+            },
+            "detail": {
+                "title": "Utilisateur Profil PK"
+            },
+            "utilisateur": "Utilisateur",
+            "profil": "Profil"
+        }
+    }
+}

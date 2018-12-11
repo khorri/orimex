@@ -1,72 +1,99 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:28:04
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   UtilisateurProfilPK.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            Utilisateur, Profil
 
-@Embeddable
-public class UtilisateurProfilPK
-    implements Serializable
-{
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
 
-    public UtilisateurProfilPK()
-    {
+/**
+ * A UtilisateurProfilPK.
+ */
+@Entity
+@Table(name = "utilisateur_profil_pk")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "utilisateurprofilpk")
+public class UtilisateurProfilPK implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Profil profil;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public boolean equals(Object other)
-    {
-        if(this == other)
-            return true;
-        if(!(other instanceof UtilisateurProfilPK))
-        {
-            return false;
-        } else
-        {
-            UtilisateurProfilPK castOther = (UtilisateurProfilPK)other;
-            return utilisateur.getIdUtilisateur() == castOther.utilisateur.getIdUtilisateur() && profil.getCodeProfil().equals(castOther.profil.getCodeProfil());
-        }
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int hashCode()
-    {
-        int prime = 31;
-        int hash = 17;
-        hash = hash * 31 + utilisateur.getIdUtilisateur();
-        hash = hash * 31 + profil.getCodeProfil().hashCode();
-        return hash;
-    }
-
-    public Profil getProfil()
-    {
-        return profil;
-    }
-
-    public void setProfil(Profil profil)
-    {
-        this.profil = profil;
-    }
-
-    public Utilisateur getUtilisateur()
-    {
+    public Utilisateur getUtilisateur() {
         return utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur)
-    {
+    public UtilisateurProfilPK utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
-    private static final long serialVersionUID = 1L;
-    @ManyToOne
-    @JoinColumn(name="ID_UTILISATEUR")
-    private Utilisateur utilisateur;
-    @ManyToOne
-    @JoinColumn(name="CODE_PROFIL")
-    private Profil profil;
+    public Profil getProfil() {
+        return profil;
+    }
+
+    public UtilisateurProfilPK profil(Profil profil) {
+        this.profil = profil;
+        return this;
+    }
+
+    public void setProfil(Profil profil) {
+        this.profil = profil;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UtilisateurProfilPK utilisateurProfilPK = (UtilisateurProfilPK) o;
+        if (utilisateurProfilPK.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), utilisateurProfilPK.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "UtilisateurProfilPK{" +
+            "id=" + getId() +
+            "}";
+    }
 }

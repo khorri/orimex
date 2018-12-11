@@ -1,36 +1,99 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:27:54
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   UtilisateurProfil.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            UtilisateurProfilPK
 
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+ * A UtilisateurProfil.
+ */
 @Entity
-@Table(name="UTILISATEUR_PROFIL")
-public class UtilisateurProfil
-    implements Serializable
-{
+@Table(name = "utilisateur_profil")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "utilisateurprofil")
+public class UtilisateurProfil implements Serializable {
 
-    public UtilisateurProfil()
-    {
-    }
+    private static final long serialVersionUID = 1L;
 
-    public UtilisateurProfilPK getId()
-    {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @ManyToOne
+    @JsonIgnoreProperties("utilisateurProfils")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("utilisateurProfils")
+    private Profil profil;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
         return id;
     }
 
-    public void setId(UtilisateurProfilPK id)
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    private UtilisateurProfilPK id;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public UtilisateurProfil utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Profil getProfil() {
+        return profil;
+    }
+
+    public UtilisateurProfil profil(Profil profil) {
+        this.profil = profil;
+        return this;
+    }
+
+    public void setProfil(Profil profil) {
+        this.profil = profil;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UtilisateurProfil utilisateurProfil = (UtilisateurProfil) o;
+        if (utilisateurProfil.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), utilisateurProfil.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "UtilisateurProfil{" +
+            "id=" + getId() +
+            "}";
+    }
 }

@@ -1,166 +1,236 @@
-// Decompiled by DJ v3.12.12.101 Copyright 2016 Atanas Neshkov  Date: 06/12/2018 09:25:34
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3)
-// Source File Name:   Transfert.java
-
 package ma.co.orimex.stock.domain;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-// Referenced classes of package ma.co.orimex.stock.entite:
-//            Bon, Caisse, Camion, Conteneur,
-//            Depot, Utilisateur
 
+import org.springframework.data.elasticsearch.annotations.Document;
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.Objects;
+
+/**
+ * A Transfert.
+ */
 @Entity
-@Table(name="TRANSFERT")
-public class Transfert
-    implements Serializable
-{
+@Table(name = "transfert")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(indexName = "transfert")
+public class Transfert implements Serializable {
 
-    public Transfert()
-    {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
+    private Long id;
+
+    @Column(name = "id_operation")
+    private Integer idOperation;
+
+    @Column(name = "date_operation")
+    private Instant dateOperation;
+
+    @Column(name = "nombre_plateaux")
+    private Integer nombrePlateaux;
+
+    @Column(name = "numero_operation")
+    private String numeroOperation;
+
+    @ManyToOne
+    @JsonIgnoreProperties("transferts")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Bon bon;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Caisse caisse;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Camion camion;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Conteneur conteneur;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Depot depot;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
     }
 
-    public int getIdOperation()
-    {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getIdOperation() {
         return idOperation;
     }
 
-    public void setIdOperation(int idOperation)
-    {
+    public Transfert idOperation(Integer idOperation) {
+        this.idOperation = idOperation;
+        return this;
+    }
+
+    public void setIdOperation(Integer idOperation) {
         this.idOperation = idOperation;
     }
 
-    public Timestamp getDateOperation()
-    {
+    public Instant getDateOperation() {
         return dateOperation;
     }
 
-    public void setDateOperation(Timestamp dateOperation)
-    {
+    public Transfert dateOperation(Instant dateOperation) {
+        this.dateOperation = dateOperation;
+        return this;
+    }
+
+    public void setDateOperation(Instant dateOperation) {
         this.dateOperation = dateOperation;
     }
 
-    public int getNombrePlateaux()
-    {
+    public Integer getNombrePlateaux() {
         return nombrePlateaux;
     }
 
-    public void setNombrePlateaux(int nombrePlateaux)
-    {
+    public Transfert nombrePlateaux(Integer nombrePlateaux) {
+        this.nombrePlateaux = nombrePlateaux;
+        return this;
+    }
+
+    public void setNombrePlateaux(Integer nombrePlateaux) {
         this.nombrePlateaux = nombrePlateaux;
     }
 
-    public String getNumeroOperation()
-    {
+    public String getNumeroOperation() {
         return numeroOperation;
     }
 
-    public void setNumeroOperation(String numeroOperation)
-    {
+    public Transfert numeroOperation(String numeroOperation) {
+        this.numeroOperation = numeroOperation;
+        return this;
+    }
+
+    public void setNumeroOperation(String numeroOperation) {
         this.numeroOperation = numeroOperation;
     }
 
-    public Bon getBon()
-    {
-        return bon;
-    }
-
-    public void setBon(Bon bon)
-    {
-        this.bon = bon;
-    }
-
-    public Caisse getCaisse()
-    {
-        return caisse;
-    }
-
-    public void setCaisse(Caisse caisse)
-    {
-        this.caisse = caisse;
-    }
-
-    public Camion getCamion()
-    {
-        return camion;
-    }
-
-    public void setCamion(Camion camion)
-    {
-        this.camion = camion;
-    }
-
-    public Conteneur getConteneur()
-    {
-        return conteneur;
-    }
-
-    public void setConteneur(Conteneur conteneur)
-    {
-        this.conteneur = conteneur;
-    }
-
-    public Depot getDepotDestinataire()
-    {
-        return depotDestinataire;
-    }
-
-    public void setDepotDestinataire(Depot depotDestinataire)
-    {
-        this.depotDestinataire = depotDestinataire;
-    }
-
-    public Depot getDepotExpediteur()
-    {
-        return depotExpediteur;
-    }
-
-    public void setDepotExpediteur(Depot depotExpediteur)
-    {
-        this.depotExpediteur = depotExpediteur;
-    }
-
-    public Utilisateur getUtilisateur()
-    {
+    public Utilisateur getUtilisateur() {
         return utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur)
-    {
+    public Transfert utilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+        return this;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name="ID_OPERATION")
-    private int idOperation;
-    @Column(name="DATE_OPERATION")
-    private Timestamp dateOperation;
-    @Column(name="NOMBRE_PLATEAUX")
-    private int nombrePlateaux;
-    @Column(name="NUMERO_OPERATION")
-    private String numeroOperation;
-    @ManyToOne
-    @JoinColumn(name="ID_BON")
-    private Bon bon;
-    @ManyToOne
-    @JoinColumn(name="ID_CAISSE")
-    private Caisse caisse;
-    @ManyToOne
-    @JoinColumn(name="ID_CAMION")
-    private Camion camion;
-    @ManyToOne
-    @JoinColumn(name="NUMERO_CONTENEUR")
-    private Conteneur conteneur;
-    @ManyToOne
-    @JoinColumn(name="ID_DEPOT_DEST")
-    private Depot depotDestinataire;
-    @ManyToOne
-    @JoinColumn(name="ID_DEPOT_EXP")
-    private Depot depotExpediteur;
-    @ManyToOne
-    @JoinColumn(name="ID_UTILISATEUR")
-    private Utilisateur utilisateur;
+    public Bon getBon() {
+        return bon;
+    }
+
+    public Transfert bon(Bon bon) {
+        this.bon = bon;
+        return this;
+    }
+
+    public void setBon(Bon bon) {
+        this.bon = bon;
+    }
+
+    public Caisse getCaisse() {
+        return caisse;
+    }
+
+    public Transfert caisse(Caisse caisse) {
+        this.caisse = caisse;
+        return this;
+    }
+
+    public void setCaisse(Caisse caisse) {
+        this.caisse = caisse;
+    }
+
+    public Camion getCamion() {
+        return camion;
+    }
+
+    public Transfert camion(Camion camion) {
+        this.camion = camion;
+        return this;
+    }
+
+    public void setCamion(Camion camion) {
+        this.camion = camion;
+    }
+
+    public Conteneur getConteneur() {
+        return conteneur;
+    }
+
+    public Transfert conteneur(Conteneur conteneur) {
+        this.conteneur = conteneur;
+        return this;
+    }
+
+    public void setConteneur(Conteneur conteneur) {
+        this.conteneur = conteneur;
+    }
+
+    public Depot getDepot() {
+        return depot;
+    }
+
+    public Transfert depot(Depot depot) {
+        this.depot = depot;
+        return this;
+    }
+
+    public void setDepot(Depot depot) {
+        this.depot = depot;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Transfert transfert = (Transfert) o;
+        if (transfert.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), transfert.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Transfert{" +
+            "id=" + getId() +
+            ", idOperation=" + getIdOperation() +
+            ", dateOperation='" + getDateOperation() + "'" +
+            ", nombrePlateaux=" + getNombrePlateaux() +
+            ", numeroOperation='" + getNumeroOperation() + "'" +
+            "}";
+    }
 }

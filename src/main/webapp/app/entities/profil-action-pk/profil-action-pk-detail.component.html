@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profilActionPK">
+            <h2><span jhiTranslate="orimexApp.profilActionPK.detail.title">Profil Action PK</span> {{profilActionPK.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="orimexApp.profilActionPK.action">Action</span></dt>
+                <dd>
+                    <div *ngIf="profilActionPK.actionId">
+                        <a [routerLink]="['/action', profilActionPK.actionId, 'view']">{{profilActionPK.actionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="orimexApp.profilActionPK.profil">Profil</span></dt>
+                <dd>
+                    <div *ngIf="profilActionPK.profilId">
+                        <a [routerLink]="['/profil', profilActionPK.profilId, 'view']">{{profilActionPK.profilId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profil-action-pk', profilActionPK.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

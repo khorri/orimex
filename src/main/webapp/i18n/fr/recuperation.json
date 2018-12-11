@@ -1,0 +1,29 @@
+{
+    "orimexApp": {
+        "recuperation": {
+            "home": {
+                "title": "Recuperations",
+                "createLabel": "Créer un nouveau Recuperation",
+                "createOrEditLabel": "Créer ou éditer un Recuperation",
+                "search": "Recherche pour Recuperation"
+            },
+            "created": "Un nouveau Recuperation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Recuperation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Recuperation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Recuperation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Recuperation"
+            },
+            "idOperation": "Id Operation",
+            "dateOperation": "Date Operation",
+            "nombrePanneaux": "Nombre Panneaux",
+            "numeroOperation": "Numero Operation",
+            "superficie": "Superficie",
+            "produit": "Produit",
+            "depot": "Depot",
+            "utilisateur": "Utilisateur"
+        }
+    }
+}

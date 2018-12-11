@@ -1,0 +1,23 @@
+{
+    "name": "TypeBon",
+    "fields": [
+        {
+            "fieldName": "idTypeBon",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleTypeBon",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181207203346",
+    "entityTableName": "type_bon",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
